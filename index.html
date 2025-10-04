@@ -66,7 +66,7 @@
     <!-- Hero / Top Section -->
     <section class="container mx-auto px-4 py-8">
       <div class="flex flex-col items-center text-center">
-        <img src="https://placehold.co/100x100/e0e0e0/333?text=Logo" alt="College Logo" class="w-24 h-24 mb-4" />
+        <img src="assets/logo-vac.svg" alt="Vidyasagar Arts College logo" class="w-24 h-24 mb-4 rounded-full" loading="lazy" width="96" height="96">
         <h1 class="text-3xl sm:text-4xl font-extrabold text-maroon tracking-tight" data-i18n="collegeName">Vidyasagar Arts College</h1>
         <p class="mt-2 text-lg text-gray-600" data-i18n="tagline">Affiliated to R.T.M. Nagpur University, Nagpur</p>
         <p class="text-sm text-gray-500" data-i18n="accreditation">NAAC Accredited At 'B' Grade, CGPA - 2.20</p>
@@ -81,7 +81,7 @@
           <h3 class="font-bold text-lg text-maroon mb-4" data-i18n="runningGalleryTitle">Running Photo Gallery</h3>
           <div class="running-gallery-container w-full h-64 overflow-hidden rounded-xl shadow-lg">
             <div class="photo-gallery h-full">
-              <img src="https://placehold.co/400x256/a0a0a0/fff?text=Photo+1" class="gallery-image" alt="Photo 1" />
+              <img src="assets/college-building.jpg" class="gallery-image" alt="Photo 1" />
               <img src="https://placehold.co/400x256/b0b0b0/fff?text=Photo+2" class="gallery-image" alt="Photo 2" />
               <img src="https://placehold.co/400x256/c0c0c0/fff?text=Photo+3" class="gallery-image" alt="Photo 3" />
               <img src="https://placehold.co/400x256/d0d0d0/fff?text=Photo+4" class="gallery-image" alt="Photo 4" />
@@ -403,7 +403,7 @@
           { title: "Cultural Fest Week", date: "2025-07-12", content: "Annual cultural events and competitions will be held across campus." }
         ],
         paperNews: [
-          { img: "https://placehold.co/300x200/cccccc/333?text=Article+1", text: "New library wing inaugurated." },
+          { img: "assets/college-building.jpg", text: "New library wing inaugurated." },
           { img: "https://placehold.co/300x200/cccccc/333?text=Article+2", text: "Students excel in university exams." },
           { img: "https://placehold.co/300x200/cccccc/333?text=Article+3", text: "NSS camp at nearby villages." },
           { img: "https://placehold.co/300x200/cccccc/333?text=Article+4", text: "Seminar on career guidance conducted." }
@@ -459,7 +459,7 @@
           { title: "सांस्कृतिक सप्ताह", date: "2025-07-12", content: "वार्षिक सांस्कृतिक कार्यक्रम आणि स्पर्धा आयोजित केल्या जातील." }
         ],
         paperNews: [
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+1", text: "नवीन ग्रंथालय विंगचे उद्घाटन." },
+          { img: "assets/college-building.jpg", text: "नवीन ग्रंथालय विंगचे उद्घाटन." },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+2", text: "विद्यार्थ्यांचे विद्यापीठ परीक्षेत यश." },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+3", text: "एनएसएस शिबिर आसपासच्या गावात." },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+4", text: "करिअर मार्गदर्शन सेमिनार." }
@@ -509,7 +509,7 @@
           { title: "सांस्कृतिक सप्ताह", date: "2025-07-12", content: "वार्षिक सांस्कृतिक कार्यक्रम और प्रतियोगिताएँ आयोजित की जाएँगी।" }
         ],
         paperNews: [
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+1", text: "नया पुस्तकालय विंग उद्घाटन।" },
+          { img: "assets/college-building.jpg", text: "नया पुस्तकालय विंग उद्घाटन।" },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+2", text: "छात्रों की विश्वविद्यालय परीक्षाओं में उत्कृष्टता।" },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+3", text: "एनएसएस शिविर निकटवर्ती गाँवों में।" },
           { img: "https://placehold.co/300x200/cccccc/333?text=लेख+4", text: "कैरियर मार्गदर्शन सेमिनार आयोजित।" }
@@ -569,11 +569,15 @@
       const items = content[currentLang].paperNews || [];
       const container = document.getElementById('paper-news-container');
       container.innerHTML = '';
-      items.forEach(n => {
+      items.forEach((n, idx) => {
         const div = document.createElement('div');
         div.className = 'card p-4 text-center';
+        const isFirst = idx === 0;
+        const imgSrc = isFirst ? 'assets/college-building.jpg' : n.img;
+        const altText = isFirst ? 'College building' : (n.alt || 'News');
+        const imgClass = `rounded-xl mb-4 w-full${isFirst ? ' object-cover h-40' : ''}`;
         div.innerHTML = `
-          <img src="${n.img}" alt="News" class="rounded-xl mb-4 w-full" />
+          <img src="${imgSrc}" alt="${altText}" class="${imgClass}" loading="lazy" />
           <p class="text-gray-600">${n.text}</p>
         `;
         container.appendChild(div);
