@@ -1,1 +1,12 @@
-[PASTE THE VSES ROUND CREST SVG HERE]
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="VSES crest">
+  <defs>
+    <style>
+      .maroon{fill:#800000}
+      .gold{fill:#FBBF24}
+      .white{fill:#fff}
+      .txt{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:700;fill:#fff}
+    </style>
+  </defs>
+  <circle cx="160" cy="160" r="150" class="maroon"/>
+  <text x="50%" y="52%" class="txt" font-size="70" text-anchor="middle" dominant-baseline="middle">VSES</text>
+</svg>

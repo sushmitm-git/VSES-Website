@@ -1,1 +1,13 @@
-[PASTE THE VSES SHIELD CREST SVG HERE]
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="320" viewBox="0 0 240 320" role="img" aria-label="VSES shield">
+  <defs>
+    <style>
+      .maroon{fill:#800000}
+      .gold{fill:#FBBF24}
+      .white{fill:#fff}
+      .txt{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:700;fill:#fff}
+    </style>
+  </defs>
+  <path class="maroon" d="M120 10L30 50v110c0 64 38 124 90 150 52-26 90-86 90-150V50z"/>
+  <path class="gold" d="M120 30l70 30v100c0 52-32 100-70 120-38-20-70-68-70-120V60z" opacity=".6"/>
+  <text x="50%" y="58%" class="txt" font-size="56" text-anchor="middle" dominant-baseline="middle">VSES</text>
+</svg>
