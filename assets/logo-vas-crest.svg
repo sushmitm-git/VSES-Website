@@ -1,1 +1,23 @@
-[PASTE THE VAS ROUND CREST SVG HERE]
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="VAS crest">
+  <defs>
+    <style>
+      .maroon{fill:#800000}
+      .gold{fill:#F59E0B}
+      .white{fill:#fff}
+      .txt{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:800;fill:#fff}
+    </style>
+  </defs>
+  <circle cx="160" cy="160" r="150" class="maroon"/>
+  <g transform="translate(160,140)" class="gold" opacity="0.85">
+    <rect x="-5" y="-78" width="10" height="36" rx="5"/>
+    <rect x="-5" y="-78" width="10" height="36" rx="5" transform="rotate(45)"/>
+    <rect x="-5" y="-78" width="10" height="36" rx="5" transform="rotate(90)"/>
+    <rect x="-5" y="-78" width="10" height="36" rx="5" transform="rotate(135)"/>
+  </g>
+  <g transform="translate(70,160)">
+    <path class="white" d="M0,0c35-20,70-20,105,0v52c-35-20-70-20-105,0Z"/>
+    <path class="white" d="M105,0c35-20,70-20,105,0v52c-35-20-70-20-105,0Z"/>
+    <rect class="gold" x="103" y="-8" width="4" height="68" rx="2"/>
+  </g>
+  <text x="50%" y="52%" class="txt" font-size="88" text-anchor="middle" dominant-baseline="middle">VAS</text>
+</svg>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vidyasagar Arts College - Nurturing Excellence</title>
+  <title data-i18n="htmlTitle">Vidyasagar Arts College - Nurturing Excellence</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -34,38 +34,42 @@
 <body class="bg-gray-100 text-gray-800">
   <!-- Header -->
   <header class="bg-maroon text-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex flex-col items-center text-center gap-3 py-2">
-        <div class="flex items-center gap-4">
-          <img src="assets/logo-vses-crest.svg" alt="VSES crest" class="h-12 w-12 rounded-full" loading="lazy" width="48" height="48">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex flex-col items-center text-center gap-2">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo-vses-crest.svg" alt="VSES crest" class="h-10 w-10 object-contain" loading="lazy" width="40" height="40">
           <div class="h-6 w-px bg-white/40"></div>
-          <img src="assets/logo-vas-crest.svg" alt="VAS crest" class="h-12 w-12 rounded-full" loading="lazy" width="48" height="48">
+          <img src="assets/logo-vas-crest.svg" alt="VAS crest" class="h-10 w-10 object-contain" loading="lazy" width="40" height="40">
         </div>
-        <div>
-          <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">Vidyasagar Arts College (VAS)</h1>
-          <p class="text-xs sm:text-sm text-white/80">A Constituent Institution of Vidyasagar Education Society (VSES), Ramtek</p>
+        <div class="leading-tight">
+          <a href="#hero" class="block text-xl sm:text-2xl font-extrabold tracking-tight" data-i18n="coBrandTitle">Vidyasagar Arts College (VAS)</a>
+          <p class="text-[11px] sm:text-xs text-white/85" data-i18n="coBrandSub">A Constituent Institution of Vidyasagar Education Society (VSES), Ramtek</p>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <div class="flex space-x-2 text-sm">
-          <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="en">EN</button>
-          <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="mr">मराठी</button>
-          <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="hi">हिंदी</button>
+
+      <div class="mt-3 flex items-center justify-between">
+        <div class="flex items-center space-x-3"></div>
+        <div class="flex items-center space-x-4">
+          <div class="flex space-x-2 text-sm">
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="en">EN</button>
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="mr">मराठी</button>
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="hi">हिंदी</button>
+          </div>
+          <button id="hamburger" class="hamburger text-white p-2 focus:outline-none" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          </button>
+          <nav id="nav-menu" class="nav-menu absolute sm:static top-20 right-4 flex-col sm:flex-row bg-maroon sm:bg-transparent rounded-lg p-4 sm:p-0 items-center">
+            <ul class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 text-sm sm:text-base font-semibold">
+              <li><a href="#about" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="aboutUs">About Us</a></li>
+              <li><a href="#principal" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="principalsMessage">Principal's Message</a></li>
+              <li><a href="#programs" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="programs">Programs</a></li>
+              <li><a href="#news" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="newsEvents">News & Events</a></li>
+              <li><a href="#qa" class="hover:text-amber-300 transition p-2 rounded-md">Q&amp;A</a></li>
+              <li><a href="#contact" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="contact">Contact</a></li>
+              <li><a href="#governance" class="hover:text-amber-300 transition p-2 rounded-md">Governance</a></li>
+            </ul>
+          </nav>
         </div>
-        <button id="hamburger" class="hamburger text-white p-2 focus:outline-none" aria-label="Toggle navigation">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
-        </button>
-        <nav id="nav-menu" class="nav-menu absolute sm:static top-20 right-4 flex-col sm:flex-row bg-maroon sm:bg-transparent rounded-lg p-4 sm:p-0 items-center">
-          <ul class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 text-sm sm:text-base font-semibold">
-            <li><a href="#about" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="aboutUs">About Us</a></li>
-            <li><a href="#principal" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="principalsMessage">Principal's Message</a></li>
-            <li><a href="#programs" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="programs">Programs</a></li>
-            <li><a href="#news" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="newsEvents">News & Events</a></li>
-            <li><a href="#qa" class="hover:text-amber-300 transition p-2 rounded-md">Q&A</a></li>
-            <li><a href="#contact" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="contact">Contact</a></li>
-                      <li><a href="#governance" class="hover:text-amber-300 transition p-2 rounded-md">Governance</a></li>
-          </ul>
-        </nav>
       </div>
     </div>
   </header>
@@ -98,7 +102,7 @@
       <div class="grid md:grid-cols-3 gap-8 mt-8">
         <div class="card p-6 text-center">
           <img src="https://placehold.co/150x150/cccccc/333?text=Secretary" alt="Secretary" class="rounded-full w-24 h-24 mx-auto mb-4" />
-          <h3 class="font-bold text-lg text-maroon" data-i18n="secretaryName">Smt. Anjali Jaiswal</h3>
+          <h3 class="font-bold text-lg text-maroon" data-i18n="secretaryName">Smt. Anita Jaiswal</h3>
           <p class="text-gray-600" data-i18n="secretaryRole">Secretary, VES</p>
         </div>
         <div class="card p-6 flex flex-col items-center">
@@ -390,7 +394,10 @@
     // ===== Multilingual content & static data =====
     const content = {
       en: {
+        htmlTitle: "Vidyasagar Arts College - Nurturing Excellence",
         collegeName: "Vidyasagar Arts College",
+        coBrandTitle: "Vidyasagar Arts College (VAS)",
+        coBrandSub: "A Constituent Institution of Vidyasagar Education Society (VSES), Ramtek",
         aboutUs: "About Us",
         principalsMessage: "Principal's Message",
         programs: "Programs",
@@ -398,7 +405,7 @@
         contact: "Contact",
         tagline: "Affiliated to R.T.M. Nagpur University, Nagpur",
         accreditation: "NAAC Accredited At 'B' Grade, CGPA - 2.20",
-        secretaryName: "Smt. Anjali Jaiswal",
+        secretaryName: "Smt. Anita Jaiswal",
         secretaryRole: "Secretary, VES",
         presidentName: "Adv. Ashish Jaiswal",
         presidentRole: "President, VES",
@@ -447,7 +454,10 @@
         ]
       },
       mr: {
+        htmlTitle: "विद्यासागर कला महाविद्यालय - उत्कृष्टतेचा ध्यास",
         collegeName: "विद्यासागर कला महाविद्यालय",
+        coBrandTitle: "विद्यासागर कला महाविद्यालय (VAS)",
+        coBrandSub: "विद्यासागर एज्युकेशन सोसायटी (VSES), रामटेकचे घटक संस्थान",
         aboutUs: "आमच्याबद्दल",
         principalsMessage: "प्राचार्यांचा संदेश",
         programs: "अभ्यासक्रम",
@@ -455,7 +465,7 @@
         contact: "संपर्क",
         tagline: "रा.तु.म. नागपूर विद्यापीठाशी संलग्न",
         accreditation: "एनएएसी मान्यता 'बी' ग्रेड, सीजीपीए - २.२०",
-        secretaryName: "श्रीमती अंजली जयस्वाल",
+        secretaryName: "श्रीमती अनिता जायस्वाल",
         secretaryRole: "सचिव, व्ही.ई.एस.",
         presidentName: "ऍड. आशिष जयस्वाल",
         presidentRole: "अध्यक्ष, व्ही.ई.एस.",
@@ -497,7 +507,10 @@
         ]
       },
       hi: {
+        htmlTitle: "विद्यासागर कला महाविद्यालय - उत्कृष्टता का संवर्धन",
         collegeName: "विद्यासागर कला महाविद्यालय",
+        coBrandTitle: "विद्यासागर कला महाविद्यालय (VAS)",
+        coBrandSub: "विद्यासागर एजुकेशन सोसाइटी (VSES), रामटेक का एक संस्थान",
         aboutUs: "हमारे बारे में",
         principalsMessage: "प्राचार्य का संदेश",
         programs: "कार्यक्रम",
@@ -505,7 +518,7 @@
         contact: "संपर्क",
         tagline: "रा.तु.म. नागपुर विश्वविद्यालय से संबद्ध",
         accreditation: "NAAC से 'बी' ग्रेड मान्यता, CGPA - 2.20",
-        secretaryName: "श्रीमती अंजलि जायसवाल",
+        secretaryName: "श्रीमती अनिता जायसवाल",
         secretaryRole: "सचिव, वी.ई.एस.",
         presidentName: "अधिवक्ता आशीष जायसवाल",
         presidentRole: "अध्यक्ष, वी.ई.एस.",
@@ -557,6 +570,14 @@
         const key = el.getAttribute('data-i18n');
         if (content[lang][key]) el.textContent = content[lang][key];
       });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (content[lang][key]) el.placeholder = content[lang][key];
+      });
+      const titleEl = document.querySelector('title[data-i18n="htmlTitle"]');
+      if (titleEl && content[lang].htmlTitle) {
+        titleEl.textContent = content[lang].htmlTitle;
+      }
       renderNews();
       renderPaperNews();
       renderFAQ();
