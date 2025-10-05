@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview — Vidyasagar Arts College</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .text-maroon{color:#800000}.bg-maroon{background-color:#800000}
+    .btn-maroon{background:#800000;color:#fff;padding:.75rem 1.25rem;border-radius:9999px;font-weight:700;box-shadow:0 4px 8px rgba(0,0,0,.10);transition:.2s}
+    .btn-maroon:hover{background:#a00000;transform:translateY(-1px)}
+    .btn-outline{border:1.5px solid rgba(255,255,255,.8);color:#fff;padding:.7rem 1.1rem;border-radius:9999px;font-weight:700;transition:.2s}
+    .btn-outline:hover{background:rgba(255,255,255,.08)}
+    .card{background:#fff;border-radius:1rem;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+    .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(128,0,0,.55),rgba(0,0,0,.35))}
+    .preview-ribbon{position:fixed;top:8px;left:8px;background:#111827;color:#fff;font-weight:700;padding:.35rem .6rem;border-radius:.5rem;font-size:.75rem;z-index:60}
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- small ribbon so you know this is the demo -->
+  <div class="preview-ribbon">Preview design</div>
+
+  <!-- Header -->
+  <header class="bg-maroon text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex flex-col items-center">
+        <div class="flex items-center gap-3">
+          <img src="../assets/logo-vses-crest.svg" alt="VSES crest" class="h-8 w-8 object-contain" />
+          <div class="h-5 w-px bg-white/40"></div>
+          <img src="../assets/logo-vas-crest.svg" alt="VAS crest" class="h-8 w-8 object-contain" />
+        </div>
+        <div class="text-center mt-1">
+          <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight" data-i18n="title">Vidyasagar Arts College (VAS)</h1>
+          <p class="text-[11px] sm:text-xs text-white/85" data-i18n="subtitle">A Constituent Institution of Vidyasagar Education Society (VSES), Ramtek</p>
+        </div>
+        <div class="mt-3 w-full flex items-center justify-between">
+          <div class="flex gap-2 text-xs sm:text-sm">
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="en">EN</button>
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="mr">मराठी</button>
+            <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="hi">हिंदी</button>
+          </div>
+          <nav class="hidden sm:block">
+            <ul class="flex items-center gap-6 text-sm font-semibold">
+              <li><a href="#about" class="hover:text-amber-300 transition" data-i18n="about">About</a></li>
+              <li><a href="#programs" class="hover:text-amber-300 transition" data-i18n="programs">Programs</a></li>
+              <li><a href="#features" class="hover:text-amber-300 transition" data-i18n="features">Features</a></li>
+              <li><a href="#contact" class="hover:text-amber-300 transition" data-i18n="contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="hero">
+    <!-- HERO -->
+    <section class="relative h-[360px] sm:h-[460px]">
+      <img src="../assets/college-building.jpg" alt="College building" class="hero-img" />
+      <div class="hero-overlay"></div>
+      <div class="relative h-full container mx-auto px-4 flex items-center">
+        <div class="max-w-3xl text-white">
+          <p class="uppercase tracking-widest text-amber-300 font-semibold text-xs sm:text-sm mb-2" data-i18n="welcome">Welcome to</p>
+          <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight" data-i18n="heroH">Vidyasagar Arts College</h2>
+          <p class="mt-3 text-white/90 text-base sm:text-lg" data-i18n="heroP">Empowering through education in Khairi (Bijewada), Ramtek—fostering academic excellence and holistic development.</p>
+          <div class="mt-5 flex gap-3">
+            <a href="#programs" class="btn-maroon" data-i18n="ctaPrograms">Explore Programs</a>
+            <a href="#contact" class="btn-outline" data-i18n="ctaContact">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bg-white py-8 shadow-sm">
+      <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div><div class="text-3xl font-extrabold text-maroon">25+</div><div class="text-gray-600 text-sm" data-i18n="stat1">Years Serving</div></div>
+        <div><div class="text-3xl font-extrabold text-maroon">1,500+</div><div class="text-gray-600 text-sm" data-i18n="stat2">Alumni</div></div>
+        <div><div class="text-3xl font-extrabold text-maroon">B.A.</div><div class="text-gray-600 text-sm" data-i18n="stat3">Core Program</div></div>
+        <div><div class="text-3xl font-extrabold text-maroon">100%</div><div class="text-gray-600 text-sm" data-i18n="stat4">Affiliated to RTMNU</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container mx-auto px-4 py-12">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-3xl font-extrabold text-maroon mb-3" data-i18n="aboutH">About Vidyasagar Arts College</h3>
+          <p class="text-gray-700 leading-relaxed" data-i18n="aboutP1">
+            Vidyasagar Kala Mahavidyalaya was formally opened on 9th August, 1999 at Khairi (Bijewada), a small tribal village at the outskirts of Ramtek. The college is recognized and fully aided by the Government of Maharashtra and permanently affiliated to RTMNU, Nagpur.
+          </p>
+          <p class="text-gray-700 leading-relaxed mt-3" data-i18n="aboutP2">
+            Founded by the visionary Late Dr. Vinodkumar Jaiswal, the institution focuses on delivering quality higher education to tribal and rural communities in and around Ramtek.
+          </p>
+        </div>
+        <div class="card p-6 text-center">
+          <img src="../assets/logo-vas-crest.svg" class="mx-auto h-20 w-20" alt="VAS crest" />
+          <h4 class="mt-2 text-xl font-bold text-maroon" data-i18n="aboutAff">Affiliated to R.T.M. Nagpur University</h4>
+          <p class="text-gray-600 text-sm" data-i18n="aboutNaac">NAAC Accredited at 'B' Grade, CGPA 2.20</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="container mx-auto px-4 py-12">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <h3 class="text-lg font-bold text-maroon mb-2" data-i18n="f1H">Inclusive Education</h3>
+          <p class="text-gray-600" data-i18n="f1P">Focus on tribal, rural and underprivileged learners with accessible, student-centric support.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-lg font-bold text-maroon mb-2" data-i18n="f2H">Holistic Growth</h3>
+          <p class="text-gray-600" data-i18n="f2P">Skill-oriented certificates in communication, personality development, yoga &amp; meditation.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-lg font-bold text-maroon mb-2" data-i18n="f3H">Affiliation &amp; Quality</h3>
+          <p class="text-gray-600" data-i18n="f3P">Affiliated to R.T.M. Nagpur University; NAAC accredited ‘B’, CGPA 2.20.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs" class="container mx-auto px-4 py-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center" data-i18n="progH">Programs</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card overflow-hidden">
+          <div class="h-40 bg-[url('../assets/college-building.jpg')] bg-cover bg-center"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-maroon mb-1" data-i18n="prog1H">Bachelor of Arts (B.A.)</h3>
+            <p class="text-gray-600 text-sm" data-i18n="prog1P">Specializations in Sociology, History, Political Science, and Economics.</p>
+          </div>
+        </div>
+        <div class="card overflow-hidden">
+          <div class="h-40 bg-gray-200"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-maroon mb-1" data-i18n="prog2H">Skill Certificates</h3>
+            <p class="text-gray-600 text-sm" data-i18n="prog2P">Communication Skills, Personality Development, Yoga &amp; Meditation, Marathi Shudhalekhan.</p>
+          </div>
+        </div>
+        <div class="card overflow-hidden">
+          <div class="h-40 bg-gray-200"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-lg text-maroon mb-1" data-i18n="prog3H">YCMOU Centre</h3>
+            <p class="text-gray-600 text-sm" data-i18n="prog3P">Additional section of B.A. Part I started in 2006–07, along with YCMOU Centre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA RIBBON -->
+    <section class="bg-maroon text-white">
+      <div class="container mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="text-2xl font-extrabold" data-i18n="ctaH">Ready to learn more?</h3>
+          <p class="text-white/85" data-i18n="ctaP">Talk to our faculty or visit our campus at Khairi (Bijewada), Ramtek.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#contact" class="btn-outline" data-i18n="ctaContact2">Contact Us</a>
+          <a href="#programs" class="btn-maroon" data-i18n="ctaPrograms2">See Programs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container mx-auto px-4 py-12">
+      <div class="card p-8">
+        <h3 class="text-2xl font-bold text-maroon mb-4" data-i18n="contactH">Contact</h3>
+        <p class="text-gray-700" data-i18n="contactP">For admissions and queries, please reach us via the main site.</p>
+        <a href="../" class="inline-block mt-4 text-maroon font-semibold underline" data-i18n="backLive">← Back to current live site</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-maroon text-white py-10">
+    <div class="container mx-auto px-4 text-center">
+      <p class="font-bold text-lg" data-i18n="footerH">Vidyasagar Education Society (VSES) — Ramtek</p>
+      <p class="text-white/80 text-sm mt-1" data-i18n="footerP">Managing Vidyasagar Arts College (VAS) &amp; School at Khairi (Bijewada), Ramtek</p>
+      <p class="text-white/60 text-xs mt-3">© 2025 VSES. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal i18n for preview page
+    const content = {
+      en: {
+        title:"Vidyasagar Arts College (VAS)",
+        subtitle:"A Constituent Institution of Vidyasagar Education Society (VSES), Ramtek",
+        about:"About", programs:"Programs", features:"Features", contact:"Contact",
+        welcome:"Welcome to", heroH:"Vidyasagar Arts College",
+        heroP:"Empowering through education in Khairi (Bijewada), Ramtek—fostering academic excellence and holistic development.",
+        ctaPrograms:"Explore Programs", ctaContact:"Get in Touch",
+        stat1:"Years Serving", stat2:"Alumni", stat3:"Core Program", stat4:"Affiliated to RTMNU",
+        aboutH:"About Vidyasagar Arts College",
+        aboutP1:"Vidyasagar Kala Mahavidyalaya was formally opened on 9th August, 1999 at Khairi (Bijewada), a small tribal village at the outskirts of Ramtek. The college is recognized and fully aided by the Government of Maharashtra and permanently affiliated to RTMNU, Nagpur.",
+        aboutP2:"Founded by the visionary Late Dr. Vinodkumar Jaiswal, the institution focuses on delivering quality higher education to tribal and rural communities in and around Ramtek.",
+        aboutAff:"Affiliated to R.T.M. Nagpur University", aboutNaac:"NAAC Accredited at 'B' Grade, CGPA 2.20",
+        f1H:"Inclusive Education", f1P:"Focus on tribal, rural and underprivileged learners with accessible, student-centric support.",
+        f2H:"Holistic Growth", f2P:"Skill-oriented certificates in communication, personality development, yoga & meditation.",
+        f3H:"Affiliation & Quality", f3P:"Affiliated to R.T.M. Nagpur University; NAAC accredited ‘B’, CGPA 2.20.",
+        progH:"Programs", prog1H:"Bachelor of Arts (B.A.)", prog1P:"Specializations in Sociology, History, Political Science, and Economics.",
+        prog2H:"Skill Certificates", prog2P:"Communication Skills, Personality Development, Yoga & Meditation, Marathi Shudhalekhan.",
+        prog3H:"YCMOU Centre", prog3P:"Additional section of B.A. Part I started in 2006–07, along with YCMOU Centre.",
+        ctaH:"Ready to learn more?", ctaP:"Talk to our faculty or visit our campus at Khairi (Bijewada), Ramtek.",
+        ctaContact2:"Contact Us", ctaPrograms2:"See Programs",
+        contactH:"Contact", contactP:"For admissions and queries, please reach us via the main site.",
+        backLive:"← Back to current live site",
+        footerH:"Vidyasagar Education Society (VSES) — Ramtek",
+        footerP:"Managing Vidyasagar Arts College (VAS) & School at Khairi (Bijewada), Ramtek"
+      },
+      mr: {
+        title:"विद्यासागर कला महाविद्यालय (VAS)",
+        subtitle:"विद्यासागर एज्युकेशन सोसायटी (VSES), रामटेकचे घटक संस्थान",
+        about:"आमच्याबद्दल", programs:"अभ्यासक्रम", features:"वैशिष्ट्ये", contact:"संपर्क",
+        welcome:"स्वागत आहे", heroH:"विद्यासागर कला महाविद्यालय",
+        heroP:"खैरी (बिजेवाडा), रामटेक येथे शिक्षणाद्वारे सक्षमीकरण — शैक्षणिक उत्कृष्टता व सर्वांगीण विकास.",
+        ctaPrograms:"अभ्यासक्रम पहा", ctaContact:"संपर्क साधा",
+        stat1:"वर्षांची सेवा", stat2:"भूतपूर्व विद्यार्थी", stat3:"मुख्य अभ्यासक्रम", stat4:"RTMNU शी संलग्न",
+        aboutH:"विद्यासागर कला महाविद्यालयाबद्दल",
+        aboutP1:"विद्यासागर कला महाविद्यालय ९ ऑगस्ट १९९९ रोजी खैरी (बिजेवाडा), रामटेक येथे सुरू झाले. हे महाविद्यालय महाराष्ट्र शासन मान्य व पूर्ण अनुदानित असून RTMNU, नागपूरशी कायम संलग्न आहे.",
+        aboutP2:"संस्थापक दिवंगत डॉ. विनोदकुमार जयस्वाल यांच्या दृष्टीतून आदिवासी व ग्रामीण भागातील विद्यार्थ्यांसाठी उच्च गुणवत्तेचे शिक्षण.",
+        aboutAff:"रा.तु.म. नागपूर विद्यापीठाशी संलग्न", aboutNaac:"NAAC मानांकन 'B' श्रेणी, CGPA 2.20",
+        f1H:"समावेशक शिक्षण", f1P:"आदिवासी, ग्रामीण व वंचित विद्यार्थ्यांवर लक्ष, विद्यार्थीकेंद्रित सहाय्य.",
+        f2H:"सर्वांगीण विकास", f2P:"संवादकौशल्ये, व्यक्तिमत्व विकास, योग व ध्यान प्रमाणपत्र अभ्यासक्रम.",
+        f3H:"संलग्नता व गुणवत्ता", f3P:"रा.तु.म. नागपूर विद्यापीठाशी संलग्न; NAAC 'B' श्रेणी, CGPA 2.20.",
+        progH:"अभ्यासक्रम", prog1H:"बी.ए. (Bachelor of Arts)", prog1P:"समाजशास्त्र, इतिहास, राज्यशास्त्र, अर्थशास्त्र विशेष.",
+        prog2H:"कौशल्य प्रमाणपत्रे", prog2P:"संवाद कौशल्य, व्यक्तिमत्त्व विकास, योग व ध्यान, मराठी शुद्धलेखन.",
+        prog3H:"YCMOU केंद्र", prog3P:"बी.ए. भाग I ची अतिरिक्त तुकडी 2006–07 मध्ये YCMOU केंद्रासह.",
+        ctaH:"अधिक जाणून घ्यायचे?", ctaP:"प्राध्यापकांशी बोला किंवा खैरी (बिजेवाडा), रामटेक येथे भेट द्या.",
+        ctaContact2:"संपर्क साधा", ctaPrograms2:"अभ्यासक्रम पहा",
+        contactH:"संपर्क", contactP:"प्रवेश व इतर माहितीसाठी मुख्य संकेतस्थळ वापरा.",
+        backLive:"← मुख्य संकेतस्थळावर परत",
+        footerH:"विद्यासागर एज्युकेशन सोसायटी (VSES) — रामटेक",
+        footerP:"विद्यासागर कला महाविद्यालय (VAS) व शाळेचे व्यवस्थापन — खैरी (बिजेवाडा), रामटेक"
+      },
+      hi: {
+        title:"विद्यासागर कला महाविद्यालय (VAS)",
+        subtitle:"विद्यासागर एजुकेशन सोसाइटी (VSES), रामटेक का एक संस्थान",
+        about:"हमारे बारे में", programs:"कार्यक्रम", features:"विशेषताएं", contact:"संपर्क",
+        welcome:"स्वागत है", heroH:"विद्यासागर कला महाविद्यालय",
+        heroP:"खैरी (बिजवाड़ा), रामटेक में शिक्षा के माध्यम से सशक्तिकरण — शैक्षणिक उत्कृष्टता और समग्र विकास।",
+        ctaPrograms:"कार्यक्रम देखें", ctaContact:"संपर्क करें",
+        stat1:"सेवा के वर्ष", stat2:"पूर्व छात्र", stat3:"मुख्य कार्यक्रम", stat4:"RTMNU से संबद्ध",
+        aboutH:"विद्यासागर कला महाविद्यालय के बारे में",
+        aboutP1:"विद्यासागर कला महाविद्यालय 9 अगस्त 1999 को खैरी (बिजवाड़ा), रामटेक में शुरू हुआ। महाविद्यालय महाराष्ट्र सरकार द्वारा मान्य एवं पूर्ण अनुदानित, RTMNU नागपुर से स्थायी रूप से संबद्ध है।",
+        aboutP2:"संस्थापक दिवंगत डॉ. विनोदकुमार जायसवाल की दूरदृष्टि से आदिवासी व ग्रामीण समुदायों हेतु गुणवत्तापूर्ण उच्च शिक्षा।",
+        aboutAff:"रा.तु.म. नागपुर विश्वविद्यालय से संबद्ध", aboutNaac:"NAAC ‘B’ ग्रेड, CGPA 2.20",
+        f1H:"समावेशी शिक्षा", f1P:"आदिवासी, ग्रामीण व वंचित विद्यार्थियों पर फोकस; छात्र-केंद्रित सहायता।",
+        f2H:"समग्र विकास", f2P:"संचार कौशल, व्यक्तित्व विकास, योग व ध्यान के प्रमाणपत्र पाठ्यक्रम।",
+        f3H:"संबद्धता व गुणवत्ता", f3P:"RTMNU से संबद्ध; NAAC ‘B’ ग्रेड, CGPA 2.20।",
+        progH:"कार्यक्रम", prog1H:"बैचलर ऑफ आर्ट्स (B.A.)", prog1P:"समाजशास्त्र, इतिहास, राजनीति विज्ञान, अर्थशास्त्र में विशेषज्ञता।",
+        prog2H:"कौशल प्रमाणपत्र", prog2P:"संचार कौशल, व्यक्तित्व विकास, योग व ध्यान, मराठी शुद्धलेखन।",
+        prog3H:"YCMOU केंद्र", prog3P:"B.A. भाग I का अतिरिक्त खंड 2006–07 में YCMOU केंद्र के साथ।",
+        ctaH:"और जानना चाहते हैं?", ctaP:"हमारे संकाय से बात करें या खैरी (बिजवाड़ा), रामटेक स्थित परिसर आएं।",
+        ctaContact2:"संपर्क करें", ctaPrograms2:"कार्यक्रम देखें",
+        contactH:"संपर्क", contactP:"प्रवेश व पूछताछ हेतु मुख्य वेबसाइट का उपयोग करें।",
+        backLive:"← वर्तमान वेबसाइट पर वापस",
+        footerH:"विद्यासागर एजुकेशन सोसाइटी (VSES) — रामटेक",
+        footerP:"विद्यासागर कला महाविद्यालय (VAS) और स्कूल का संचालन — खैरी (बिजवाड़ा), रामटेक"
+      }
+    };
+    let currentLang = 'en';
+    const updateLang = (lang) => {
+      currentLang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(content[lang][k]) el.textContent = content[lang][k];
+      });
+    };
+    document.addEventListener('DOMContentLoaded', ()=>{
+      updateLang('en');
+      document.querySelectorAll('.lang-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=> updateLang(btn.dataset.lang));
+      });
+    });
+  </script>
+</body>
+</html>
