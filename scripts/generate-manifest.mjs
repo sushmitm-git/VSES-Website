@@ -4,7 +4,13 @@ import path from 'node:path';
 const ROOT = 'assets/photos';
 const BUCKETS = ['gallery', 'departments', 'staff', 'media'];
 const IMG_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif']);
-const slug = s => s.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9._-]/g,'').replace(/-+/g,'-');
+
+const slug = s => s
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/-+/g, '-')
+  .replace(/^-|-$/g, '')
+  || 'image';
 
 async function listImages(dir) {
   const out = [];
@@ -17,8 +23,25 @@ async function listImages(dir) {
   return out;
 }
 async function ensureKebabCase(fp) {
-  const dir = path.dirname(fp), base = path.basename(fp), kebab = slug(base);
-  if (base !== kebab) { const np = path.join(dir, kebab); await rename(fp, np); return np; }
+  const dir = path.dirname(fp);
+  const base = path.basename(fp);
+  if (base.startsWith('.')) return fp; // respect dotfiles such as .keep
+
+  let ext = path.extname(base).toLowerCase();
+  let name = path.basename(base, ext);
+
+  if (!ext) {
+    ext = '.jpg';
+  } else if (!IMG_EXT.has(ext)) {
+    ext = '.jpg';
+  }
+
+  const kebab = `${slug(name)}${ext}`;
+  if (base !== kebab) {
+    const np = path.join(dir, kebab);
+    await rename(fp, np);
+    return np;
+  }
   return fp;
 }
 async function main() {
@@ -38,7 +61,7 @@ async function main() {
       }
     }
   }
-  await writeFile(path.join(ROOT, 'manifest.json'), JSON.stringify(data, null, 2));
+  await writeFile(path.join(ROOT, 'manifest.json'), `${JSON.stringify(data, null, 2)}\n`);
   console.log('✅ Wrote assets/photos/manifest.json');
 }
 main().catch(err => { console.error(err); process.exit(1); });
