@@ -330,7 +330,38 @@
       <div id="paper-news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
     </section>
 
-    <!-- Location & Contact -->
+   
+    <!-- Photo Gallery Section -->
+<section class="container mx-auto px-4 py-8" id="photo-gallery">
+  <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photo Gallery</h2>
+  <div class="grid grid-cols-1 
+     <img src="assets/photos/staff/College Administrators" alt="College Administrators" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/staff/College Building 1" alt="College Building 1" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/staff/College Building 2" alt="College Building 2" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/staff/Non-Teaching Staff" alt="Non-Teaching Staff" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/staff/Principal" alt="Principal" class="w-full h-auto rounded shadow">
+    
+     <!-- Media images -->
+    <img src="assets/photos/media/325eeaac-e494-4dbc-91d5-fb38d51d7474.jpg" alt="Gallery Image 1" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/46bf5a29-53e0-4741-bb6e-e9106b93a906.jpg" alt="Gallery Image 2" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/5880738b-0d3a-4a34-9e78-50c0248eac0b.jpg" alt="Gallery Image 3" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/68c22535-c141-47d5-bb5d-8e7e7e08933e.jpg" alt="Gallery Image 4" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/8624493e-ccc5-47c3-9636-44ff05750882.jpg" alt="Gallery Image 5" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/91eb11e4-eca9-4472-b3fb-38df24995ce7.jpg" alt="Gallery Image 6" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/96b2bdb0-0eb7-4324-b77e-45cd2507df15.jpg" alt="Gallery Image 7" class="w-full h-auto rounded shadow">
+    <img src="assets/photos/media/9a4f195a-4225-42d1-8dde-24d008241d9f.jpg" alt="Gallery Image 8" class="w-full h-auto rounded shadow">
+    
+    
+    <img src="assets/photos/media/IMG-20190916-WA0006.jpg" alt="Gallery Image 10" class="w-full h-auto rounded shadow">
+<img src="assets/photos/media/IMG-20190916-WA0006.jpg" alt="Gallery Image 10" class="w-full h-auto rounded shadow">
+<img src="assets/photos/media/IM-20190823-WA0036.jpg" alt="Gallery Image 9" class="w-full h-auto rounded shadow">
+    
+    </div>
+</section>
+
+<img src="assets/photos/staff/Teaching Staff" alt="Teaching Staff" class="w-full h-auto rounded shadow">
+sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Location & Contact -->
     <section class="bg-gray-200 py-16" id="contact">
       <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-8">
@@ -341,6 +372,7 @@
           <div class="card p-6">
             <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
             <!-- Static mailto form for GitHub Pages (no backend) -->
+      
             <form id="contact-form" class="space-y-4" action="mailto:replace-with-official@college.domain" method="post" enctype="text/plain">
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700" data-i18n="fullNameLabel">Full Name</label>
@@ -687,6 +719,7 @@
 
       // Q&A search
       const qaSearch = document.getElementById('qa-search');
+
       const qaClear = document.getElementById('qa-clear');
       qaSearch?.addEventListener('input', () => renderFAQ(qaSearch.value));
       qaClear?.addEventListener('click', () => { qaSearch.value = ''; renderFAQ(''); });
