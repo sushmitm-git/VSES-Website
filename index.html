@@ -331,33 +331,28 @@
     </section>
 
    
-    <!-- Photo Gallery Section -->
-<section class="container mx-auto px-4 py-8" id="photo-gallery">
-  <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photo Gallery</h2>
-  <div class="grid grid-cols-1 
-     <img src="assets/photos/staff/College Administrators" alt="College Administrators" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/staff/College Building 1" alt="College Building 1" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/staff/College Building 2" alt="College Building 2" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/staff/Non-Teaching Staff" alt="Non-Teaching Staff" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/staff/Principal" alt="Principal" class="w-full h-auto rounded shadow">
-    
-     <!-- Media images -->
-    <img src="assets/photos/media/325eeaac-e494-4dbc-91d5-fb38d51d7474.jpg" alt="Gallery Image 1" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/46bf5a29-53e0-4741-bb6e-e9106b93a906.jpg" alt="Gallery Image 2" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/5880738b-0d3a-4a34-9e78-50c0248eac0b.jpg" alt="Gallery Image 3" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/68c22535-c141-47d5-bb5d-8e7e7e08933e.jpg" alt="Gallery Image 4" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/8624493e-ccc5-47c3-9636-44ff05750882.jpg" alt="Gallery Image 5" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/91eb11e4-eca9-4472-b3fb-38df24995ce7.jpg" alt="Gallery Image 6" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/96b2bdb0-0eb7-4324-b77e-45cd2507df15.jpg" alt="Gallery Image 7" class="w-full h-auto rounded shadow">
-    <img src="assets/photos/media/9a4f195a-4225-42d1-8dde-24d008241d9f.jpg" alt="Gallery Image 8" class="w-full h-auto rounded shadow">
-    
-    
-    <img src="assets/photos/media/IMG-20190916-WA0006.jpg" alt="Gallery Image 10" class="w-full h-auto rounded shadow">
-<img src="assets/photos/media/IMG-20190916-WA0006.jpg" alt="Gallery Image 10" class="w-full h-auto rounded shadow">
-<img src="assets/photos/media/IM-20190823-WA0036.jpg" alt="Gallery Image 9" class="w-full h-auto rounded shadow">
-    
+   <section class="container mx-auto px-4 py-8" id="photo-gallery">
+  <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photos</h2>
+  <div class="space-y-12">
+    <div>
+      <h3 class="text-2xl font-semibold text-maroon mb-4">Photo Gallery</h3>
+      <div id="grid-gallery" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
     </div>
+    <div>
+      <h3 class="text-2xl font-semibold text-maroon mb-4">College Departments</h3>
+      <div id="grid-departments" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+    <div>
+      <h3 class="text-2xl font-semibold text-maroon mb-4">College Staff</h3>
+      <div id="grid-staff" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+    <div>
+      <h3 class="text-2xl font-semibold text-maroon mb-4">News & Media Speaks</h3>
+      <div id="grid-media" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+  </div>
 </section>
+
 
 <img src="assets/photos/staff/Teaching Staff" alt="Teaching Staff" class="w-full h-auto rounded shadow">
 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -694,6 +689,43 @@ sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       });
     }
 
+async function loadAndRenderPhotos() {
+  try {
+    const res = await fetch('assets/photos/manifest.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('manifest fetch failed');
+    const manifest = await res.json();
+    const base = 'assets/photos/';
+    const render = (id, items) => {
+      const host = document.getElementById(id);
+      if (!host) return;
+      host.innerHTML = '';
+      items.forEach(item => {
+        const o = typeof item === 'string' ? { src: item } : item;
+        const fig = document.createElement('figure');
+        fig.className = 'card overflow-hidden';
+        fig.innerHTML = `
+          <img src="${base + o.src}" alt="${o.caption || 'Photo'}"
+               loading="lazy" class="w-full h-48 object-cover block">
+          ${o.caption ? `<figcaption class="p-3 text-sm text-gray-700">${o.caption}</figcaption>` : ''}
+        `;
+        host.appendChild(fig);
+      });
+    };
+    render('grid-gallery', manifest.gallery || []);
+    render('grid-departments', manifest.departments || []);
+    render('grid-staff', manifest.staff || []);
+    render('grid-media', manifest.media || []);
+  } catch (e) {
+    console.error(e);
+    document.getElementById('grid-gallery')?.insertAdjacentHTML('beforeend',
+      '<p class="text-gray-500">Couldn’t load photos. Check manifest.json paths.</p>');
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  loadAndRenderPhotos();
+});
+
+    
     // ===== Events =====
     document.addEventListener('DOMContentLoaded', () => {
       // Smooth anchors
