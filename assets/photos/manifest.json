@@ -1,0 +1,100 @@
+{
+  "gallery": [
+    "gallery/1.jpeg",
+    "gallery/10.jpeg",
+    "gallery/100.jpeg",
+    "gallery/11.jpg",
+    "gallery/12.jpg",
+    "gallery/13.jpg",
+    "gallery/14.jpeg",
+    "gallery/15.jpeg",
+    "gallery/16.jpg",
+    "gallery/17.jpeg",
+    "gallery/18.jpeg",
+    "gallery/19.jpeg",
+    "gallery/2.jpg",
+    "gallery/20.jpeg",
+    "gallery/21.jpg",
+    "gallery/22.jpg",
+    "gallery/23.jpeg",
+    "gallery/24.jpg",
+    "gallery/25.jpeg",
+    "gallery/26.jpeg",
+    "gallery/27.jpeg",
+    "gallery/28.jpeg",
+    "gallery/29.jpeg",
+    "gallery/3.png",
+    "gallery/30-1.jpg",
+    "gallery/31.jpg",
+    "gallery/32.jpg",
+    "gallery/33.jpg",
+    "gallery/34.jpg",
+    "gallery/35.jpg",
+    "gallery/36.jpg",
+    "gallery/37.jpg",
+    "gallery/38.jpg",
+    "gallery/39.jpg",
+    "gallery/4.jpg",
+    "gallery/40.jpg",
+    "gallery/41.jpg",
+    "gallery/4f0ce15e-f6c7-497c-8156-24ca5c523621.jpg",
+    "gallery/5.jpeg",
+    "gallery/6.jpg",
+    "gallery/6de038e0-555d-4a8f-a157-6321d71f93d7.jpg",
+    "gallery/7.jpeg",
+    "gallery/8.jpg",
+    "gallery/9.jpeg"
+  ],
+  "departments": [],
+  "staff": [
+    {
+      "src": "staff/college-administrators.jpg",
+      "caption": "College Administrators"
+    },
+    {
+      "src": "staff/college-building-1.jpg",
+      "caption": "College Building 1"
+    },
+    {
+      "src": "staff/college-building-2.jpg",
+      "caption": "College Building 2"
+    },
+    {
+      "src": "staff/non-teaching-staff.jpg",
+      "caption": "Non Teaching Staff"
+    },
+    {
+      "src": "staff/principal.jpg",
+      "caption": "Principal"
+    },
+    {
+      "src": "staff/teaching-staff.jpg",
+      "caption": "Teaching Staff"
+    }
+  ],
+  "media": [
+    "media/325eeaac-e494-4dbc-91d5-fb38d51d7474.jpg",
+    "media/46bf5a29-53e0-4741-bb6e-e9106b93a906.jpg",
+    "media/5880738b-0d3a-4a34-9e78-50c0248eac0b.jpg",
+    "media/68c22535-c141-47d5-bb5d-8e7e7e08933e.jpg",
+    "media/8624493e-ccc5-47c3-9636-44ff05750882.jpg",
+    "media/91eb11e4-eca9-4472-b3fb-38df24995ce7.jpg",
+    "media/96b2bdb0-0eb7-4324-b77e-45cd2507df15.jpg",
+    "media/9a4f195a-4225-42d1-8dde-24d008241d9f.jpg",
+    "media/ad5b55f5-4ed1-4ae7-9bd2-ce0cf9b7083b.jpg",
+    "media/b7aca1ea-dc2d-4041-84d2-81d56f2a818e.jpg",
+    "media/df806d3f-3778-4bea-acad-6530d2bad6a7.jpg",
+    "media/img-20190823-wa0036.jpg",
+    "media/img-20190916-wa0006.jpg",
+    "media/img-20191003-wa0031.jpg",
+    "media/img-20191130-wa0028.jpg",
+    "media/img-20191229-wa0023.jpg",
+    "media/img-20200122-wa0006.jpg",
+    "media/img-20200201-wa0018.jpg",
+    "media/img-20200210-wa0050.jpg",
+    "media/img-20200430-wa0022.jpg",
+    "media/img-20200430-wa0058.jpg",
+    "media/img-20200501-wa0077.jpg",
+    "media/sawan-sr.jpg"
+  ]
+}

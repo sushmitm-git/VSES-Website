@@ -1,0 +1,9 @@
+{
+  "name": "vses-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen:photos": "node scripts/generate-manifest.mjs"
+  }
+}

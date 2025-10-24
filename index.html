@@ -26,6 +26,7 @@
     .gallery-image { flex: 0 0 25%; object-fit: cover; }
     @keyframes slide { 0%,20%{transform:translateX(0)} 25%,45%{transform:translateX(-25%)} 50%,70%{transform:translateX(-50%)} 75%,95%{transform:translateX(-75%)} 100%{transform:translateX(0)} }
     .photo-gallery { animation: slide 18s infinite; }
+    .photo-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
     /* Q&A */
     details summary { cursor: pointer; }
     mark { padding: 0 .15rem; border-radius: .2rem; background: #fff59d; }
@@ -331,31 +332,27 @@
     </section>
 
    
-   <section class="container mx-auto px-4 py-8" id="photo-gallery">
-  <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photos</h2>
-  <div class="space-y-12">
-    <div>
-      <h3 class="text-2xl font-semibold text-maroon mb-4">Photo Gallery</h3>
-      <div id="grid-gallery" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </div>
-    <div>
-      <h3 class="text-2xl font-semibold text-maroon mb-4">College Departments</h3>
-      <div id="grid-departments" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </div>
-    <div>
-      <h3 class="text-2xl font-semibold text-maroon mb-4">College Staff</h3>
-      <div id="grid-staff" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </div>
-    <div>
-      <h3 class="text-2xl font-semibold text-maroon mb-4">News & Media Speaks</h3>
-      <div id="grid-media" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-    </div>
-  </div>
-</section>
-
-
-<img src="assets/photos/staff/Teaching Staff" alt="Teaching Staff" class="w-full h-auto rounded shadow">
-sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <section class="container mx-auto px-4 py-8" id="photo-gallery">
+      <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photos</h2>
+      <div class="space-y-12">
+        <div>
+          <h3 class="text-2xl font-semibold text-maroon mb-4">Photo Gallery</h3>
+          <div id="grid-gallery" class="photo-grid"></div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold text-maroon mb-4">College Departments</h3>
+          <div id="grid-departments" class="photo-grid"></div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold text-maroon mb-4">College Staff</h3>
+          <div id="grid-staff" class="photo-grid"></div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold text-maroon mb-4">News &amp; Media Speaks</h3>
+          <div id="grid-media" class="photo-grid"></div>
+        </div>
+      </div>
+    </section>
 <!-- Location & Contact -->
     <section class="bg-gray-200 py-16" id="contact">
       <div class="container mx-auto px-4">
@@ -699,6 +696,10 @@ async function loadAndRenderPhotos() {
       const host = document.getElementById(id);
       if (!host) return;
       host.innerHTML = '';
+      if (!items.length) {
+        host.innerHTML = '<p class="text-gray-500 text-sm">Photos coming soon.</p>';
+        return;
+      }
       items.forEach(item => {
         const o = typeof item === 'string' ? { src: item } : item;
         const fig = document.createElement('figure');
