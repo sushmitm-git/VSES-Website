@@ -4,9 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-i18n="htmlTitle">Vidyasagar Arts College (VAC) - Nurturing Excellence</title>
-  <meta property="og:title" content="Vidyasagar Arts College (VAC)" />
+  <meta name="description" content="Vidyasagar Arts College (VAC), a constituent of Vidyasagar Education Society (VES), Ramtek. Affiliated to RTMNU; NAAC ‘B’ (CGPA 2.20).">
+  <meta property="og:title" content="Vidyasagar Arts College (VAC)">
+  <meta property="og:description" content="Affiliated to RTMNU; NAAC ‘B’. Khairi (Bijewada), Ramtek.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/college-building.jpg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; color: #333; }
@@ -69,6 +76,7 @@
               <li><a href="#qa" class="hover:text-amber-300 transition p-2 rounded-md">Q&amp;A</a></li>
               <li><a href="#contact" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="contact">Contact</a></li>
               <li><a href="#governance" class="hover:text-amber-300 transition p-2 rounded-md">Governance</a></li>
+              <li><a href="prospectus.html" class="hover:text-amber-300 transition">Prospectus (PDF)</a></li>
             </ul>
           </nav>
         </div>
@@ -77,18 +85,39 @@
   </header>
 
   <section id="hero" class="relative h-[320px] sm:h-[460px]" aria-labelledby="hero-heading">
-    <img src="assets/college-building.jpg" alt="College building" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-    <div class="relative h-full flex items-center justify-center text-center px-4">
-      <div class="max-w-3xl">
-        <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-widest uppercase">Welcome to</p>
-        <h1 id="hero-heading" class="mt-2 text-white text-3xl sm:text-5xl font-extrabold drop-shadow-lg">Vidyasagar Arts College</h1>
-        <p class="text-white/90 mt-4 text-base sm:text-lg leading-relaxed">Empowering through education in Khairi (Bijewada), Ramtek&mdash;fostering academic excellence and holistic development.</p>
-        <div class="mt-6 flex flex-wrap gap-3 justify-center">
-          <a href="#programs" class="btn-maroon inline-flex items-center justify-center">Explore Programs</a>
-          <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20">Get in Touch</a>
+    <div class="swiper h-full">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide relative">
+          <img src="assets/college-building.jpg" alt="College building" class="absolute inset-0 w-full h-full object-cover" loading="eager" width="1600" height="900">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+          <div class="relative h-full flex items-center justify-center text-center px-4">
+            <div class="max-w-3xl">
+              <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-widest uppercase">Welcome to</p>
+              <h1 id="hero-heading" class="mt-2 text-white text-3xl sm:text-5xl font-extrabold drop-shadow-lg">Vidyasagar Arts College</h1>
+              <p class="text-white/90 mt-4 text-base sm:text-lg leading-relaxed">Empowering through education in Khairi (Bijewada), Ramtek—fostering academic excellence and holistic development.</p>
+              <div class="mt-6 flex flex-wrap gap-3 justify-center">
+                <a href="#programs" class="btn-maroon inline-flex items-center justify-center">Explore Programs</a>
+                <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20">Get in Touch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more slides as you get assets -->
+        <div class="swiper-slide relative">
+          <img src="assets/photos/gallery/campus-1.jpg" alt="Campus view" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1600" height="900">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+        </div>
+        <div class="swiper-slide relative">
+          <img src="assets/photos/gallery/events-1.jpg" alt="College event" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1600" height="900">
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
         </div>
       </div>
+
+      <!-- Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </section>
 
@@ -103,7 +132,7 @@
       </div>
       <div class="grid md:grid-cols-3 gap-8 mt-8">
         <div class="card p-6 text-center">
-          <img src="https://placehold.co/150x150/cccccc/333?text=Secretary" alt="Secretary" class="rounded-full w-24 h-24 mx-auto mb-4" />
+          <img src="https://placehold.co/150x150/cccccc/333?text=Secretary" alt="Portrait of Secretary Smt. Anita Jaiswal" class="rounded-full w-24 h-24 mx-auto mb-4" width="150" height="150" />
           <h3 class="font-bold text-lg text-maroon" data-i18n="secretaryName">Smt. Anita Jaiswal</h3>
           <p class="text-gray-600" data-i18n="secretaryRole">Secretary, VES</p>
         </div>
@@ -111,15 +140,15 @@
           <h3 class="font-bold text-lg text-maroon mb-4" data-i18n="runningGalleryTitle">Running Photo Gallery</h3>
           <div class="running-gallery-container w-full h-64 overflow-hidden rounded-xl shadow-lg">
             <div class="photo-gallery h-full">
-              <img src="assets/college-building.jpg" class="gallery-image" alt="Photo 1" />
-              <img src="https://placehold.co/400x256/b0b0b0/fff?text=Photo+2" class="gallery-image" alt="Photo 2" />
-              <img src="https://placehold.co/400x256/c0c0c0/fff?text=Photo+3" class="gallery-image" alt="Photo 3" />
-              <img src="https://placehold.co/400x256/d0d0d0/fff?text=Photo+4" class="gallery-image" alt="Photo 4" />
+              <img src="assets/college-building.jpg" class="gallery-image" alt="Vidyasagar Arts College campus exterior" width="400" height="256" />
+              <img src="https://placehold.co/400x256/b0b0b0/fff?text=Campus" class="gallery-image" alt="Students walking through campus pathways" width="400" height="256" />
+              <img src="https://placehold.co/400x256/c0c0c0/fff?text=Library" class="gallery-image" alt="Library hall with study desks" width="400" height="256" />
+              <img src="https://placehold.co/400x256/d0d0d0/fff?text=Event" class="gallery-image" alt="Cultural event on college stage" width="400" height="256" />
             </div>
           </div>
         </div>
         <div class="card p-6 text-center">
-          <img src="https://placehold.co/150x150/cccccc/333?text=President" alt="President" class="rounded-full w-24 h-24 mx-auto mb-4" />
+          <img src="https://placehold.co/150x150/cccccc/333?text=President" alt="Portrait of President Adv. Ashish Jaiswal" class="rounded-full w-24 h-24 mx-auto mb-4" width="150" height="150" />
           <h3 class="font-bold text-lg text-maroon" data-i18n="presidentName">Adv. Ashish Jaiswal</h3>
           <p class="text-gray-600" data-i18n="presidentRole">President, VES</p>
         </div>
@@ -350,6 +379,7 @@
     <section class="container mx-auto px-4 py-8" id="news">
       <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center" data-i18n="paperNewsTitle">Paper News</h2>
       <div id="paper-news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+      <div id="paper-news-sentinel" class="h-6"></div>
     </section>
 
    
@@ -624,7 +654,6 @@
         titleEl.textContent = content[lang].htmlTitle;
       }
       renderNews();
-      renderPaperNews();
       renderFAQ();
     }
 
@@ -655,23 +684,49 @@
         });
     }
 
-    function renderPaperNews() {
+    let paperNewsPage = 0;
+    const PAGE_SIZE_NEWS = 4;
+
+    function renderPaperNewsPage() {
       const items = content[currentLang].paperNews || [];
       const container = document.getElementById('paper-news-container');
-      container.innerHTML = '';
-      items.forEach((n, idx) => {
+      if (!container) return;
+      const start = paperNewsPage * PAGE_SIZE_NEWS;
+      const slice = items.slice(start, start + PAGE_SIZE_NEWS);
+      const sentinel = document.getElementById('paper-news-sentinel');
+
+      if (!slice.length) {
+        if (sentinel) {
+          sentinel.dataset.more = '0';
+        }
+        return;
+      }
+
+      slice.forEach((n) => {
         const div = document.createElement('div');
         div.className = 'card p-4 text-center';
-        const isFirst = idx === 0;
-        const imgSrc = isFirst ? 'assets/college-building.jpg' : n.img;
-        const altText = isFirst ? 'College building' : (n.alt || 'News');
-        const imgClass = `rounded-xl mb-4 w-full${isFirst ? ' object-cover h-40' : ''}`;
+        const imgSrc = n?.img || 'assets/college-building.jpg';
+        const altText = n?.alt || 'News';
         div.innerHTML = `
-          <img src="${imgSrc}" alt="${altText}" class="${imgClass}" loading="lazy" />
-          <p class="text-gray-600">${n.text}</p>
-        `;
+      <img src="${imgSrc}" alt="${altText}" class="rounded-xl mb-4 w-full object-cover h-40" loading="lazy" width="300" height="200"/>
+      <p class="text-gray-600">${n?.text || ''}</p>
+    `;
         container.appendChild(div);
       });
+
+      paperNewsPage++;
+      const more = (paperNewsPage * PAGE_SIZE_NEWS) < items.length;
+      if (sentinel) {
+        sentinel.dataset.more = more ? '1' : '0';
+      }
+    }
+
+    function resetPaperNews() {
+      paperNewsPage = 0;
+      const container = document.getElementById('paper-news-container');
+      if (!container) return;
+      container.innerHTML = '';
+      renderPaperNewsPage();
     }
 
     // ===== Q&A (client-side, static) =====
@@ -707,36 +762,81 @@
       });
     }
 
+const PAGE_SIZE_PHOTOS = 8;
+let photoGalleryCleanups = [];
+
 async function loadAndRenderPhotos() {
+  if (photoGalleryCleanups.length) {
+    photoGalleryCleanups.forEach(fn => fn?.());
+    photoGalleryCleanups = [];
+  }
+
   try {
     const res = await fetch('assets/photos/manifest.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('manifest fetch failed');
     const manifest = await res.json();
     const base = 'assets/photos/';
-    const render = (id, items) => {
-      const host = document.getElementById(id);
-      if (!host) return;
+
+    const makePagedRenderer = (hostId, items) => {
+      let page = 0;
+      const host = document.getElementById(hostId);
+      if (!host) return () => {};
       host.innerHTML = '';
+
+      const sentinelId = `${hostId}-sentinel`;
+      document.getElementById(sentinelId)?.remove();
+      const sentinel = document.createElement('div');
+      sentinel.className = 'h-6';
+      sentinel.id = sentinelId;
+      host.after(sentinel);
+
+      const renderPage = () => {
+        const start = page * PAGE_SIZE_PHOTOS;
+        const slice = items.slice(start, start + PAGE_SIZE_PHOTOS);
+        slice.forEach(item => {
+          const o = typeof item === 'string' ? { src: item } : item;
+          const fig = document.createElement('figure');
+          fig.className = 'card overflow-hidden';
+          fig.innerHTML = `
+        <img src="${base + o.src}" alt="${o.caption || 'Photo'}"
+             loading="lazy" class="w-full h-48 object-cover block" width="400" height="256">
+        ${o.caption ? `<figcaption class="p-3 text-sm text-gray-700">${o.caption}</figcaption>` : ''}
+      `;
+          host.appendChild(fig);
+        });
+        page++;
+        const more = (page * PAGE_SIZE_PHOTOS) < items.length;
+        sentinel.dataset.more = more ? '1' : '0';
+      };
+
       if (!items.length) {
         host.innerHTML = '<p class="text-gray-500 text-sm">Photos coming soon.</p>';
-        return;
+        sentinel.remove();
+        return () => {};
       }
-      items.forEach(item => {
-        const o = typeof item === 'string' ? { src: item } : item;
-        const fig = document.createElement('figure');
-        fig.className = 'card overflow-hidden';
-        fig.innerHTML = `
-          <img src="${base + o.src}" alt="${o.caption || 'Photo'}"
-               loading="lazy" class="w-full h-48 object-cover block">
-          ${o.caption ? `<figcaption class="p-3 text-sm text-gray-700">${o.caption}</figcaption>` : ''}
-        `;
-        host.appendChild(fig);
-      });
+
+      renderPage();
+
+      const io = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && sentinel.dataset.more !== '0') {
+          renderPage();
+        }
+      }, { rootMargin: '300px' });
+      io.observe(sentinel);
+
+      return () => {
+        io.disconnect();
+        sentinel.remove();
+      };
     };
-    render('grid-gallery', manifest.gallery || []);
-    render('grid-departments', manifest.departments || []);
-    render('grid-staff', manifest.staff || []);
-    render('grid-media', manifest.media || []);
+
+    const cleanups = [];
+    cleanups.push(makePagedRenderer('grid-gallery', manifest.gallery || []));
+    cleanups.push(makePagedRenderer('grid-departments', manifest.departments || []));
+    cleanups.push(makePagedRenderer('grid-staff', manifest.staff || []));
+    cleanups.push(makePagedRenderer('grid-media', manifest.media || []));
+
+    photoGalleryCleanups = cleanups.filter(Boolean);
   } catch (e) {
     console.error(e);
     document.getElementById('grid-gallery')?.insertAdjacentHTML('beforeend',
@@ -780,6 +880,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Initial paint
       updateContent('en');
+
+      // When language changes, re-render paged news too
+      const origUpdateContent = updateContent;
+      updateContent = function(lang) {
+        origUpdateContent(lang);
+        resetPaperNews();
+      };
+
+      resetPaperNews();
+
+      // Infinite scroll for Paper News
+      const newsSentinel = document.getElementById('paper-news-sentinel');
+      if (newsSentinel) {
+        const ioNews = new IntersectionObserver((entries) => {
+          const ent = entries[0];
+          if (ent.isIntersecting && newsSentinel.dataset.more !== '0') {
+            renderPaperNewsPage();
+          }
+        }, { rootMargin: '300px' });
+        ioNews.observe(newsSentinel);
+      }
+
+      // Init Swiper for hero
+      const heroSwiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        a11y: true
+      });
     });
   </script>
 </body>
