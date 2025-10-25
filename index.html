@@ -12,8 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; color: #333; }
@@ -85,39 +83,25 @@
   </header>
 
   <section id="hero" class="relative h-[320px] sm:h-[460px]" aria-labelledby="hero-heading">
-    <div class="swiper h-full">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide relative">
-          <img src="assets/college-building.jpg" alt="College building" class="absolute inset-0 w-full h-full object-cover" loading="eager" width="1600" height="900">
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-          <div class="relative h-full flex items-center justify-center text-center px-4">
-            <div class="max-w-3xl">
-              <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-widest uppercase">Welcome to</p>
-              <h1 id="hero-heading" class="mt-2 text-white text-3xl sm:text-5xl font-extrabold drop-shadow-lg">Vidyasagar Arts College</h1>
-              <p class="text-white/90 mt-4 text-base sm:text-lg leading-relaxed">Empowering through education in Khairi (Bijewada), Ramtek—fostering academic excellence and holistic development.</p>
-              <div class="mt-6 flex flex-wrap gap-3 justify-center">
-                <a href="#programs" class="btn-maroon inline-flex items-center justify-center">Explore Programs</a>
-                <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20">Get in Touch</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more slides as you get assets -->
-        <div class="swiper-slide relative">
-          <img src="assets/photos/gallery/campus-1.jpg" alt="Campus view" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1600" height="900">
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-        </div>
-        <div class="swiper-slide relative">
-          <img src="assets/photos/gallery/events-1.jpg" alt="College event" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1600" height="900">
-          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+    <img src="assets/college-building.jpg" alt="College building"
+         class="absolute inset-0 w-full h-full object-cover" loading="eager" width="1600" height="900">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
+    <div class="relative h-full flex items-center justify-center text-center px-4">
+      <div class="max-w-3xl">
+        <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-widest uppercase">Welcome to</p>
+        <h1 id="hero-heading" class="mt-2 text-white text-3xl sm:text-5xl font-extrabold drop-shadow-lg">
+          Vidyasagar Arts College (VAC)
+        </h1>
+        <p class="text-white/90 mt-4 text-base sm:text-lg leading-relaxed">
+          Empowering through education in Khairi (Bijewada), Ramtek — fostering academic excellence and holistic development.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3 justify-center">
+          <a href="#programs" class="btn-maroon inline-flex items-center justify-center">Explore Programs</a>
+          <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20">
+            Get in Touch
+          </a>
         </div>
       </div>
-
-      <!-- Controls -->
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
   </section>
 
@@ -902,14 +886,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ioNews.observe(newsSentinel);
       }
 
-      // Init Swiper for hero
-      const heroSwiper = new Swiper('.swiper', {
-        loop: true,
-        autoplay: { delay: 4000, disableOnInteraction: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        a11y: true
-      });
     });
   </script>
 </body>
