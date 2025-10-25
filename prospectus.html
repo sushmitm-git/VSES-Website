@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VAC Prospectus</title>
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<style>
+  .text-maroon { color: #800000; }
+  @page { size: A4; margin: 18mm; }
+  @media print {
+    .no-print { display:none !important; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+</head>
+<body class="text-gray-800">
+  <div class="no-print sticky top-0 bg-white border-b p-3 flex items-center gap-3">
+    <a href="./" class="underline">← Back to site</a>
+    <button onclick="window.print()" class="px-3 py-1 rounded bg-black text-white">Print / Save PDF</button>
+  </div>
+
+  <main class="max-w-3xl mx-auto p-6">
+    <header class="text-center mb-8">
+      <img src="assets/logo-vac.svg" alt="VAC crest" class="w-20 h-20 mx-auto mb-3" width="80" height="80">
+      <h1 class="text-3xl font-bold text-maroon">Vidyasagar Arts College (VAC)</h1>
+      <p>A Constituent Institution of Vidyasagar Education Society (VES), Ramtek</p>
+    </header>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-maroon mb-2">About</h2>
+      <p id="about-line"></p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-maroon mb-2">Programs</h2>
+      <ul class="list-disc pl-6" id="prog-list"></ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-maroon mb-2">Scholarships &amp; Concessions</h2>
+      <ul class="list-disc pl-6" id="sch-list"></ul>
+    </section>
+
+    <section class="page-break mb-6">
+      <h2 class="text-xl font-semibold text-maroon mb-2">RTI</h2>
+      <ul class="list-disc pl-6">
+        <li>Appellate Authority: Dr. S. R. Somkuwar (Principal)</li>
+        <li>Information Officer: Dr. G. N. Sapate (Associate Professor)</li>
+        <li>Assistant Information Officer: Ku. Kirti Jaiswal (Head Clerk)</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-maroon mb-2">Faculty Snapshot</h2>
+      <ul class="list-disc pl-6" id="fac-list"></ul>
+    </section>
+
+    <footer class="mt-10 text-sm text-gray-600">
+      <p>Khairi (Bijewada), Ramtek, Maharashtra • Affiliated to R.T.M. Nagpur University • NAAC ‘B’ (CGPA 2.20)</p>
+    </footer>
+  </main>
+
+<script>
+  // minimal data duplication: small extract here
+  const prospectus = {
+    about: "Empowering through education in Khairi (Bijewada), Ramtek—fostering academic excellence and holistic development.",
+    programs: [
+      "B.A. (English, Marathi, Sociology, History, Political Science, Economics)",
+      "M.A. (Marathi, Sociology)",
+      "YCMOU Distance Centre (B.A.)",
+      "GNMA Nursing (Late Dr. Vinodkumaraji Jaiswal Nursing Institute)"
+    ],
+    scholarships: [
+      "State Government Scholarship; GOI National Scholarship",
+      "Scholarships for SC/ST students",
+      "EBC concession for economically backward students",
+      "Open Merit Scholarship (state government)",
+      "Alumni Association Talent Scholarship"
+    ],
+    faculty: [
+      "Dr. S. R. Somkuwar — Principal (Sociology)",
+      "Dr. G. N. Sapate — Associate Professor (Marathi)",
+      "Dr. S. G. Dharmpuriwar — Assistant Professor (English)",
+      "Dr. J. V. Kawathe — Assistant Professor (Political Science)",
+      "Shri R. T. Pantavane — Assistant Professor (English)",
+      "Dr. S. R. Mahalle — Assistant Professor (History)",
+      "Dr. A. A. Thanekar — Librarian (Library Science)"
+    ]
+  };
+
+  document.getElementById('about-line').textContent = prospectus.about;
+  const UL = (id, arr) => { const ul=document.getElementById(id); arr.forEach(t=>{const li=document.createElement('li'); li.textContent=t; ul.appendChild(li);});};
+  UL('prog-list', prospectus.programs);
+  UL('sch-list', prospectus.scholarships);
+  UL('fac-list', prospectus.faculty);
+</script>
+</body>
+</html>
