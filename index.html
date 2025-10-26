@@ -903,5 +903,135 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
   </script>
+  <style>
+    .running-gallery-container { position: relative; }
+    .running-gallery-container .photo-gallery {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .running-gallery-container .photo-gallery .gallery-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+    .running-gallery-container .photo-gallery .gallery-image.active {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allGalleryImages = [
+        'assets/photos/gallery/1.jpeg',
+        'assets/photos/gallery/2.jpg',
+        'assets/photos/gallery/3.png',
+        'assets/photos/gallery/4.jpg',
+        'assets/photos/gallery/5.jpeg',
+        'assets/photos/gallery/6.jpg',
+        'assets/photos/gallery/7.jpeg',
+        'assets/photos/gallery/8.jpg',
+        'assets/photos/gallery/9.jpeg',
+        'assets/photos/gallery/10.jpeg',
+        'assets/photos/gallery/11.jpg',
+        'assets/photos/gallery/12.jpg',
+        'assets/photos/gallery/13.jpg',
+        'assets/photos/gallery/14.jpeg',
+        'assets/photos/gallery/15.jpeg',
+        'assets/photos/gallery/16.jpg',
+        'assets/photos/gallery/17.jpeg',
+        'assets/photos/gallery/18.jpeg',
+        'assets/photos/gallery/19.jpeg',
+        'assets/photos/gallery/20.jpeg',
+        'assets/photos/gallery/21.jpg',
+        'assets/photos/gallery/22.jpg',
+        'assets/photos/gallery/23.jpeg',
+        'assets/photos/gallery/24.jpg',
+        'assets/photos/gallery/25.jpeg',
+        'assets/photos/gallery/26.jpeg',
+        'assets/photos/gallery/27.jpeg',
+        'assets/photos/gallery/28.jpeg',
+        'assets/photos/gallery/29.jpeg',
+        'assets/photos/gallery/30-1.jpg',
+        'assets/photos/gallery/31.jpg',
+        'assets/photos/gallery/32.jpg',
+        'assets/photos/gallery/33.jpg',
+        'assets/photos/gallery/34.jpg',
+        'assets/photos/gallery/35.jpg',
+        'assets/photos/gallery/36.jpg',
+        'assets/photos/gallery/37.jpg',
+        'assets/photos/gallery/38.jpg',
+        'assets/photos/gallery/39.jpg',
+        'assets/photos/gallery/40.jpg',
+        'assets/photos/gallery/41.jpg',
+        'assets/photos/gallery/4f0ce15e-f6c7-497c-8156-24ca5c523621.jpg',
+        'assets/photos/gallery/6de038e0-555d-4a8f-a157-6321d71f93d7.jpg',
+        'assets/photos/gallery/100.jpeg'
+      ];
+
+      const galleryContainer = document.querySelector('.running-gallery-container');
+      if (!galleryContainer) return;
+
+      let gallery = galleryContainer.querySelector('.photo-gallery');
+      if (!gallery) {
+        gallery = document.createElement('div');
+        gallery.className = 'photo-gallery';
+        galleryContainer.appendChild(gallery);
+      }
+
+      const selectedImages = getRandomUnique(allGalleryImages, Math.min(10, allGalleryImages.length));
+      gallery.innerHTML = '';
+
+      const slides = selectedImages.map((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Campus life photo ${index + 1}`;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.className = 'gallery-image';
+        img.style.zIndex = String(selectedImages.length - index);
+        gallery.appendChild(img);
+        return img;
+      });
+
+      if (!slides.length) return;
+
+      const loadPromises = slides.map(img => {
+        if (img.complete) {
+          return Promise.resolve();
+        }
+        return new Promise(resolve => {
+          img.addEventListener('load', resolve, { once: true });
+          img.addEventListener('error', resolve, { once: true });
+        });
+      });
+
+      Promise.all(loadPromises).then(() => {
+        let currentIndex = 0;
+        slides[currentIndex].classList.add('active');
+
+        setInterval(() => {
+          const nextIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.remove('active');
+          slides[nextIndex].classList.add('active');
+          currentIndex = nextIndex;
+        }, 3000);
+      });
+
+      function getRandomUnique(list, count) {
+        const copy = [...list];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy.slice(0, count);
+      }
+    });
+  </script>
 </body>
 </html>
