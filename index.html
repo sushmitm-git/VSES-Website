@@ -398,30 +398,57 @@
           </div>
           <div class="card p-6">
             <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
-            <!-- Static mailto form for GitHub Pages (no backend) -->
-      
-            <form id="contact-form" class="space-y-4" action="mailto:replace-with-official@college.domain" method="post" enctype="text/plain">
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700" data-i18n="fullNameLabel">Full Name</label>
-                <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700" data-i18n="emailLabel">Email Address</label>
-                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700" data-i18n="messageLabel">Message</label>
-                <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required></textarea>
-              </div>
-              <div class="flex justify-center">
-                <button type="submit" class="btn-maroon" data-i18n="sendMessageBtn">Send Message</button>
-              </div>
-              <p class="text-xs text-gray-500 mt-2">Tip: Replace the <code>mailto:</code> address with your official contact email, or swap to Formspree/Netlify Forms later.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Contact Form (Formspree Integration for VAC) -->
+<form id="contact-form" class="space-y-4" action="https://formspree.io/f/mqagkvla" method="POST">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700" data-i18n="fullNameLabel">Full Name</label>
+    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700" data-i18n="emailLabel">Email Address</label>
+    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-gray-700" data-i18n="messageLabel">Message</label>
+    <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required></textarea>
+  </div>
+
+  <div class="flex justify-center">
+    <button type="submit" class="btn-maroon" data-i18n="sendMessageBtn">Send Message</button>
+  </div>
+
+  <p class="text-xs text-gray-500 mt-2">This form securely sends messages to <strong>admissions@vacramtek.org</strong> via Formspree.</p>
+</form>
+
+<!-- Optional success message -->
+<div id="form-success" class="hidden text-green-600 font-semibold text-center mt-4">
+  Thank you for your message — we’ll get back to you soon.
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.classList.add('hidden');
+      document.getElementById('form-success').classList.remove('hidden');
+    } else {
+      alert('There was a problem submitting your message. Please try again later.');
+    }
+  } catch (error) {
+    alert('Unable to send your message. Please check your connection.');
+  }
+});
+</script>
+
 
     <!-- Q&A (no backend) -->
     <section class="container mx-auto px-4 py-16" id="qa">
