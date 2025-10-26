@@ -389,79 +389,67 @@
       </div>
     </section>
 <!-- Location & Contact -->
-    <section class="bg-gray-200 py-16" id="contact">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="locationMapTitle">Location Map</h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.8028731383786!2d79.3134371758416!3d21.144458980537443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4f67a213568c9%3A0xc3b7a54a7f0e6918!2sVidyasagar%20Arts%20and%20Commerce%20College!5e0!3m2!1sen!2sin!4v1714896758411!5m2!1sen!2sin" class="w-full h-64 rounded-xl shadow-md" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
-    <!-- Contact Form (Formspree Integration for VAC) -->
-<form id="contact-form" class="space-y-4" action="https://formspree.io/f/mqagkvla" method="POST">
-  <div>
-    <label for="name" class="block text-sm font-medium text-gray-700" data-i18n="fullNameLabel">Full Name</label>
-    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
-  </div>
-
-  <div>
-    <label for="email" class="block text-sm font-medium text-gray-700" data-i18n="emailLabel">Email Address</label>
-    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
-  </div>
-
-  <div>
-    <label for="message" class="block text-sm font-medium text-gray-700" data-i18n="messageLabel">Message</label>
-    <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required></textarea>
-  </div>
-
-  <div class="flex justify-center">
-    <button type="submit" class="btn-maroon" data-i18n="sendMessageBtn">Send Message</button>
-  </div>
-
-  <p class="text-xs text-gray-500 mt-2">This form securely sends messages to <strong>admissions@vacramtek.org</strong> via Formspree.</p>
-</form>
-
-<!-- Optional success message -->
-<div id="form-success" class="hidden text-green-600 font-semibold text-center mt-4">
-  Thank you for your message — we’ll get back to you soon.
-</div>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      form.classList.add('hidden');
-      document.getElementById('form-success').classList.remove('hidden');
-    } else {
-      alert('There was a problem submitting your message. Please try again later.');
-    }
-  } catch (error) {
-    alert('Unable to send your message. Please check your connection.');
-  }
-});
-</script>
-
-
-    <!-- Q&A (no backend) -->
-    <section class="container mx-auto px-4 py-16" id="qa">
-      <div class="max-w-4xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Q&A</h2>
-        <div class="mb-4 flex items-center gap-3">
-          <input id="qa-search" type="text" class="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-maroon" placeholder="Search questions..." />
-          <button id="qa-clear" class="px-3 py-2 rounded-md border border-gray-300">Clear</button>
-        </div>
-        <div id="qa-list" class="space-y-3"></div>
-        <p class="text-xs text-gray-500 mt-4">Edit or add questions in the <code>content</code> object under <code>faqs</code> for each language.</p>
+<section class="bg-gray-200 py-16" id="contact">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Location Map -->
+      <div class="card p-6">
+        <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="locationMapTitle">Location Map</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.805313626808!2d79.32223977474252!3d21.39509318180075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4964e010a1d07%3A0xdbc48e6dce9a8f7e!2sVidyasagar%20Arts%20College%2C%20Khairi%20(Bijewada)%2C%20Ramtek!5e0!3m2!1sen!2sin!4v1730088000000!5m2!1sen!2sin"
+          class="w-full h-64 rounded-xl shadow-md"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-    </section>
+
+      <!-- Contact Form -->
+      <div class="card p-6">
+        <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
+        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/mqagkvla" method="POST">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required></textarea>
+          </div>
+          <div class="flex justify-center">
+            <button type="submit" class="btn-maroon">Send Message</button>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">
+            This form securely sends messages to <strong>admissions@vacramtek.org</strong> via Formspree.
+          </p>
+        </form>
+        <div id="form-success" class="hidden text-green-600 font-semibold text-center mt-4">
+          Thank you for your message — we’ll get back to you soon.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A Section (separate, not nested) -->
+<section class="container mx-auto px-4 py-16" id="qa">
+  <div class="max-w-4xl mx-auto card p-6">
+    <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Q&A</h2>
+    <div class="mb-4 flex items-center gap-3">
+      <input id="qa-search" type="text" class="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-maroon" placeholder="Search questions..." />
+      <button id="qa-clear" class="px-3 py-2 rounded-md border border-gray-300">Clear</button>
+    </div>
+    <div id="qa-list" class="space-y-3"></div>
+    <p class="text-xs text-gray-500 mt-4">
+      Edit or add questions in the <code>content</code> object under <code>faqs</code> for each language.
+    </p>
+  </div>
+</section>
+
   </main>
 
   <!-- Footer -->
