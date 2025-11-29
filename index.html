@@ -11,6 +11,7 @@
   <meta property="og:image" content="assets/college-building.jpg">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/i18next@22.5.1/i18next.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
@@ -41,22 +42,20 @@
 <body class="bg-gray-100 text-gray-800">
   <!-- Header -->
   <header class="bg-maroon text-white shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3">
-      <div class="flex flex-col items-center text-center gap-2">
-        <div class="flex items-center gap-3">
-          <img src="assets/logo-vses-crest.svg" alt="VES crest" class="h-10 w-10 object-contain" loading="lazy" width="40" height="40">
-          <div class="h-6 w-px bg-white/40"></div>
-          <img src="assets/logo-vas-crest.svg" alt="VAC crest" class="h-10 w-10 object-contain" loading="lazy" width="40" height="40">
+    <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left gap-3">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo-vses-crest.svg" alt="VES crest" class="h-12 w-12 object-contain" loading="lazy" width="48" height="48">
+            <div class="h-8 w-px bg-white/40"></div>
+            <img src="assets/logo-vas-crest.svg" alt="VAC crest" class="h-12 w-12 object-contain" loading="lazy" width="48" height="48">
+          </div>
+          <div class="space-y-1">
+            <p class="text-2xl sm:text-3xl font-extrabold tracking-tight" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</p>
+            <p class="text-xs sm:text-sm text-white/90" data-i18n="coBrandSub">A Constituent Institution of Vidyasagar Education Society (VES), Ramtek</p>
+          </div>
         </div>
-        <div class="leading-tight">
-          <a href="#hero" class="block text-xl sm:text-2xl font-extrabold tracking-tight" data-i18n="coBrandTitle">Vidyasagar Arts College (VAC)</a>
-          <p class="text-[11px] sm:text-xs text-white/85" data-i18n="coBrandSub">A Constituent Institution of Vidyasagar Education Society (VES), Ramtek</p>
-        </div>
-      </div>
-
-      <div class="mt-3 flex items-center justify-between">
-        <div class="flex items-center space-x-3"></div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center justify-end gap-3">
           <div class="flex space-x-2 text-sm">
             <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="en">EN</button>
             <button class="lang-btn bg-white text-maroon font-semibold px-3 py-1 rounded-md" data-lang="mr">मराठी</button>
@@ -65,52 +64,43 @@
           <button id="hamburger" class="hamburger text-white p-2 focus:outline-none" aria-label="Toggle navigation">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
           </button>
-          <nav id="nav-menu" class="nav-menu absolute sm:static top-20 right-4 flex-col sm:flex-row bg-maroon sm:bg-transparent rounded-lg p-4 sm:p-0 items-center">
-            <ul class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 text-sm sm:text-base font-semibold">
-              <li><a href="#about" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="aboutUs">About Us</a></li>
-              <li><a href="#principal" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="principalsMessage">Principal's Message</a></li>
-              <li><a href="#programs" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="programs">Programs</a></li>
-              <li><a href="#news" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="newsEvents">News & Events</a></li>
-              <li><a href="#qa" class="hover:text-amber-300 transition p-2 rounded-md">Q&amp;A</a></li>
-              <li><a href="#contact" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="contact">Contact</a></li>
-              <li><a href="#governance" class="hover:text-amber-300 transition p-2 rounded-md">Governance</a></li>
-              <li><a href="prospectus.html" class="hover:text-amber-300 transition">Prospectus (PDF)</a></li>
-            </ul>
-          </nav>
+        </div>
+      </div>
+
+      <nav id="nav-menu" class="nav-menu flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 text-sm sm:text-base font-semibold">
+        <ul class="flex flex-col sm:flex-row items-center gap-3 sm:gap-8">
+          <li><a href="#about" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="aboutUs">About Us</a></li>
+          <li><a href="#principal" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="principalsMessage">Principal's Message</a></li>
+          <li><a href="#programs" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="programs">Programs</a></li>
+          <li><a href="#news" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="newsEvents">News & Events</a></li>
+          <li><a href="#qa" class="hover:text-amber-300 transition p-2 rounded-md">Q&amp;A</a></li>
+          <li><a href="#contact" class="hover:text-amber-300 transition p-2 rounded-md" data-i18n="contact">Contact</a></li>
+          <li><a href="#governance" class="hover:text-amber-300 transition p-2 rounded-md">Governance</a></li>
+          <li><a href="prospectus.html" class="hover:text-amber-300 transition">Prospectus (PDF)</a></li>
+        </ul>
+      </nav>
+
+      <div class="bg-gradient-to-r from-white/10 via-white/5 to-transparent rounded-2xl p-6 sm:p-8 border border-white/15 shadow-lg">
+        <div class="flex flex-col items-center text-center space-y-4">
+          <p class="text-amber-300 text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase" data-i18n="welcomeText">Welcome to</p>
+          <p class="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</p>
+          <p class="text-white/90 text-base sm:text-lg leading-relaxed max-w-3xl" data-i18n="tagline">Empowering through education in Khairi (Bijewada), Ramtek — fostering academic excellence and holistic development.</p>
+          <p class="text-sm sm:text-base text-white/80 font-semibold" data-i18n="accreditation">NAAC Accredited At 'B' Grade, CGPA - 2.20</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href="#programs" class="btn-maroon inline-flex items-center justify-center" data-i18n="explorePrograms">Explore Programs</a>
+            <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20" data-i18n="getInTouch">Get in Touch</a>
+          </div>
         </div>
       </div>
     </div>
   </header>
-
-  <section id="hero" class="relative h-[320px] sm:h-[460px]" aria-labelledby="hero-heading">
-    <img src="assets/college-building.jpg" alt="College building"
-         class="absolute inset-0 w-full h-full object-cover" loading="eager" width="1600" height="900">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
-    <div class="relative h-full flex items-center justify-center text-center px-4">
-      <div class="max-w-3xl">
-        <p class="text-amber-300 text-sm sm:text-base font-semibold tracking-widest uppercase">Welcome to</p>
-        <h1 id="hero-heading" class="mt-2 text-white text-3xl sm:text-5xl font-extrabold drop-shadow-lg">
-          Vidyasagar Arts College (VAC)
-        </h1>
-        <p class="text-white/90 mt-4 text-base sm:text-lg leading-relaxed">
-          Empowering through education in Khairi (Bijewada), Ramtek — fostering academic excellence and holistic development.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3 justify-center">
-          <a href="#programs" class="btn-maroon inline-flex items-center justify-center">Explore Programs</a>
-          <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 text-white font-semibold rounded-full border border-white/80 backdrop-blur bg-white/10 transition hover:bg-white/20">
-            Get in Touch
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <main id="top">
     <!-- Hero / Top Section -->
     <section class="container mx-auto px-4 py-8">
       <div class="flex flex-col items-center text-center">
         <img src="assets/logo-vac.svg" alt="Vidyasagar Arts College logo" class="w-24 h-24 mb-4 rounded-full" loading="lazy" width="96" height="96">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-maroon tracking-tight" data-i18n="collegeName">Vidyasagar Arts College</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-maroon tracking-tight" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</h2>
         <p class="mt-2 text-lg text-gray-600" data-i18n="tagline">Affiliated to R.T.M. Nagpur University, Nagpur</p>
         <p class="text-sm text-gray-500" data-i18n="accreditation">NAAC Accredited At 'B' Grade, CGPA - 2.20</p>
       </div>
@@ -456,7 +446,7 @@
   <footer class="bg-maroon text-white py-12">
     <div class="container mx-auto px-4 text-center">
       <div class="mb-4">
-        <h4 class="text-2xl font-bold mb-2" data-i18n="footerCollegeName">Vidyasagar Arts College</h4>
+        <h4 class="text-2xl font-bold mb-2" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</h4>
         <p class="text-sm text-gray-300" data-i18n="footerAddress">Empowering through Education | Khairi (Bijewada), Ramtek, Maharashtra</p>
       </div>
       <p class="text-sm text-gray-400" data-i18n="footerCopyright">&copy; 2025 Vidyasagar Arts College. All rights reserved.</p>
@@ -469,16 +459,17 @@
     const content = {
       en: {
         htmlTitle: "Vidyasagar Arts College (VAC) - Nurturing Excellence",
-        collegeName: "Vidyasagar Arts College",
-        coBrandTitle: "Vidyasagar Arts College (VAC)",
         coBrandSub: "A Constituent Institution of Vidyasagar Education Society (VES), Ramtek",
         aboutUs: "About Us",
         principalsMessage: "Principal's Message",
         programs: "Programs",
         newsEvents: "News & Events",
         contact: "Contact",
+        welcomeText: "Welcome to",
         tagline: "Affiliated to R.T.M. Nagpur University, Nagpur",
         accreditation: "NAAC Accredited At 'B' Grade, CGPA - 2.20",
+        explorePrograms: "Explore Programs",
+        getInTouch: "Get in Touch",
         secretaryName: "Smt. Anita Jaiswal",
         secretaryRole: "Secretary, VES",
         presidentName: "Adv. Ashish Jaiswal",
@@ -500,7 +491,6 @@
         emailLabel: "Email Address",
         messageLabel: "Message",
         sendMessageBtn: "Send Message",
-        footerCollegeName: "Vidyasagar Arts College",
         footerAddress: "Empowering through Education | Khairi (Bijewada), Ramtek, Maharashtra",
         // Static News (Edit items as needed)
         newsItems: [
@@ -529,16 +519,17 @@
       },
       mr: {
         htmlTitle: "विद्यासागर कला महाविद्यालय (VAC) - उत्कृष्टतेचा ध्यास",
-        collegeName: "विद्यासागर कला महाविद्यालय",
-        coBrandTitle: "विद्यासागर कला महाविद्यालय (VAC)",
         coBrandSub: "विद्यासागर एज्युकेशन सोसायटी (VES), रामटेकचे घटक संस्थान",
         aboutUs: "आमच्याबद्दल",
         principalsMessage: "प्राचार्यांचा संदेश",
         programs: "अभ्यासक्रम",
         newsEvents: "बातम्या आणि कार्यक्रम",
         contact: "संपर्क",
+        welcomeText: "स्वागत आहे",
         tagline: "रा.तु.म. नागपूर विद्यापीठाशी संलग्न",
         accreditation: "एनएएसी मान्यता 'बी' ग्रेड, सीजीपीए - २.२०",
+        explorePrograms: "अभ्यासक्रम पहा",
+        getInTouch: "संपर्क साधा",
         secretaryName: "श्रीमती अनिता जायस्वाल",
         secretaryRole: "सचिव, व्ही.ई.एस.",
         presidentName: "ऍड. आशिष जयस्वाल",
@@ -560,7 +551,6 @@
         emailLabel: "ईमेल पत्ता",
         messageLabel: "संदेश",
         sendMessageBtn: "संदेश पाठवा",
-        footerCollegeName: "विद्यासागर कला महाविद्यालय",
         footerAddress: "शिक्षणाद्वारे सबलीकरण | खैरी (बिजेवाडा), रामटेक, महाराष्ट्र",
         newsItems: [
           { title: "प्रवेश सुरू (2025-26)", date: "2025-06-01", content: "बी.ए. अभ्यासक्रमासाठी अर्ज आमंत्रित. तपशीलांसाठी कार्यालयात संपर्क करा." },
@@ -582,16 +572,17 @@
       },
       hi: {
         htmlTitle: "विद्यासागर कला महाविद्यालय (VAC) - उत्कृष्टता का संवर्धन",
-        collegeName: "विद्यासागर कला महाविद्यालय",
-        coBrandTitle: "विद्यासागर कला महाविद्यालय (VAC)",
         coBrandSub: "विद्यासागर एजुकेशन सोसाइटी (VES), रामटेक का एक संस्थान",
         aboutUs: "हमारे बारे में",
         principalsMessage: "प्राचार्य का संदेश",
         programs: "कार्यक्रम",
         newsEvents: "समाचार और कार्यक्रम",
         contact: "संपर्क",
+        welcomeText: "आपका स्वागत है",
         tagline: "रा.तु.म. नागपुर विश्वविद्यालय से संबद्ध",
         accreditation: "NAAC से 'बी' ग्रेड मान्यता, CGPA - 2.20",
+        explorePrograms: "कार्यक्रम देखें",
+        getInTouch: "संपर्क करें",
         secretaryName: "श्रीमती अनिता जायसवाल",
         secretaryRole: "सचिव, वी.ई.एस.",
         presidentName: "अधिवक्ता आशीष जायसवाल",
@@ -613,7 +604,6 @@
         emailLabel: "ईमेल पता",
         messageLabel: "संदेश",
         sendMessageBtn: "संदेश भेजें",
-        footerCollegeName: "विद्यासागर कला महाविद्यालय",
         footerAddress: "शिक्षा के माध्यम से सशक्तिकरण | खैरी (बिजवाड़ा), रामटेक, महाराष्ट्र",
         newsItems: [
           { title: "प्रवेश खुले (2025-26)", date: "2025-06-01", content: "बी.ए. कार्यक्रमों के लिए आवेदन आमंत्रित। विवरण के लिए कार्यालय आएं।" },
@@ -636,24 +626,51 @@
     };
 
     let currentLang = 'en';
+    const NON_TRANSLATABLE_KEYS = new Set([
+      'collegeName',
+      'coBrandTitle',
+      'footerCollegeName'
+    ]);
 
-    // ===== Render helpers =====
-    function updateContent(lang) {
-      currentLang = lang;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (content[lang][key]) el.textContent = content[lang][key];
+    const i18nResources = Object.keys(content).reduce((acc, lng) => {
+      const strings = {};
+      Object.entries(content[lng] || {}).forEach(([key, val]) => {
+        if (NON_TRANSLATABLE_KEYS.has(key)) return;
+        if (typeof val === 'string') strings[key] = val;
       });
+      acc[lng] = { translation: strings };
+      return acc;
+    }, {});
+
+    function applyTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        if (el.hasAttribute('data-no-translate')) return;
+        const key = el.getAttribute('data-i18n');
+        const translated = i18next.t(key);
+        if (translated) el.textContent = translated;
+      });
+
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (content[lang][key]) el.placeholder = content[lang][key];
+        const translated = i18next.t(key);
+        if (translated) el.placeholder = translated;
       });
+
       const titleEl = document.querySelector('title[data-i18n="htmlTitle"]');
-      if (titleEl && content[lang].htmlTitle) {
-        titleEl.textContent = content[lang].htmlTitle;
+      if (titleEl) {
+        const translatedTitle = i18next.t('htmlTitle');
+        if (translatedTitle) titleEl.textContent = translatedTitle;
       }
-      renderNews();
-      renderFAQ();
+    }
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      i18next.changeLanguage(lang).then(() => {
+        applyTranslations();
+        renderNews();
+        renderFAQ();
+        resetPaperNews();
+      });
     }
 
     function renderNews() {
@@ -849,6 +866,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // ===== Events =====
     document.addEventListener('DOMContentLoaded', () => {
+      i18next.init({
+        lng: currentLang,
+        fallbackLng: 'en',
+        resources: i18nResources,
+        interpolation: { escapeValue: false }
+      }).then(() => {
+        applyTranslations();
+        renderNews();
+        renderFAQ();
+        resetPaperNews();
+      });
+
       // Smooth anchors
       document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function(e){
@@ -867,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Language switching
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => updateContent(btn.getAttribute('data-lang')));
+        btn.addEventListener('click', () => changeLanguage(btn.getAttribute('data-lang')));
       });
 
       // Q&A search
@@ -876,18 +905,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const qaClear = document.getElementById('qa-clear');
       qaSearch?.addEventListener('input', () => renderFAQ(qaSearch.value));
       qaClear?.addEventListener('click', () => { qaSearch.value = ''; renderFAQ(''); });
-
-      // Initial paint
-      updateContent('en');
-
-      // When language changes, re-render paged news too
-      const origUpdateContent = updateContent;
-      updateContent = function(lang) {
-        origUpdateContent(lang);
-        resetPaperNews();
-      };
-
-      resetPaperNews();
 
       // Infinite scroll for Paper News
       const newsSentinel = document.getElementById('paper-news-sentinel');
