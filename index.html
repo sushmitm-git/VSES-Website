@@ -397,29 +397,34 @@
       <!-- Contact Form -->
       <div class="card p-6">
         <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
-        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/mqagkvla" method="POST">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/xyzqvvqg" method="POST" novalidate>
+          <div class="space-y-1">
+            <label for="name" class="block text-sm font-semibold text-gray-700">Full Name <span class="text-red-600">*</span></label>
+            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="Enter your full name" required />
           </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required />
+          <div class="space-y-1">
+            <label for="mobile" class="block text-sm font-semibold text-gray-700">Mobile Number <span class="text-red-600">*</span></label>
+            <input type="tel" id="mobile" name="mobile" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="e.g., +91 9876543210" pattern="^(\+91[\-\s]?)?[6-9]\d{9}$" required />
+            <p class="text-xs text-gray-500">Please enter a valid Indian mobile number.</p>
           </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition p-2" required></textarea>
+          <div class="space-y-1">
+            <label for="email" class="block text-sm font-semibold text-gray-700">Email Address (optional)</label>
+            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="name@example.com" />
+          </div>
+          <div class="space-y-1">
+            <label for="message" class="block text-sm font-semibold text-gray-700">Message</label>
+            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="How can we help you?" required></textarea>
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="btn-maroon">Send Message</button>
+            <button type="submit" class="btn-maroon w-full sm:w-auto px-6 py-3 text-center">Send Message</button>
           </div>
           <p class="text-xs text-gray-500 mt-2">
             This form securely sends messages to <strong>admissions@vacramtek.org</strong> via Formspree.
           </p>
         </form>
-        <div id="form-success" class="hidden text-green-600 font-semibold text-center mt-4">
-          Thank you for your message — we’ll get back to you soon.
-        </div>
+        <p id="form-success" class="mt-4 rounded-md bg-green-50 p-3 text-center text-sm font-semibold text-green-700 shadow-sm" role="status" aria-live="polite">
+          Success message will appear here after you submit the form.
+        </p>
       </div>
     </div>
   </div>
@@ -905,6 +910,41 @@ document.addEventListener('DOMContentLoaded', () => {
       const qaClear = document.getElementById('qa-clear');
       qaSearch?.addEventListener('input', () => renderFAQ(qaSearch.value));
       qaClear?.addEventListener('click', () => { qaSearch.value = ''; renderFAQ(''); });
+
+      // Contact form submission
+      const contactForm = document.getElementById('contact-form');
+      const contactSuccess = document.getElementById('form-success');
+      contactForm?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+
+        contactSuccess.textContent = 'Submitting your message...';
+        contactSuccess.classList.remove('text-red-700', 'bg-red-50');
+        contactSuccess.classList.add('text-green-700', 'bg-green-50');
+
+        try {
+          const formData = new FormData(contactForm);
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { Accept: 'application/json' }
+          });
+
+          if (response.ok) {
+            contactSuccess.textContent = 'Thank you! Your message has been sent successfully.';
+            contactForm.reset();
+          } else {
+            contactSuccess.textContent = 'Something went wrong. Please try again or email admissions@vacramtek.org directly.';
+            contactSuccess.classList.remove('text-green-700', 'bg-green-50');
+            contactSuccess.classList.add('text-red-700', 'bg-red-50');
+          }
+        } catch (error) {
+          console.error(error);
+          contactSuccess.textContent = 'Unable to send right now. Please try again in a moment.';
+          contactSuccess.classList.remove('text-green-700', 'bg-green-50');
+          contactSuccess.classList.add('text-red-700', 'bg-red-50');
+        }
+      });
 
       // Infinite scroll for Paper News
       const newsSentinel = document.getElementById('paper-news-sentinel');
