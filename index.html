@@ -139,51 +139,54 @@
 
     <main class="pt-8">
         <!-- Main Hero Banner -->
-        <section id="home" class="bg-gradient-to-br from-blue-600 to-blue-800 py-12 md:py-16 shadow-2xl animate-on-scroll text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-8 md:space-y-0">
-                    
-                    <!-- Logo (Left - Larger Version) -->
-                    <div class="w-full md:w-1/4 flex justify-center">
-                         <svg class="w-32 h-32 md:w-40 md:h-40 drop-shadow-2xl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#ffc107" stroke-width="2"/>
-                            <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M50 20L80 35L50 50L20 35L50 20Z" fill="#ffc107" stroke="#343a40" stroke-width="2"/>
-                            <path d="M80 35V50" stroke="#343a40" stroke-width="2"/>
-                        </svg>
-                    </div>
+        <section id="home" class="animate-on-scroll">
+            <div class="w-full" style="background-color:#7b1e1e;">
+              <div class="container mx-auto px-6 py-12">
 
-                    <!-- College Photo (Center) & Title -->
-                    <div class="w-full md:w-1/2 px-4">
-                        <img src="assets/college-building.jpg" alt="Vidyasagar Kala Mahavidyalaya Campus" class="w-full h-auto rounded-xl shadow-2xl border-4 border-white/20 mb-6 object-cover max-h-64" onerror="this.src='https://placehold.co/700x300/343a40/ffffff?text=Campus+Photo+Missing'">
-                        
-                        <!-- Static Hindi Name (NEVER CHANGES) -->
-                        <div class="mb-2">
-                            <h2 class="text-2xl sm:text-3xl font-bold text-yellow-300 hindi-text tracking-wide">विद्यासागर कला महाविद्यालय</h2>
-                        </div>
-
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold hero-title tracking-tight leading-tight">
-                            <span data-i18n="hero_title_en">Vidyasagar Kala Mahavidyalaya</span>
-                            <span class="block text-xl sm:text-2xl mt-2 font-light text-blue-100" data-i18n="hero_subtitle">(Vidyasagar Arts College - VAC)</span>
-                        </h1>
-                        <p class="text-lg text-blue-100 font-medium mt-3" data-i18n="hero_tagline">Empowering Rural & Tribal Communities near Ramtek</p>
-                    </div>
-
-                    <!-- Founder President Photo (Right) -->
-                    <div class="w-full md:w-1/4 flex justify-center md:justify-end">
-                        <div class="flex flex-col items-center mt-6">
-                            <img
-                                src="assets/photos/staff/founder.jpeg"
-                                alt="Late Dr. Vinodkumaraji Jaiswal"
-                                class="w-40 h-40 rounded-full object-cover shadow-xl border-4 border-yellow-400"
-                            />
-                            <h3 class="text-lg font-bold text-white mt-3" data-i18n="founder_name">
-                                Late Dr. Vinodkumaraji Jaiswal
-                            </h3>
-                            <p class="text-sm text-yellow-300 font-medium" data-i18n="founder_title">Founder President</p>
-                        </div>
-                    </div>
+                <!-- Campus Photo Centered -->
+                <div class="flex justify-center mb-6">
+                  <img src="assets/college-building.jpg"
+                       class="rounded-xl shadow-2xl w-full max-w-2xl object-cover" />
                 </div>
+
+                <!-- Two-column section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-4">
+
+                  <!-- LEFT COLUMN: College information -->
+                  <div class="text-center md:text-left text-white">
+
+                    <h2 class="text-yellow-300 font-bold text-2xl">
+                      विद्यासागर कला महाविद्यालय
+                    </h2>
+
+                    <h1 class="text-4xl font-extrabold mt-2 leading-tight">
+                      Vidyasagar Kala Mahavidyalaya
+                    </h1>
+
+                    <p class="text-lg opacity-80 mt-1">(Vidyasagar Arts College - VAC)</p>
+
+                    <p class="mt-4 text-sm opacity-90">
+                      Empowering Rural & Tribal Communities near Ramtek
+                    </p>
+                  </div>
+
+                  <!-- RIGHT COLUMN: Founder -->
+                  <div class="flex flex-col items-center md:items-start">
+                    <img
+                      src="assets/photos/staff/founder.jpeg"
+                      alt="Late Dr. Vinodkumaraji Jaiswal"
+                      class="w-40 h-40 rounded-full object-cover border-4 border-yellow-400 shadow-xl"
+                    />
+
+                    <h3 class="text-white font-bold text-lg mt-3">
+                      Late Dr. Vinodkumaraji Jaiswal
+                    </h3>
+
+                    <p class="text-yellow-300 text-sm font-medium">Founder President</p>
+                  </div>
+
+                </div>
+              </div>
             </div>
         </section>
 
@@ -240,15 +243,20 @@
                     </div>
                 </div>
                  <!-- Treasurer -->
-                 <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
-                    <div class="flex items-center space-x-4">
-                        <img src="https://placehold.co/100x100/dc3545/ffffff?text=Treasurer" class="w-20 h-20 rounded-full" alt="Treasurer">
-                        <div>
-                             <h3 class="text-lg font-bold text-primary" data-i18n="treasurer_name">Adv. Anup Jaiswal</h3>
-                             <p class="text-sm text-gray-600" data-i18n="treasurer_title">Treasurer</p>
-                             <p class="text-xs text-gray-500 mt-1" data-i18n="treasurer_msg">"Ensuring sustainable growth."</p>
-                        </div>
-                    </div>
+                 <div class="flex flex-col items-center mt-6">
+                  <img
+                    src="assets/photos/staff/treasurer.jpeg"
+                    class="w-36 h-36 rounded-full object-cover border-4 border-yellow-400 shadow-xl"
+                    alt="Adv. Anoop Jaiswal"
+                  />
+
+                  <h3 class="text-lg font-bold text-white mt-3">
+                    Adv. Anoop Jaiswal
+                  </h3>
+
+                  <p class="text-yellow-300 text-sm font-medium">
+                    Treasurer
+                  </p>
                 </div>
             </div>
         </section>
