@@ -52,6 +52,13 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .leadership-card {
+            min-height: 150px;
+        }
+        .leadership-card:hover {
+            transform: translateY(-4px);
+        }
+
         /* Accordion Customization */
         .accordion-button { transition: all 0.3s ease; }
         .accordion-content { transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; max-height: 0; overflow: hidden; }
@@ -148,10 +155,10 @@
             <div class="grid grid-cols-3 gap-4 items-center">
 
               <!-- LEFT: VAC Header Logo -->
-              <div class="flex justify-center">
+              <div class="flex justify-center md:justify-end">
                 <img src="assets/logo-vac.svg"
-                     alt="VAC Logo"
-                     class="w-20 h-20 md:w-24 md:h-24 object-contain" />
+                     alt="VAC Ramtek Logo"
+                     class="h-20 md:h-24 object-contain drop-shadow-lg" />
               </div>
 
               <!-- CENTER: Campus Building -->
@@ -218,50 +225,56 @@
             </div>
 
             <!-- President -->
-            <div class="bg-white p-6 mb-8 rounded-xl shadow-xl border-l-4 border-blue-500 card-hover">
-                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
-                    <img src="https://placehold.co/150x150/007bff/ffffff?text=President" class="w-28 h-28 rounded-full border-4 border-blue-50 shadow-md" alt="President">
-                    <div class="text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-primary"><span data-i18n="president_name">Adv. Ashish Jaiswal</span>
-                            <span class="block md:inline text-base text-gray-600 font-normal" data-i18n="president_title">(President, VES)</span>
-                        </h3>
-                        <p class="text-gray-700 mt-3 leading-relaxed" data-i18n="president_msg">
-                            Our focus remains on academic excellence, character building, and 
-                            empowering first-generation learners through inclusive and quality education.
-                        </p>
-                    </div>
+            <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl border-blue-500">
+              <div class="flex items-center space-x-6">
+                <img src="assets/photos/staff/president.jpeg"
+                     class="w-24 h-24 rounded-full shadow-md border-4 border-blue-100 object-cover"
+                     alt="Adv. Ashish Jaiswal">
+
+                <div>
+                  <h3 class="text-xl font-bold text-primary">Adv. Ashish Jaiswal</h3>
+                  <p class="text-sm text-gray-600">(President, VES)</p>
+                  <p class="text-gray-700 mt-3">
+                    Our focus remains on academic excellence, character building, and empowering
+                    first-generation learners through inclusive and quality education.
+                  </p>
                 </div>
+              </div>
             </div>
 
             <!-- Leadership Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <!-- Secretary -->
-                 <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
-                    <div class="flex items-center space-x-4">
-                        <img src="https://placehold.co/100x100/28a745/ffffff?text=Secretary" class="w-20 h-20 rounded-full" alt="Secretary">
-                        <div>
-                             <h3 class="text-lg font-bold text-primary" data-i18n="secretary_name">Smt. Anita Jaiswal</h3>
-                             <p class="text-sm text-gray-600" data-i18n="secretary_title">Secretary</p>
-                             <p class="text-xs text-gray-500 mt-1" data-i18n="secretary_msg">"Committed to student welfare and safety."</p>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Treasurer -->
-                 <div class="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-yellow-400">
-                  <div class="flex items-center space-x-4">
-                    <img src="assets/photos/staff/treasurer.jpeg"
-                         alt="Adv. Anoop Jaiswal"
-                         class="w-20 h-20 rounded-full object-cover border-4 border-yellow-400 shadow-md" />
+                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl border-green-500">
+                  <div class="flex items-center space-x-6">
+                    <img src="assets/photos/staff/secretary.jpeg"
+                         class="w-24 h-24 rounded-full shadow-md border-4 border-green-100 object-cover"
+                         alt="Smt. Anita Jaiswal">
 
                     <div>
-                      <h3 class="text-xl font-bold text-gray-800">Adv. Anoop Jaiswal</h3>
-                      <p class="text-gray-600 text-sm">(Treasurer)</p>
+                      <h3 class="text-xl font-bold text-primary">Smt. Anita Jaiswal</h3>
+                      <p class="text-sm text-gray-600">(Secretary)</p>
+                      <p class="text-gray-700 mt-3">
+                        Committed to student welfare, safety, and nurturing a positive learning environment.
+                      </p>
                     </div>
                   </div>
+                </div>
+                 <!-- Treasurer -->
+                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl border-yellow-500">
+                  <div class="flex items-center space-x-6">
+                    <img src="assets/photos/staff/treasurer.jpeg"
+                         class="w-24 h-24 rounded-full shadow-md border-4 border-yellow-200 object-cover"
+                         alt="Adv. Anoop Jaiswal">
 
-                  <p class="mt-4 text-gray-700 leading-relaxed">
-                    <!-- Insert Treasurer commentary here once ready -->
-                  </p>
+                    <div>
+                      <h3 class="text-xl font-bold text-primary">Adv. Anoop Jaiswal</h3>
+                      <p class="text-sm text-gray-600">(Treasurer)</p>
+                      <p class="text-gray-700 mt-3">
+                        Ensuring sustainable financial growth and supporting long-term institutional development.
+                      </p>
+                    </div>
+                  </div>
                 </div>
             </div>
         </section>
