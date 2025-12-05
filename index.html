@@ -1,1155 +1,927 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="htmlTitle">Vidyasagar Arts College (VAC) - Nurturing Excellence</title>
-  <meta name="description" content="Vidyasagar Arts College (VAC), a constituent of Vidyasagar Education Society (VES), Ramtek. Affiliated to RTMNU; NAAC ‘B’ (CGPA 2.20).">
-  <meta property="og:title" content="Vidyasagar Arts College (VAC)">
-  <meta property="og:description" content="Affiliated to RTMNU; NAAC ‘B’. Khairi (Bijewada), Ramtek.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/college-building.jpg">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/i18next@22.5.1/i18next.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; color: #333; }
-    .text-maroon { color: #800000; }
-    .bg-maroon { background-color: #800000; }
-    .btn-maroon { background-color: #800000; color: white; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);} 
-    .btn-maroon:hover { background-color: #a00000; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);} 
-    .card { background-color: #fff; border-radius: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05); transition: transform .3s ease, box-shadow .3s ease; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);}
-    .hamburger { display: none; }
-    @media (max-width: 640px) {
-      .hamburger { display: block; }
-      .nav-menu { display: none; }
-      .nav-menu.active { display: flex; }
-    }
-    .running-gallery-container { overflow: hidden; white-space: nowrap; }
-    .photo-gallery { display: flex; width: 400%; height: 100%; }
-    .gallery-image { flex: 0 0 25%; object-fit: cover; }
-    @keyframes slide { 0%,20%{transform:translateX(0)} 25%,45%{transform:translateX(-25%)} 50%,70%{transform:translateX(-50%)} 75%,95%{transform:translateX(-75%)} 100%{transform:translateX(0)} }
-    .photo-gallery { animation: slide 18s infinite; }
-    .photo-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    /* Q&A */
-    details summary { cursor: pointer; }
-    mark { padding: 0 .15rem; border-radius: .2rem; background: #fff59d; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidyasagar Kala Mahavidyalaya (VAC) - Ramtek</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Google Fonts for Hindi/Marathi (Noto Sans Devanagari) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        /* Custom Styles & Animation Definitions */
+        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
+        
+        /* Apply Devanagari font when lang is hi or mr */
+        body.lang-hi, body.lang-mr { font-family: 'Noto Sans Devanagari', 'Inter', sans-serif; }
+
+        .hindi-text { font-family: 'Noto Sans Devanagari', sans-serif; }
+        
+        /* Primary/Accent Colors */
+        .text-primary { color: #007bff; /* Blue */ }
+        .bg-primary { background-color: #007bff; }
+        .border-accent { border-color: #ffc107; /* Gold/Yellow */ } 
+        .text-accent { color: #ffc107; }
+
+        /* Scroll Animation States */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Animation */
+        @keyframes subtle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .hero-title { animation: subtle-bounce 3s infinite alternate ease-in-out; }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Accordion Customization */
+        .accordion-button { transition: all 0.3s ease; }
+        .accordion-content { transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; max-height: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 4000px; padding-top: 1.5rem; padding-bottom: 1.5rem; } 
+        .arrow.rotate-180 { transform: rotate(180deg); }
+
+        .table-custom th, .table-custom td { padding: 0.75rem; border-bottom: 1px solid #dee2e6; text-align: left; }
+        .table-custom th { background-color: #e9ecef; font-weight: 600; color: #343a40; }
+        .milestone-item { position: relative; padding-left: 20px; padding-bottom: 10px; }
+        .milestone-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ffc107; 
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Header -->
-  <header id="top" class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col items-center py-4 space-y-4">
-        <img src="assets/logo-vac.svg" alt="Vidyasagar Arts College crest" class="h-16 w-16 object-contain" loading="lazy" width="64" height="64">
-        <div class="text-center space-y-1">
-          <p class="text-3xl sm:text-4xl font-extrabold text-maroon" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</p>
-          <p class="text-base sm:text-lg text-gray-700" data-no-translate>Vidyasagar Kala Mahavidyalaya, Ramtek</p>
-          <p class="text-sm text-gray-600" data-i18n="coBrandSub">A Constituent Institution of Vidyasagar Education Society (VES), Ramtek</p>
-        </div>
-        <div class="flex w-full flex-col items-center gap-3">
-          <nav id="nav-menu" class="w-full">
-            <ul class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base font-semibold text-maroon">
-              <li><a href="#top" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition">Home</a></li>
-              <li><a href="#about" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition" data-i18n="aboutUs">About</a></li>
-              <li><a href="#courses" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition">Courses</a></li>
-              <li><a href="#admissions" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition">Admissions</a></li>
-              <li><a href="#gallery" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition">Gallery</a></li>
-              <li><a href="#contact" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition" data-i18n="contact">Contact</a></li>
-              <li><a href="prospectus.html" class="rounded-full px-3 py-2 hover:bg-maroon hover:text-white transition">Prospectus (PDF)</a></li>
-            </ul>
-          </nav>
-          <div class="flex space-x-2 text-xs sm:text-sm">
-            <button class="lang-btn bg-maroon text-white font-semibold px-3 py-1 rounded-full" data-lang="en">EN</button>
-            <button class="lang-btn bg-gray-200 text-maroon font-semibold px-3 py-1 rounded-full" data-lang="mr">मराठी</button>
-            <button class="lang-btn bg-gray-200 text-maroon font-semibold px-3 py-1 rounded-full" data-lang="hi">हिंदी</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+<body class="bg-gray-50">
 
-    <main id="main-content">
-    <!-- Hero / Top Section -->
-    <section class="relative h-64 sm:h-72 w-full overflow-hidden">
-      <img src="assets/college-building.jpg" alt="Vidyasagar Kala Mahavidyalaya campus" class="absolute inset-0 h-full w-full object-cover" loading="lazy" width="1200" height="480">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-black/40"></div>
-      <div class="relative h-full flex items-center justify-center">
-        <div class="text-center text-white px-4 space-y-3">
-          <p class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase" data-i18n="welcomeText">Welcome to</p>
-          <p class="text-3xl sm:text-4xl md:text-5xl font-extrabold" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</p>
-          <p class="text-base sm:text-lg text-white/90" data-no-translate>Vidyasagar Kala Mahavidyalaya, Ramtek</p>
-          <p class="max-w-3xl mx-auto text-sm sm:text-base text-white/80" data-i18n="tagline">Empowering through education in Khairi (Bijewada), Ramtek — fostering academic excellence and holistic development.</p>
-          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <a href="#courses" class="inline-flex items-center justify-center rounded-full bg-maroon px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-maroon/90" data-i18n="explorePrograms">Explore Programs</a>
-            <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-white/70 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20" data-i18n="getInTouch">Get in Touch</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="container mx-auto px-4 py-8" id="gallery">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card p-6 text-center">
-          <img src="https://placehold.co/150x150/cccccc/333?text=Secretary" alt="Portrait of Secretary Smt. Anita Jaiswal" class="rounded-full w-24 h-24 mx-auto mb-4" width="150" height="150" />
-          <h3 class="font-bold text-lg text-maroon" data-i18n="secretaryName">Smt. Anita Jaiswal</h3>
-          <p class="text-gray-600" data-i18n="secretaryRole">Secretary, VES</p>
-        </div>
-        <div class="card p-6 flex flex-col items-center">
-          <h3 class="font-bold text-lg text-maroon mb-4" data-i18n="runningGalleryTitle">Running Photo Gallery</h3>
-          <div class="running-gallery-container w-full h-64 overflow-hidden rounded-xl shadow-lg">
-            <div class="photo-gallery h-full">
-              <img src="assets/college-building.jpg" class="gallery-image" alt="Vidyasagar Arts College campus exterior" width="400" height="256" />
-              <img src="https://placehold.co/400x256/b0b0b0/fff?text=Campus" class="gallery-image" alt="Students walking through campus pathways" width="400" height="256" />
-              <img src="https://placehold.co/400x256/c0c0c0/fff?text=Library" class="gallery-image" alt="Library hall with study desks" width="400" height="256" />
-              <img src="https://placehold.co/400x256/d0d0d0/fff?text=Event" class="gallery-image" alt="Cultural event on college stage" width="400" height="256" />
+    <!-- Sticky Header & Navigation -->
+    <header class="sticky top-0 z-50 shadow-lg bg-white/95 backdrop-blur-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo: UPDATED TO VAC RAMTEK -->
+                <a href="#home" class="flex items-center space-x-3 transition-colors hover:text-blue-700" onclick="scrollToSection('home')">
+                    <svg class="w-12 h-12 text-primary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#007bff" stroke-width="4"/>
+                        <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M50 20L80 35L50 50L20 35L50 20Z" fill="#ffc107" stroke="#343a40" stroke-width="2"/>
+                        <path d="M80 35V50" stroke="#343a40" stroke-width="2"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold text-primary leading-none">VAC</span>
+                        <span class="text-xs font-semibold text-gray-600 tracking-wider">RAMTEK</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 font-medium text-sm lg:text-base cursor-pointer">
+                    <a class="hover:text-primary transition duration-200" onclick="scrollToSection('leadership')" data-i18n="nav_leadership">Leadership</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('glance')" data-i18n="nav_glance">At a Glance</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('programmes')" data-i18n="nav_programmes">Programmes</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('achievements')" data-i18n="nav_achievements">Achievements</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('governance')" data-i18n="nav_governance">Governance</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('cca')" data-i18n="nav_cca">CCA</a>
+                    <a class="hover:text-primary transition duration-200" onclick="scrollToSection('contact')" data-i18n="nav_contact">Contact</a>
+                    
+                    <!-- Language Selector -->
+                    <select id="lang-selector" onchange="changeLanguage(this.value)" class="ml-4 bg-gray-100 border border-gray-300 text-gray-700 py-1 px-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <!-- Mobile Lang Selector -->
+                    <select onchange="changeLanguage(this.value)" class="mr-3 bg-gray-100 border border-gray-300 text-gray-700 py-1 px-1 rounded text-xs">
+                        <option value="en">EN</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="mr">मराठी</option>
+                    </select>
+                    <button id="mobile-menu-btn" class="p-2 text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
             </div>
-          </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-gray-100 cursor-pointer">
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="scrollToSection('leadership'); closeMobileMenu()" data-i18n="nav_leadership">Leadership Messages</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="openAccordion('glance'); closeMobileMenu()" data-i18n="nav_glance">College at a Glance</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="openAccordion('programmes'); closeMobileMenu()" data-i18n="nav_programmes">Programmes</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="openAccordion('achievements'); closeMobileMenu()" data-i18n="nav_achievements">Achievements</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="openAccordion('governance'); closeMobileMenu()" data-i18n="nav_governance">Governance</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="openAccordion('cca'); closeMobileMenu()" data-i18n="nav_cca">CCA Activities</a>
+            <a class="block py-3 px-4 text-gray-700 hover:bg-blue-50" onclick="scrollToSection('contact'); closeMobileMenu()" data-i18n="nav_contact">Contact Us</a>
         </div>
-        <div class="card p-6 text-center">
-          <img src="https://placehold.co/150x150/cccccc/333?text=President" alt="Portrait of President Adv. Ashish Jaiswal" class="rounded-full w-24 h-24 mx-auto mb-4" width="150" height="150" />
-          <h3 class="font-bold text-lg text-maroon" data-i18n="presidentName">Adv. Ashish Jaiswal</h3>
-          <p class="text-gray-600" data-i18n="presidentRole">President, VES</p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- Principal's Message -->
-<section class="container mx-auto px-4 py-8" id="principal">
-  <div class="max-w-5xl mx-auto card p-6">
-    <div class="grid md:grid-cols-[220px,1fr] gap-6 items-start">
-      <img src="assets/photos/staff/principal.jpg" alt="Principal"
-           class="w-full h-56 object-cover rounded-xl shadow-sm md:h-full"
-           onerror="this.src='assets/college-building.jpg'">
-      <div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-2" data-i18n="principalsMessage">Principal's Message</h2>
-        <p class="text-gray-700 leading-relaxed">
-          Welcome to Vidyasagar Arts College. We are committed to academic excellence and holistic
-          development with a special focus on learners from rural and underprivileged communities.
-        </p>
-        <p class="text-gray-700 mt-3 font-semibold">— Dr. S. R. Somkuwar, Principal</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <main class="pt-8">
+        <!-- Main Hero Banner -->
+        <section id="home" class="bg-gradient-to-br from-blue-600 to-blue-800 py-12 md:py-16 shadow-2xl animate-on-scroll text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-8 md:space-y-0">
+                    
+                    <!-- Logo (Left - Larger Version) -->
+                    <div class="w-full md:w-1/4 flex justify-center">
+                         <svg class="w-32 h-32 md:w-40 md:h-40 drop-shadow-2xl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#ffc107" stroke-width="2"/>
+                            <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M50 20L80 35L50 50L20 35L50 20Z" fill="#ffc107" stroke="#343a40" stroke-width="2"/>
+                            <path d="M80 35V50" stroke="#343a40" stroke-width="2"/>
+                        </svg>
+                    </div>
 
-    <!-- Leadership Messages -->
-    <section class="container mx-auto px-4 py-12" id="leadership">
-      <div class="max-w-6xl mx-auto text-center space-y-3 mb-10">
-        <p class="text-sm font-semibold tracking-wide text-maroon uppercase">Leadership Messages</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Guiding Vision of Vidyasagar Education Society</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">Inspirational thoughts from the leadership team steering Vidyasagar Education Society with dedication, transparency, and a commitment to empowering students.</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <!-- Founder President -->
-        <article class="group bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl flex flex-col">
-          <div class="h-2 w-full bg-gradient-to-r from-[#7a1f1f] to-[#be3144]"></div>
-          <div class="p-6 flex flex-col gap-4 flex-1">
-            <div class="h-48 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-100 flex items-center justify-center text-gray-400 text-sm font-semibold">Photo</div>
-            <div class="space-y-1">
-              <h3 class="text-xl font-bold text-gray-900" data-no-translate>Late Dr. Vinodkumar Jaiswal</h3>
-              <p class="text-sm font-semibold text-maroon" data-no-translate>Founder President</p>
+                    <!-- College Photo (Center) & Title -->
+                    <div class="w-full md:w-1/2 px-4">
+                        <img src="assets/campus.jpg" alt="Vidyasagar Kala Mahavidyalaya Campus" class="w-full h-auto rounded-xl shadow-2xl border-4 border-white/20 mb-6 object-cover max-h-64" onerror="this.src='https://placehold.co/700x300/343a40/ffffff?text=Campus+Photo+Missing'">
+                        
+                        <!-- Static Hindi Name (NEVER CHANGES) -->
+                        <div class="mb-2">
+                            <h2 class="text-2xl sm:text-3xl font-bold text-yellow-300 hindi-text tracking-wide">विद्यासागर कला महाविद्यालय</h2>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold hero-title tracking-tight leading-tight">
+                            <span data-i18n="hero_title_en">Vidyasagar Kala Mahavidyalaya</span>
+                            <span class="block text-xl sm:text-2xl mt-2 font-light text-blue-100" data-i18n="hero_subtitle">(Vidyasagar Arts College - VAC)</span>
+                        </h1>
+                        <p class="text-lg text-blue-100 font-medium mt-3" data-i18n="hero_tagline">Empowering Rural & Tribal Communities near Ramtek</p>
+                    </div>
+
+                    <!-- Founder President Photo (Right) -->
+                    <div class="w-full md:w-1/4 flex flex-col items-center">
+                        <img src="assets/founder.jpg" alt="Late Dr. Vinodkumaraji Jaiswal" class="w-40 h-40 rounded-full shadow-2xl border-4 border-yellow-400 object-cover transition-transform duration-300 hover:scale-105" onerror="this.src='https://placehold.co/150x150/ffc107/343a40?text=Founder'">
+                        <p class="mt-3 font-semibold text-yellow-300" data-i18n="founder_name">Late Dr. Vinodkumaraji Jaiswal</p>
+                        <p class="text-xs text-blue-200" data-i18n="founder_title">Founder President</p>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-700 leading-relaxed text-sm">Founded with a mission to bring higher education to rural and tribal communities, Dr. Vinodkumar Jaiswal believed that true education shapes confidence, values, and leadership. His vision transformed Vidyasagar Kala Mahavidyalaya into a trusted institution empowering underprivileged youth to rise with dignity and purpose.</p>
-            <div class="pt-2">
-              <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md bg-gradient-to-r from-[#7a1f1f] to-[#be3144] transition hover:shadow-lg">Read Full Message</a>
+        </section>
+
+        <!-- Leadership Commentary Section -->
+        <section id="leadership" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-on-scroll">
+            <h2 class="text-3xl font-extrabold text-primary mb-8 text-center border-b-2 border-gray-200 pb-4" data-i18n="section_leadership">Leadership Commentary</h2>
+
+            <!-- Founder -->
+            <div class="bg-white p-6 mb-8 rounded-xl shadow-xl border-l-4 border-yellow-400 card-hover">
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+                    <img src="assets/founder.jpg" class="w-32 h-32 rounded-full border-4 border-yellow-100 shadow-md object-cover" alt="Founder" onerror="this.src='https://placehold.co/150x150/ffc107/343a40?text=Founder'">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-primary"><span data-i18n="founder_name">Late Dr. Vinodkumaraji Jaiswal</span>
+                            <span class="block md:inline text-base text-gray-600 font-normal" data-i18n="founder_title">(Founder President)</span>
+                        </h3>
+                        <p class="text-gray-700 mt-3 leading-relaxed" data-i18n="founder_msg">
+                            Vidyasagar Education Society was founded with the belief that education
+                            should reach rural and tribal communities with dignity, accessibility and 
+                            affordability. His vision continues to guide the mission of the college.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
 
-        <!-- President -->
-        <article class="group bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl flex flex-col">
-          <div class="h-2 w-full bg-gradient-to-r from-[#7a1f1f] to-[#be3144]"></div>
-          <div class="p-6 flex flex-col gap-4 flex-1">
-            <div class="h-48 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-100 flex items-center justify-center text-gray-400 text-sm font-semibold">Photo</div>
-            <div class="space-y-1">
-              <h3 class="text-xl font-bold text-gray-900" data-no-translate>Adv. Ashish Nandkishor Jaiswal</h3>
-              <p class="text-sm font-semibold text-maroon" data-no-translate>President</p>
+            <!-- President -->
+            <div class="bg-white p-6 mb-8 rounded-xl shadow-xl border-l-4 border-blue-500 card-hover">
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+                    <img src="https://placehold.co/150x150/007bff/ffffff?text=President" class="w-28 h-28 rounded-full border-4 border-blue-50 shadow-md" alt="President">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-primary"><span data-i18n="president_name">Adv. Ashish Jaiswal</span>
+                            <span class="block md:inline text-base text-gray-600 font-normal" data-i18n="president_title">(President, VES)</span>
+                        </h3>
+                        <p class="text-gray-700 mt-3 leading-relaxed" data-i18n="president_msg">
+                            Our focus remains on academic excellence, character building, and 
+                            empowering first-generation learners through inclusive and quality education.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-700 leading-relaxed text-sm">The college has evolved into a dynamic centre of learning dedicated to accessible and values-based education. Embracing both tradition and modernity, the institution continues to empower rural and tribal youth through academic excellence and holistic development.</p>
-            <div class="pt-2">
-              <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md bg-gradient-to-r from-[#7a1f1f] to-[#be3144] transition hover:shadow-lg">Read Full Message</a>
+
+            <!-- Leadership Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <!-- Secretary -->
+                 <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/100x100/28a745/ffffff?text=Secretary" class="w-20 h-20 rounded-full" alt="Secretary">
+                        <div>
+                             <h3 class="text-lg font-bold text-primary" data-i18n="secretary_name">Smt. Anita Jaiswal</h3>
+                             <p class="text-sm text-gray-600" data-i18n="secretary_title">Secretary</p>
+                             <p class="text-xs text-gray-500 mt-1" data-i18n="secretary_msg">"Committed to student welfare and safety."</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Treasurer -->
+                 <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://placehold.co/100x100/dc3545/ffffff?text=Treasurer" class="w-20 h-20 rounded-full" alt="Treasurer">
+                        <div>
+                             <h3 class="text-lg font-bold text-primary" data-i18n="treasurer_name">Adv. Anup Jaiswal</h3>
+                             <p class="text-sm text-gray-600" data-i18n="treasurer_title">Treasurer</p>
+                             <p class="text-xs text-gray-500 mt-1" data-i18n="treasurer_msg">"Ensuring sustainable growth."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
+        </section>
 
-        <!-- Secretary -->
-        <article class="group bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl flex flex-col">
-          <div class="h-2 w-full bg-gradient-to-r from-[#7a1f1f] to-[#be3144]"></div>
-          <div class="p-6 flex flex-col gap-4 flex-1">
-            <div class="h-48 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-100 flex items-center justify-center text-gray-400 text-sm font-semibold">Photo</div>
-            <div class="space-y-1">
-              <h3 class="text-xl font-bold text-gray-900" data-no-translate>Mrs. Anita Vinodkumar Jaiswal</h3>
-              <p class="text-sm font-semibold text-maroon" data-no-translate>Secretary</p>
+        <!-- Dynamic Content Sections -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <!-- Notice Board & Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Notice Board -->
+                <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-red-500 card-hover animate-on-scroll">
+                    <h2 class="text-2xl font-bold text-red-600 mb-4 flex items-center">
+                        <i class="fas fa-bullhorn mr-3"></i> <span data-i18n="notice_board_title">Notice Board</span>
+                    </h2>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700 font-medium transition-colors">New Student Enrollment 2024-25 is Open <span class="text-xs ml-1 bg-yellow-400 text-gray-800 px-2 py-0.5 rounded-full">NEW</span></a></li>
+                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">University Exam Time Table for BA Part III Announced</a></li>
+                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">IQAC Meeting Scheduled on 15th December</a></li>
+                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">NSS Special Camp Announcement (Mandatory Attendance)</a></li>
+                    </ul>
+                    <a href="#" class="mt-4 inline-block text-sm text-red-600 hover:text-red-800 font-semibold transition-colors" data-i18n="view_all_notices">View All Notices →</a>
+                </div>
+
+                <!-- Running Photo Gallery -->
+                <div class="bg-white p-6 rounded-xl shadow-xl md:col-span-2 border-t-4 border-primary card-hover animate-on-scroll">
+                    <h2 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                        <i class="fas fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span>
+                    </h2>
+                    <div id="random-gallery-container" class="flex space-x-4 overflow-x-auto p-2 scroll-smooth">
+                        <!-- JS will inject randomized photos here from /assets/gallery/ -->
+                        <p class="text-sm text-gray-500 italic">Loading gallery...</p>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-700 leading-relaxed text-sm">Since 1999, the college has remained committed to providing quality higher education to tribal and rural students. Recognized under UGC 2(f)/12(B), it focuses on discipline, creativity, leadership, and the holistic development of every learner.</p>
-            <div class="pt-2">
-              <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md bg-gradient-to-r from-[#7a1f1f] to-[#be3144] transition hover:shadow-lg">Read Full Message</a>
+
+            <!-- Content Accordion Sections -->
+            <div id="accordion-container" class="space-y-6">
+                <!-- 1. Principal's Message -->
+                <div id="principal" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('principal-content')">
+                        <span data-i18n="principal_msg_title">Principal's Message</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="principal-content" class="accordion-content p-0">
+                        <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6">
+                            <img src="https://placehold.co/120x120/007bff/ffffff?text=Principal" alt="Principal" class="rounded-full flex-shrink-0 shadow-md border-2 border-primary">
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary"><span data-i18n="principal_name">Dr. Suresh Somkuwar</span> <span class="text-base font-semibold text-gray-600" data-i18n="principal_title">(Principal)</span></h3>
+                                <p class="text-gray-700 italic mt-1" data-i18n="principal_quote">"We encourage every student to utilize the college's resources—from our well-equipped library to our diverse co-curricular activities—to shape a bright future."</p>
+                                <p class="mt-3 text-sm text-gray-600" data-i18n="principal_text">Our institution is dedicated to fostering academic rigor, critical thinking, and social responsibility. We believe in 'Not Me, But You' and strive to instill this spirit of selfless service in our community.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. College at a Glance (Expanded) -->
+                <div id="glance" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('glance-content')">
+                        <span data-i18n="section_glance">Vidyasagar College at a Glance: Facts & Milestones</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="glance-content" class="accordion-content p-0">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4 text-primary" data-i18n="key_stats">Key Statistics</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 font-medium">
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_est">Established:</strong> 9 August 1999</li>
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_area">Campus Area:</strong> 3.5 Acre</li>
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_level">Levels:</strong> UG (B.A., Nursing), PG (M.A.)</li>
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_books">Library Books:</strong> 2,896+</li>
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_teaching">Teaching Staff:</strong> 08</li>
+                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_nonteaching">Non-Teaching Staff:</strong> 08</li>
+                            </ul>
+                             <h3 class="text-2xl font-bold mt-6 mb-4 text-primary" data-i18n="milestones">Institutional Milestones</h3>
+                            <div class="space-y-3 relative text-gray-700">
+                                <div class="milestone-item"><span class="font-bold text-gray-900">1998:</span> Establishment of Vidyasagar Education Society, Ramtek.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">August 1999:</span> Est. of Vidyasagar Kala Mahavidyalaya Khairi (Bijewada).</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2002:</span> Introduction of N.S.S. Unit.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2003:</span> 1st Gold Medal in University Convocation (17 medals since).</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2006:</span> Introduction of YCMOU Centre.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2014:</span> Shifted to own building & Campus; Permanent Affiliation to RTMNU.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2015:</span> Included under section 2(f) and 12(B) of UGC Act.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2018:</span> Accredited with 'B' Grade (CGPA 2.20) by NAAC.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2021-22:</span> PG Courses in Marathi & Sociology.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2022-23:</span> Construction of Auditorium & Building Expansion.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2024-25:</span> Late Dr. Vinodkumaraji Jaiswal Nursing Institute.</div>
+                                <div class="milestone-item"><span class="font-bold text-gray-900">2025-26:</span> Vidyasagar Police Academy & Competitive Exam Center.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- 3. Programmes -->
+                <div id="programmes" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('programmes-content')">
+                        <span data-i18n="section_programmes">Programmes & Career Pathways</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="programmes-content" class="accordion-content p-0">
+                        <div class="p-6 text-gray-600">
+                            <ul class="list-disc ml-6 space-y-2">
+                                <li>**UG:** Bachelor of Arts (B.A.), Nursing Institute</li>
+                                <li>**PG:** M.A. in Marathi & Sociology</li>
+                            </ul>
+                            <div class="mt-4 p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
+                                <p class="font-extrabold text-red-600 text-lg">Vidyasagar Police Academy</p>
+                                <p class="mt-2">Coaching for Police, Defence, and Govt. job exams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Faculty Snapshot (Restored) -->
+                <div id="faculty" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('faculty-content')">
+                        <span data-i18n="section_faculty">Faculty Snapshot</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="faculty-content" class="accordion-content p-0">
+                         <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Teaching Staff</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                                <!-- Placeholders for Faculty -->
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Sapate" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. G. N. Sapate</p><p class="text-xs text-blue-600">HOD</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Kawathe" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. Jyoti Kawathe</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Mahalle" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. Satish Mahalle</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Pantavane" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. R. Pantavane</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Student Achievements (Restored) -->
+                <div id="achievements" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('achievements-content')">
+                        <span data-i18n="section_achievements">Student's Achievements & Prizes</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="achievements-content" class="accordion-content p-0">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Meritorious Students (Gold Medalists)</h3>
+                            <div class="overflow-x-auto mb-6">
+                                <table class="w-full table-auto table-custom text-sm border">
+                                    <thead><tr><th>Student Name</th><th>Achievement</th><th>Year</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Mr. Narayan J. Kumbhalkar</td><td>Gold Medal in Economics</td><td>2003</td></tr>
+                                        <tr><td>Ku. Pravina A. Somkuwar</td><td>2nd in Order of Merit</td><td>2004</td></tr>
+                                        <tr><td>Ku. Sunita L. Shende</td><td>Shankarrao Doulatrao Gedam Prize</td><td>2006</td></tr>
+                                        <tr><td>Ku. Uma M. Mohankar</td><td>Gold Medal in Economics (UG)</td><td>2008</td></tr>
+                                        <tr><td>Ku. Monali D. Somkuwar</td><td>1 Gold, 1 Silver in Economics</td><td>2010</td></tr>
+                                        <tr><td>Ku. Amrapali Jambhulkar</td><td>Anusayabai Borkar Gold Medal</td><td>2011</td></tr>
+                                        <tr><td>Ku. Manisha S. Piparewar</td><td>Gold Medal in History</td><td>2012</td></tr>
+                                        <tr><td>Ku. Apeksha S. Meshram</td><td>1 Gold, 1 Silver Medal</td><td>2015</td></tr>
+                                        <tr><td>Ku. Dolly Kalamkar</td><td>1 Gold Medal, 1 Prize</td><td>2016</td></tr>
+                                        <tr><td>Ku. Ashwini Gajbhiye</td><td>1 Gold Medal</td><td>2017</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-primary">End Semester Topper Prizes</h3>
+                            <ul class="list-disc ml-5 text-sm text-gray-700 space-y-1">
+                                <li>Late Dr. Vinodkumaraji Jaiswal Memorial Prize (BA I Topper)</li>
+                                <li>Late Shri Rameshji Jaiswal Memorial Prize (BA III Topper)</li>
+                                <li>Ex-MLA Adv. Ashishji Jaiswal Prize (BA III Topper)</li>
+                                <li>Late Pramiladevi Jaiswal Memorial Prize (Marathi Topper)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 6. Governance & IQAC -->
+                <div id="governance" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('governance-content')">
+                        <span data-i18n="section_governance">Governance: Management, CDC & IQAC</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="governance-content" class="accordion-content p-0">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Management Body</h3>
+                            <ul class="list-disc ml-5 space-y-1 text-gray-700 mb-6">
+                                <li>Adv. Ashish Jaiswal (President)</li>
+                                <li>Shri. Sushmit Mazumdar (Vice-President)</li>
+                                <li>Smt. Anita Jaiswal (Secretary)</li>
+                                <li>Adv. Anup Jaiswal (Treasurer)</li>
+                            </ul>
+
+                            <h3 class="text-xl font-bold mb-4 text-primary">College Development Committee (CDC) 2022-2027</h3>
+                            <div class="overflow-x-auto mb-6">
+                                <table class="w-full table-auto table-custom text-sm border shadow-sm">
+                                    <thead><tr><th>Name</th><th>Designation</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Adv. Ashish Jaiswal</td><td>Chairperson (President, VES)</td></tr>
+                                        <tr><td>Smt. Anita Jaiswal</td><td>Member (Secretary, VES)</td></tr>
+                                        <tr><td>Dr. Girish Sapate</td><td>Member (HOD)</td></tr>
+                                        <tr><td>Dr. Ravindra Pantavane</td><td>Teacher Member</td></tr>
+                                        <tr><td>Dr. Jyoti Kawathe</td><td>Teacher Member (Women)</td></tr>
+                                        <tr><td>Dr. Satish Mahalle</td><td>Teacher Member</td></tr>
+                                        <tr><td>Shri Jitendra Badnag</td><td>Non-Teaching Member</td></tr>
+                                        <tr><td>Shri Anil Waghamare</td><td>Member (Industry)</td></tr>
+                                        <tr><td>Shri Rushikesh Kimmatkar</td><td>Member (Social Service)</td></tr>
+                                        <tr><td>Smt. Kalpana Patel</td><td>Member (Education)</td></tr>
+                                        <tr><td>Shri Narayan Kumbhalkar</td><td>Member (Alumni)</td></tr>
+                                        <tr><td>Dr. Sawan Dharmpuriwar</td><td>Member (IQAC Co-ordinator)</td></tr>
+                                        <tr><td>President</td><td>Students’ Council</td></tr>
+                                        <tr><td>Secretary</td><td>Students’ Council</td></tr>
+                                        <tr><td>Dr. Suresh Somkuwar</td><td>Member Secretary (Principal)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="text-xl font-bold mt-6 mb-4 text-primary">IQAC Composition</h3>
+                            <p class="text-gray-700">Chairperson: Dr. Suresh Somkuwar (Principal) <br> Co-ordinator: Dr. Sawan Dharmpuriwar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. CCA Activities (Restored) -->
+                <div id="cca" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('cca-content')">
+                        <span data-i18n="section_cca">Co-Curricular Activities (CCA) & Extension</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="cca-content" class="accordion-content p-0">
+                        <div class="p-6 text-gray-700">
+                            <h4 class="font-bold text-lg text-primary">National Service Scheme (NSS)</h4>
+                            <p class="mb-3">Active unit of 150 volunteers undertaking village adoption, cleanliness drives, and health camps. Motto: "Not Me, But You".</p>
+                            <h4 class="font-bold text-lg text-primary">Adult Literacy</h4>
+                            <p class="mb-3">Dedicated department working to spread literacy among underprivileged sections.</p>
+                            <h4 class="font-bold text-lg text-primary">Blood Donation Camp</h4>
+                            <p>Organized annually on 1st January in memory of Founder President Late Dr. Vinodkumarji Jaiswal.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Treasurer -->
-        <article class="group bg-white rounded-xl shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl flex flex-col">
-          <div class="h-2 w-full bg-gradient-to-r from-[#7a1f1f] to-[#be3144]"></div>
-          <div class="p-6 flex flex-col gap-4 flex-1">
-            <div class="h-48 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-100 flex items-center justify-center text-gray-400 text-sm font-semibold">Photo</div>
-            <div class="space-y-1">
-              <h3 class="text-xl font-bold text-gray-900" data-no-translate>Adv. Anup Vinodkumar Jaiswal</h3>
-              <p class="text-sm font-semibold text-maroon" data-no-translate>Treasurer</p>
+            
+            <!-- Three Column Info: Scholarship, Library, RTI -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_scholarships">Scholarships</h3>
+                    <p class="text-sm text-gray-600">GOI Scholarships for SC/ST/OBC/SBC/VJNT. EBC concessions and Minority scholarships available.</p>
+                 </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500">
+                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_library">Library</h3>
+                    <p class="text-sm text-gray-600">2896+ Books, INFLIBNET access, and a Knowledge Resource Centre with Wi-Fi for research.</p>
+                 </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500">
+                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_rti">RTI</h3>
+                    <p class="text-sm text-gray-600">PIO: Dr. Suresh Somkuwar. <br>Appellate Authority: Adv. Ashish Jaiswal.</p>
+                 </div>
             </div>
-            <p class="text-gray-700 leading-relaxed text-sm">Rooted in its mission of social upliftment, the institution is expanding through smart classrooms, digital learning, e-library, and competitive exam academies. Every initiative is guided by transparency, financial discipline, and the goal of empowering students for a brighter future.</p>
-            <div class="pt-2">
-              <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white rounded-lg shadow-md bg-gradient-to-r from-[#7a1f1f] to-[#be3144] transition hover:shadow-lg">Read Full Message</a>
+
+            <!-- Contact Us Section -->
+            <section id="contact" class="mt-12 p-8 bg-white rounded-xl shadow-2xl animate-on-scroll border-t-8 border-primary">
+                <h2 class="text-3xl font-extrabold text-gray-800 mb-8 text-center" data-i18n="section_contact">Contact Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                            <div><h4 class="font-bold text-gray-800">Our Campus</h4><p class="text-gray-600">Vidyasagar Kala Mahavidyalaya,<br>Khairi (Bijewada), Ramtek, Dist. Nagpur - 441106</p></div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-phone text-xl"></i></div>
+                            <div><h4 class="font-bold text-gray-800">Phone</h4><p class="text-gray-600">+91 123 456 7890</p></div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-envelope text-xl"></i></div>
+                            <div><h4 class="font-bold text-gray-800">Email</h4><p class="text-gray-600">info@vacramtek.org</p></div>
+                        </div>
+                    </div>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); if(this.checkValidity()) alert('Thank you! Message Sent.');">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2" data-i18n="form_name">Your Name</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Name" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">
+                                <span data-i18n="form_mobile">Mobile Number (WhatsApp)</span> <span class="text-red-500">*</span>
+                            </label>
+                            <div class="flex">
+                                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
+                                    +91
+                                </span>
+                                <input type="tel" id="mobile" class="w-full p-3 border border-gray-300 rounded-r-lg focus:ring-primary focus:border-primary" placeholder="10-digit number" pattern="[6-9][0-9]{9}" title="Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9" required>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1" data-i18n="form_mobile_hint">We will contact you via WhatsApp.</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">
+                                <span data-i18n="form_email">Email Address</span> <span class="text-gray-400 font-normal text-sm" data-i18n="form_optional">(Optional)</span>
+                            </label>
+                            <input type="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Email">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2" data-i18n="form_message">Message</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded-lg h-32" placeholder="How can we help?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition duration-300" data-i18n="form_submit">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Detailed Footer (New Addition) -->
+    <footer class="bg-gray-900 text-white mt-12 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Col 1: Vision & Mission -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4" data-i18n="footer_vision_title">Vision & Mission</h3>
+                    <div class="text-gray-400 text-sm space-y-4">
+                        <p><strong class="text-white">Vision:</strong> To provide quality higher education to students from rural and tribal areas, fostering their holistic development and making them responsible citizens.</p>
+                        <p><strong class="text-white">Mission:</strong> To empower students through value-based education, skill development, and social responsibility, ensuring academic excellence and employability.</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Important Links -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4">Institutional</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Mandatory Disclosures</a></li>
+                        <li><a href="#" class="hover:text-white transition">Admission Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition">Prospectus</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Student Support & Legal -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4">Student Support</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Anti-Ragging Cell</a></li>
+                        <li><a href="#" class="hover:text-white transition">Grievance Redressal</a></li>
+                        <li><a href="#" class="hover:text-white transition">RTI Information</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4">Contact</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Vidyasagar Kala Mahavidyalaya<br>
+                        Khairi (Bijewada), Ramtek,<br>
+                        Dist. Nagpur - 441106
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        <i class="fas fa-phone mr-2"></i> +91 123 456 7890<br>
+                        <i class="fas fa-envelope mr-2"></i> info@vacramtek.org
+                    </p>
+                </div>
             </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-
-    <!-- About / Vision / Mission / Quick Links -->
-    <section class="container mx-auto px-4 py-8" id="about">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="col-span-1">
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="noticeBoard">Notice Board</h3>
-            <div id="news-container" class="space-y-4">
-              <!-- Static, editable news items (no backend) -->
+            
+            <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+                <p>&copy; 2024 Vidyasagar Kala Mahavidyalaya. All rights reserved.</p>
+                <p class="mt-1">Affiliated to R.T.M. Nagpur University | NAAC Accredited 'B' Grade</p>
             </div>
-          </div>
         </div>
-        <div class="col-span-1">
-          <div class="card p-6 h-full flex flex-col justify-center text-center">
-            <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="collegeGlanceTitle">College at a Glance</h3>
-            <p class="text-lg leading-relaxed max-w-3xl mx-auto">
-              <span class="font-semibold text-maroon" data-i18n="vision">Vision:</span>
-              <span data-i18n="visionText">To develop the college into a center of excellence in education and to extend the benefits of quality education to the tribal, rural and underprivileged sections of society.</span>
-            </p>
-            <p class="text-lg leading-relaxed mt-4 max-w-3xl mx-auto">
-              <span class="font-semibold text-maroon" data-i18n="mission">Mission:</span>
-              <span data-i18n="missionText">To develop the all-round personality of students and make them better human beings and responsible citizens of India.</span>
-            </p>
-          </div>
-        </div>
-        <div class="col-span-1">
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="quickLinksTitle">Quick Links</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li><a href="#" class="hover:text-maroon transition" data-i18n="libraryLink">Library</a></li>
-              <li><a href="https://nagpuruniversity.ac.in/" target="_blank" class="hover:text-maroon transition">RTMNU</a></li>
-              <li><a href="#" class="hover:text-maroon transition" data-i18n="usefulWebsitesLink">Useful Websites</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- Programs -->
-    <section class="container mx-auto px-4 py-8" id="courses">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Programs</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="text-xl font-semibold text-maroon mb-2">Bachelor of Arts (B.A.)</h3>
-            <p class="text-gray-700">Majors/Minors/Open Electives in: English, English Literature, Marathi, Marathi Literature, Sociology, History, Political Science, Economics.</p>
-          </div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="text-xl font-semibold text-maroon mb-2">Master of Arts (M.A.)</h3>
-            <p class="text-gray-700">M.A. Marathi and M.A. Sociology.</p>
-          </div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="text-xl font-semibold text-maroon mb-2">YCMOU Distance Centre (B.A.)</h3>
-            <p class="text-gray-700">English, Marathi, History, Economics, Sociology, Political Science (Yashwantrao Chavan Maharashtra Open University).</p>
-          </div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="text-xl font-semibold text-maroon mb-2">Nursing – GNMA</h3>
-            <p class="text-gray-700">Late Dr. Vinodkumaraji Jaiswal Nursing Institute – GNMA Course.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <script>
+        // --- TRANSLATION DATA & LOGIC ---
+        
+        const translations = {
+            en: {
+                nav_leadership: "Leadership",
+                nav_glance: "At a Glance",
+                nav_programmes: "Programmes",
+                nav_achievements: "Achievements",
+                nav_governance: "Governance",
+                nav_cca: "CCA",
+                nav_contact: "Contact",
+                hero_title_en: "Vidyasagar Kala Mahavidyalaya",
+                hero_subtitle: "(Vidyasagar Arts College - VAC)",
+                hero_tagline: "Empowering Rural & Tribal Communities near Ramtek",
+                founder_name: "Late Dr. Vinodkumaraji Jaiswal",
+                founder_title: "Founder President",
+                section_leadership: "Leadership Commentary",
+                founder_msg: "Vidyasagar Education Society was founded with the belief that education should reach rural and tribal communities with dignity, accessibility and affordability. His vision continues to guide the mission of the college.",
+                president_name: "Adv. Ashish Jaiswal",
+                president_title: "(President, VES)",
+                president_msg: "Our focus remains on academic excellence, character building, and empowering first-generation learners through inclusive and quality education.",
+                secretary_name: "Smt. Anita Jaiswal",
+                secretary_title: "Secretary",
+                secretary_msg: "\"Committed to student welfare and safety.\"",
+                treasurer_name: "Adv. Anup Jaiswal",
+                treasurer_title: "Treasurer",
+                treasurer_msg: "\"Ensuring sustainable growth.\"",
+                notice_board_title: "Notice Board",
+                view_all_notices: "View All Notices →",
+                gallery_title: "Running Photo Gallery",
+                principal_msg_title: "Principal's Message",
+                principal_name: "Dr. Suresh Somkuwar",
+                principal_title: "(Principal)",
+                principal_quote: "\"We encourage every student to utilize the college's resources—from our well-equipped library to our diverse co-curricular activities—to shape a bright future.\"",
+                principal_text: "Our institution is dedicated to fostering academic rigor, critical thinking, and social responsibility. We believe in 'Not Me, But You' and strive to instill this spirit of selfless service in our community.",
+                section_glance: "Vidyasagar College at a Glance: Facts & Milestones",
+                key_stats: "Key Statistics",
+                stat_est: "Established:",
+                stat_area: "Campus Area:",
+                stat_level: "Levels:",
+                stat_books: "Library Books:",
+                stat_teaching: "Teaching Staff:",
+                stat_nonteaching: "Non-Teaching Staff:",
+                milestones: "Institutional Milestones",
+                section_programmes: "Programmes & Career Pathways",
+                section_faculty: "Faculty Snapshot",
+                faculty_title: "Our Dedicated Teaching Staff",
+                section_achievements: "Student's Achievements & Prizes",
+                section_governance: "Governance: Management, CDC & IQAC",
+                section_cca: "Co-Curricular Activities (CCA) & Extension",
+                footer_scholarships: "Scholarships",
+                footer_library: "Library",
+                footer_rti: "RTI",
+                section_contact: "Contact Us",
+                footer_vision_title: "Vision & Mission",
+                form_name: "Your Name",
+                form_mobile: "Mobile Number (WhatsApp)",
+                form_mobile_hint: "We will contact you via WhatsApp.",
+                form_email: "Email Address",
+                form_optional: "(Optional)",
+                form_message: "Message",
+                form_submit: "Send Message"
+            },
+            hi: {
+                nav_leadership: "नेतृत्व",
+                nav_glance: "एक नज़र",
+                nav_programmes: "कार्यक्रम",
+                nav_achievements: "उपलब्धियां",
+                nav_governance: "शासन",
+                nav_cca: "सीसीए",
+                nav_contact: "संपर्क",
+                hero_title_en: "विद्यासागर कला महाविद्यालय",
+                hero_subtitle: "(विद्यासागर आर्ट्स कॉलेज - VAC)",
+                hero_tagline: "रामटेक के निकट ग्रामीण और आदिवासी समुदायों का सशक्तिकरण",
+                founder_name: "स्वर्गीय डॉ. विनोदकुमारजी जायसवाल",
+                founder_title: "संस्थापक अध्यक्ष",
+                section_leadership: "नेतृत्व टिप्पणी",
+                founder_msg: "विद्यासागर एजुकेशन सोसाइटी की स्थापना इस विश्वास के साथ की गई थी कि शिक्षा ग्रामीण और आदिवासी समुदायों तक गरिमा, सुलभता और किफायती रूप से पहुँचनी चाहिए। उनका दृष्टिकोण कॉलेज के मिशन का मार्गदर्शन करता रहता है।",
+                president_name: "एडवोकेट आशीष जायसवाल",
+                president_title: "(अध्यक्ष, VES)",
+                president_msg: "हमारा ध्यान अकादमिक उत्कृष्टता, चरित्र निर्माण और समावेशी और गुणवत्तापूर्ण शिक्षा के माध्यम से पहली पीढ़ी के शिक्षार्थियों को सशक्त बनाने पर है।",
+                secretary_name: "श्रीमती अनीता जायसवाल",
+                secretary_title: "सचिव",
+                secretary_msg: "\"छात्र कल्याण और सुरक्षा के लिए प्रतिबद्ध।\"",
+                treasurer_name: "एडवोकेट अनूप जायसवाल",
+                treasurer_title: "कोषाध्यक्ष",
+                treasurer_msg: "\"सतत विकास सुनिश्चित करना।\"",
+                notice_board_title: "सूचना पट्ट",
+                view_all_notices: "सभी सूचनाएं देखें →",
+                gallery_title: "फोटो गैलरी",
+                principal_msg_title: "प्राचार्य का संदेश",
+                principal_name: "डॉ. सुरेश सोमकुंवर",
+                principal_title: "(प्राचार्य)",
+                principal_quote: "\"हम प्रत्येक छात्र को कॉलेज के संसाधनों का उपयोग करने के लिए प्रोत्साहित करते हैं - हमारे सुसज्जित पुस्तकालय से लेकर हमारी विविध सह-पाठ्यचर्या गतिविधियों तक - ताकि एक उज्ज्वल भविष्य को आकार दिया जा सके।\"",
+                principal_text: "हमारा संस्थान अकादमिक कठोरता, आलोचनात्मक सोच और सामाजिक जिम्मेदारी को बढ़ावा देने के लिए समर्पित है। हम 'मैं नहीं, बल्कि आप' में विश्वास करते हैं और अपने समुदाय में निस्वार्थ सेवा की इस भावना को पैदा करने का प्रयास करते हैं।",
+                section_glance: "विद्यासागर कॉलेज: तथ्य और मील के पत्थर",
+                key_stats: "मुख्य आंकड़े",
+                stat_est: "स्थापना:",
+                stat_area: "परिसर क्षेत्र:",
+                stat_level: "स्तर:",
+                stat_books: "पुस्तकालय की पुस्तकें:",
+                stat_teaching: "शिक्षण कर्मचारी:",
+                stat_nonteaching: "गैर-शिक्षण कर्मचारी:",
+                milestones: "संस्थागत मील के पत्थर",
+                section_programmes: "कार्यक्रम और करियर पथ",
+                section_faculty: "संकाय स्नैपशॉट",
+                faculty_title: "हमारे समर्पित शिक्षण कर्मचारी",
+                section_achievements: "छात्रों की उपलब्धियां और पुरस्कार",
+                section_governance: "शासन: प्रबंधन, सीडीसी और आईक्यूएसी",
+                section_cca: "सह-पाठ्यचर्या गतिविधियां (सीसीए) और विस्तार",
+                footer_scholarships: "छात्रवृत्ति",
+                footer_library: "पुस्तकालय",
+                footer_rti: "आरटीआई",
+                section_contact: "संपर्क करें",
+                footer_vision_title: "दृष्टि और मिशन",
+                form_name: "आपका नाम",
+                form_mobile: "मोबाइल नंबर (व्हाट्सएप)",
+                form_mobile_hint: "हम आपसे व्हाट्सएप पर संपर्क करेंगे।",
+                form_email: "ईमेल पता",
+                form_optional: "(वैकल्पिक)",
+                form_message: "संदेश",
+                form_submit: "संदेश भेजें"
+            },
+            mr: {
+                nav_leadership: "नेतृत्व",
+                nav_glance: "एका दृष्टीक्षेपात",
+                nav_programmes: "अभ्यासक्रम",
+                nav_achievements: "यश",
+                nav_governance: "प्रशासन",
+                nav_cca: "सीसीए",
+                nav_contact: "संपर्क",
+                hero_title_en: "विद्यासागर कला महाविद्यालय",
+                hero_subtitle: "(विद्यासागर आर्ट्स कॉलेज - VAC)",
+                hero_tagline: "रामटेक जवळील ग्रामीण आणि आदिवासी समुदायांचे सक्षमीकरण",
+                founder_name: "कै. डॉ. विनोदकुमारजी जयस्वाल",
+                founder_title: "संस्थापक अध्यक्ष",
+                section_leadership: "नेतृत्व भाष्य",
+                founder_msg: "विद्यासागर एज्युकेशन सोसायटीची स्थापना या विश्वासाने करण्यात आली होती की शिक्षण ग्रामीण आणि आदिवासी समुदायांपर्यंत सन्मानाने, सहजतेने आणि परवडणाऱ्या दरात पोहोचले पाहिजे. त्यांची दृष्टी महाविद्यालयाच्या मिशनला मार्गदर्शन करत आहे.",
+                president_name: "अॅड. आशिष जयस्वाल",
+                president_title: "(अध्यक्ष, VES)",
+                president_msg: "आमचे लक्ष शैक्षणिक उत्कृष्टता, चारित्र्य निर्माण आणि सर्वसमावेशक आणि दर्जेदार शिक्षणाद्वारे पहिल्या पिढीतील शिकणाऱ्यांना सक्षम करण्यावर आहे.",
+                secretary_name: "श्रीमती अनिता जयस्वाल",
+                secretary_title: "सचिव",
+                secretary_msg: "\"विद्यार्थी कल्याण आणि सुरक्षिततेसाठी वचनबद्ध.\"",
+                treasurer_name: "अॅड. अनूप जयस्वाल",
+                treasurer_title: "कोषाध्यक्ष",
+                treasurer_msg: "\"शाश्वत विकास सुनिश्चित करणे.\"",
+                notice_board_title: "सूचना फलक",
+                view_all_notices: "सर्व सूचना पहा →",
+                gallery_title: "छायाचित्र गॅलरी",
+                principal_msg_title: "प्राचार्यांचा संदेश",
+                principal_name: "डॉ. सुरेश सोमकुंवर",
+                principal_title: "(प्राचार्य)",
+                principal_quote: "\"आम्ही प्रत्येक विद्यार्थ्याला महाविद्यालयाच्या संसाधनांचा वापर करण्यास प्रोत्साहित करतो - आमच्या सुसज्ज ग्रंथालयापासून ते आमच्या विविध सह-अभ्यासक्रम उपक्रमांपर्यंत - उज्ज्वल भविष्य घडवण्यासाठी.\"",
+                principal_text: "आमची संस्था शैक्षणिक कडकपणा, गंभीर विचार आणि सामाजिक जबाबदारी जोपासण्यासाठी समर्पित आहे. आमचा 'मी नाही, पण तू' यावर विश्वास आहे आणि ही निःस्वार्थ सेवेची भावना आमच्या समाजात रुजवण्याचा आमचा प्रयत्न आहे.",
+                section_glance: "विद्यासागर कॉलेज: तथ्ये आणि टप्पे",
+                key_stats: "मुख्य आकडेवारी",
+                stat_est: "स्थापना:",
+                stat_area: "परिसर क्षेत्र:",
+                stat_level: "स्तर:",
+                stat_books: "ग्रंथालय पुस्तके:",
+                stat_teaching: "शिक्षण कर्मचारी:",
+                stat_nonteaching: "शिक्षकेतर कर्मचारी:",
+                milestones: "संस्थात्मक टप्पे",
+                section_programmes: "कार्यक्रम आणि करिअर मार्ग",
+                section_faculty: "प्राध्यापक स्नॅपशॉट",
+                faculty_title: "आमचे समर्पित शिक्षण कर्मचारी",
+                section_achievements: "विद्यार्थ्यांचे यश आणि पारितोषिके",
+                section_governance: "प्रशासन: व्यवस्थापन, सीडीसी आणि आयक्यूएसी",
+                section_cca: "सह-अभ्यासक्रम उपक्रम (सीसीए) आणि विस्तार",
+                footer_scholarships: "शिष्यवृत्ती",
+                footer_library: "ग्रंथालय",
+                footer_rti: "आरटीआय",
+                section_contact: "संपर्क साधा",
+                footer_vision_title: "दृष्टी आणि ध्येय",
+                form_name: "तुमचे नाव",
+                form_mobile: "मोबाईल क्रमांक (व्हॉट्सअॅप)",
+                form_mobile_hint: "आम्ही तुमच्याशी व्हॉट्सअॅपवर संपर्क करू.",
+                form_email: "ईमेल पत्ता",
+                form_optional: "(पर्यायी)",
+                form_message: "संदेश",
+                form_submit: "संदेश पाठवा"
+            }
+        };
 
-    <!-- Scholarships & Concessions -->
-    <section class="container mx-auto px-4 py-8" id="admissions">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Scholarships & Concessions</h2>
-        <ul class="list-disc pl-6 text-gray-700 space-y-2">
-          <li>State Government Scholarship; Government of India National Scholarship</li>
-          <li>Scholarships for SC/ST students</li>
-          <li>EBC concession for economically backward students</li>
-          <li>Open Merit Scholarship for meritorious students (state government)</li>
-          <li>Alumni Association Talent Scholarship</li>
-        </ul>
-      </div>
-    </section>
+        function changeLanguage(lang) {
+            document.body.className = 'lang-' + lang; // Update body class for fonts
+            
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
 
-    <!-- RTI Declaration -->
-    <section class="container mx-auto px-4 py-8" id="rti">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">RTI Declaration</h2>
-        <p class="text-gray-700 mb-3">The institution abides by Section 4(1)(b) of the RTI Act 2005.</p>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="font-semibold text-maroon">Appellate Authority</h3>
-            <p>Dr. Suresh Somkuwar (Principal)</p>
-          </div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="font-semibold text-maroon">Information Officer</h3>
-            <p>Dr. G. N. Sapate (Associate Professor)</p>
-          </div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white">
-            <h3 class="font-semibold text-maroon">Assistant Information Officer</h3>
-            <p>Ku. Kirti Jaiswal (Head Clerk)</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        // --- UPDATED NAVIGATION LOGIC ---
+        
+        // Handle "Scroll To Section"
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerOffset = 100;
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
 
-    <!-- Faculty Snapshot -->
-    <section class="container mx-auto px-4 py-8" id="faculty">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Faculty Snapshot</h2>
-        <p class="text-gray-700 mb-4">Total faculty: 07; Ph.D.: 07; NET/SET: 05; Vacant posts: 02.</p>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. S. R. Somkuwar</h3><p>Principal – Sociology; M.A., Ph.D.</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. G. N. Sapate</h3><p>Associate Professor – Marathi; M.A., M.Phil, Ph.D., NET</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. S. G. Dharmpuriwar</h3><p>Assistant Professor – English; M.A., M.Phil., SET, Ph.D., M.A.(Hindi), B.Ed.</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. J. V. Kawathe</h3><p>Assistant Professor – Political Science; M.Com., M.A.(Pol. Sci.), M.Phil., Ph.D., NET, B.Ed.</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Shri R. T. Pantavane</h3><p>Assistant Professor – English; M.A., M.Phil., SET, B.Ed.</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. S. R. Mahalle</h3><p>Assistant Professor – History; M.A., M.Phil., Ph.D., B.Ed.</p></div>
-          <div class="p-4 rounded-lg border border-gray-200 bg-white"><h3 class="font-semibold text-maroon">Dr. A. A. Thanekar</h3><p>Assistant Professor / Librarian – Library Science; M.Lib., M.A.(Pol. Sci.), Ph.D.</p></div>
-        </div>
-      </div>
-    </section>
+        // Handle "Open Accordion"
+        function openAccordion(contentId) {
+            const content = document.getElementById(contentId + '-content');
+            if (!content) return;
 
-    <!-- Student Achievements -->
-    <section class="container mx-auto px-4 py-8" id="achievements">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Student Achievements & Prizes</h2>
-        <p class="text-gray-700 mb-3">University distinctions across years include Gold Medals and subject prizes in Economics, History, Political Science, Marathi Literature, and more. College endowments recognise toppers in B.A. Parts I–III and subject toppers (Economics, History, Political Science, English Literature, Sociology, ELT), plus awards for Library usage and Sports representation.</p>
-      </div>
-    </section>
+            const button = content.previousElementSibling;
+            const arrow = button.querySelector('.arrow');
 
-    <!-- Governance -->
-    <section class="container mx-auto px-4 py-8" id="governance">
-      <div class="max-w-5xl mx-auto card p-6">
-        <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Governance</h2>
-        <p class="text-gray-700 mb-4">Below are the statutory bodies and annual committees. Click to expand. (You can edit these lists directly in this file.)</p>
+            content.classList.add('open');
+            arrow.classList.add('rotate-180');
+            arrow.textContent = '–';
 
-        <details class="rounded-lg border border-gray-200 bg-white p-4 mb-3">
-          <summary class="font-semibold text-maroon cursor-pointer">College Development Committee (CDC) – 2022–27</summary>
-          <div class="mt-3 text-gray-800">
-            <ul class="list-disc pl-6 space-y-1">
-              <li><strong>Chairperson:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Secretary, VES:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Principal (Member-Secretary):</strong> Dr. S. R. Somkuwar</li>
-              <li><strong>Teachers’ Representatives:</strong> <!-- TODO: Add Names --></li>
-              <li><strong>Educationist/Industrialist/Stakeholder:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Local Members:</strong> <!-- TODO: Add Names --></li>
-              <li><strong>Non-teaching Staff Rep.:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Student Representative:</strong> <!-- TODO: Add Name --></li>
-            </ul>
-          </div>
-        </details>
+            setTimeout(() => {
+                const headerOffset = 120;
+                const elementPosition = button.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        <details class="rounded-lg border border-gray-200 bg-white p-4 mb-3">
-          <summary class="font-semibold text-maroon cursor-pointer">Internal Quality Assurance Cell (IQAC)</summary>
-          <div class="mt-3 text-gray-800">
-            <ul class="list-disc pl-6 space-y-1">
-              <li><strong>Chairperson (Head of Institution):</strong> Dr. S. R. Somkuwar</li>
-              <li><strong>IQAC Coordinator:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Teachers:</strong> <!-- TODO: Add Names --></li>
-              <li><strong>Management Representative:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Administrative Officers:</strong> <!-- TODO: Add Names --></li>
-              <li><strong>Alumni/Employer/Stakeholder:</strong> <!-- TODO: Add Name --></li>
-              <li><strong>Students:</strong> <!-- TODO: Add Names --></li>
-            </ul>
-          </div>
-        </details>
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }, 100);
+        }
 
-        <details class="rounded-lg border border-gray-200 bg-white p-4">
-          <summary class="font-semibold text-maroon cursor-pointer">College Committees – 2025–26</summary>
-          <div class="mt-3 text-gray-800 space-y-3">
-            <details class="rounded border border-gray-100 bg-gray-50 p-3">
-              <summary class="font-semibold">Admission Committee</summary>
-              <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li><!-- TODO: Add Convener --></li>
-                <li><!-- TODO: Add Members --></li>
-              </ul>
-            </details>
-            <details class="rounded border border-gray-100 bg-gray-50 p-3">
-              <summary class="font-semibold">Examination & Evaluation Committee</summary>
-              <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li><!-- TODO: Add Convener --></li>
-                <li><!-- TODO: Add Members --></li>
-              </ul>
-            </details>
-            <details class="rounded border border-gray-100 bg-gray-50 p-3">
-              <summary class="font-semibold">IQAC Working Groups</summary>
-              <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li><!-- TODO: Add Sub-committees (e.g., Academics, Research, Outreach) --></li>
-              </ul>
-            </details>
-            <details class="rounded border border-gray-100 bg-gray-50 p-3">
-              <summary class="font-semibold">Library Committee</summary>
-              <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li><!-- TODO: Add Members --></li>
-              </ul>
-            </details>
-            <details class="rounded border border-gray-100 bg-gray-50 p-3">
-              <summary class="font-semibold">Anti-Ragging / Discipline / Grievance / Women’s Cell / NSS / Cultural / Sports</summary>
-              <ul class="list-disc pl-6 mt-2 space-y-1">
-                <li><!-- TODO: Add Conveners & Members for each cell --></li>
-              </ul>
-            </details>
-          </div>
-        </details>
-      </div>
-    </section>
+        function toggleAccordion(contentId) {
+            const content = document.getElementById(contentId);
+            const button = content.previousElementSibling;
+            const arrow = button.querySelector('.arrow');
+            const isCurrentlyOpen = content.classList.contains('open');
 
-    <!-- Paper News -->
-    <section class="container mx-auto px-4 py-8" id="news">
-      <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center" data-i18n="paperNewsTitle">Paper News</h2>
-      <div id="paper-news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
-      <div id="paper-news-sentinel" class="h-6"></div>
-    </section>
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item.id !== contentId) {
+                    item.classList.remove('open');
+                    item.previousElementSibling.querySelector('.arrow').classList.remove('rotate-180');
+                    item.previousElementSibling.querySelector('.arrow').textContent = '+';
+                }
+            });
 
-   
-    <section class="container mx-auto px-4 py-8" id="photo-gallery">
-      <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Photos</h2>
-      <div class="space-y-12">
-        <div>
-          <h3 class="text-2xl font-semibold text-maroon mb-4">Photo Gallery</h3>
-          <div id="grid-gallery" class="photo-grid"></div>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-maroon mb-4">College Departments</h3>
-          <div id="grid-departments" class="photo-grid"></div>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-maroon mb-4">College Staff</h3>
-          <div id="grid-staff" class="photo-grid"></div>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-maroon mb-4">News &amp; Media Speaks</h3>
-          <div id="grid-media" class="photo-grid"></div>
-        </div>
-      </div>
-    </section>
-<!-- Location & Contact -->
-<section class="bg-gray-200 py-16" id="contact">
-  <div class="container mx-auto px-4">
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Location Map -->
-      <div class="card p-6">
-        <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="locationMapTitle">Location Map</h3>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.805313626808!2d79.32223977474252!3d21.39509318180075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4964e010a1d07%3A0xdbc48e6dce9a8f7e!2sVidyasagar%20Arts%20College%2C%20Khairi%20(Bijewada)%2C%20Ramtek!5e0!3m2!1sen!2sin!4v1730088000000!5m2!1sen!2sin"
-          class="w-full h-64 rounded-xl shadow-md"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+            if (isCurrentlyOpen) {
+                content.classList.remove('open');
+                arrow.classList.remove('rotate-180');
+                arrow.textContent = '+';
+            } else {
+                content.classList.add('open');
+                arrow.classList.add('rotate-180');
+                arrow.textContent = '–';
+            }
+        }
 
-      <!-- Contact Form -->
-      <div class="card p-6">
-        <h3 class="text-xl font-bold text-maroon mb-4" data-i18n="contactUsTitle">Contact Us</h3>
-        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/xyzqvvqg" method="POST" novalidate>
-          <div class="space-y-1">
-            <label for="name" class="block text-sm font-semibold text-gray-700">Full Name <span class="text-red-600">*</span></label>
-            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="Enter your full name" required />
-          </div>
-          <div class="space-y-1">
-            <label for="mobile" class="block text-sm font-semibold text-gray-700">Mobile Number <span class="text-red-600">*</span></label>
-            <input type="tel" id="mobile" name="mobile" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="e.g., +91 9876543210" pattern="^(\+91[\-\s]?)?[6-9]\d{9}$" required />
-            <p class="text-xs text-gray-500">Please enter a valid Indian mobile number.</p>
-          </div>
-          <div class="space-y-1">
-            <label for="email" class="block text-sm font-semibold text-gray-700">Email Address (optional)</label>
-            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="name@example.com" />
-          </div>
-          <div class="space-y-1">
-            <label for="message" class="block text-sm font-semibold text-gray-700">Message</label>
-            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-lg border border-gray-300 bg-white p-3 shadow-sm focus:border-maroon focus:ring focus:ring-maroon focus:ring-opacity-50 transition" placeholder="How can we help you?" required></textarea>
-          </div>
-          <div class="flex justify-center">
-            <button type="submit" class="btn-maroon w-full sm:w-auto px-6 py-3 text-center">Send Message</button>
-          </div>
-          <p class="text-xs text-gray-500 mt-2">
-            This form securely sends messages to <strong>admissions@vacramtek.org</strong> via Formspree.
-          </p>
-        </form>
-        <p id="form-success" class="mt-4 rounded-md bg-green-50 p-3 text-center text-sm font-semibold text-green-700 shadow-sm" role="status" aria-live="polite">
-          Success message will appear here after you submit the form.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        // --- RANDOM GALLERY SCRIPT ---
+        // Assumes images are named 1.jpg, 2.jpg... up to 10.jpg in 'assets/gallery/' folder
+        document.addEventListener("DOMContentLoaded", () => {
+            const galleryContainer = document.getElementById('random-gallery-container');
+            if (!galleryContainer) return;
 
-<!-- Q&A Section (separate, not nested) -->
-<section class="container mx-auto px-4 py-16" id="qa">
-  <div class="max-w-4xl mx-auto card p-6">
-    <h2 class="text-3xl sm:text-4xl font-bold text-maroon mb-6 text-center">Q&A</h2>
-    <div class="mb-4 flex items-center gap-3">
-      <input id="qa-search" type="text" class="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-maroon" placeholder="Search questions..." />
-      <button id="qa-clear" class="px-3 py-2 rounded-md border border-gray-300">Clear</button>
-    </div>
-    <div id="qa-list" class="space-y-3"></div>
-    <p class="text-xs text-gray-500 mt-4">
-      Edit or add questions in the <code>content</code> object under <code>faqs</code> for each language.
-    </p>
-  </div>
-</section>
+            // Generate an array of 10 image filenames (adjust count as needed)
+            const photoCount = 10; 
+            const images = [];
+            for (let i = 1; i <= photoCount; i++) {
+                images.push(`assets/gallery/${i}.jpg`);
+            }
 
-  </main>
+            // Shuffle function (Fisher-Yates)
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
 
-  <!-- Footer -->
-  <footer class="bg-maroon text-white py-12">
-    <div class="container mx-auto px-4 text-center">
-      <div class="mb-4">
-        <h4 class="text-2xl font-bold mb-2" data-no-translate>विद्यासागर कला महाविद्यालय, रामटेक</h4>
-        <p class="text-sm text-gray-300" data-i18n="footerAddress">Empowering through Education | Khairi (Bijewada), Ramtek, Maharashtra</p>
-      </div>
-      <p class="text-sm text-gray-400" data-i18n="footerCopyright">&copy; 2025 Vidyasagar Arts College. All rights reserved.</p>
-    </div>
-  </footer>
+            const shuffledImages = shuffle(images);
 
-  <!-- App Script: static content + multilingual + Q&A; no Firebase/Gemini -->
-  <script>
-    // ===== Multilingual content & static data =====
-    const content = {
-      en: {
-        htmlTitle: "Vidyasagar Arts College (VAC) - Nurturing Excellence",
-        coBrandSub: "A Constituent Institution of Vidyasagar Education Society (VES), Ramtek",
-        aboutUs: "About Us",
-        principalsMessage: "Principal's Message",
-        programs: "Programs",
-        newsEvents: "News & Events",
-        contact: "Contact",
-        welcomeText: "Welcome to",
-        tagline: "Affiliated to R.T.M. Nagpur University, Nagpur",
-        accreditation: "NAAC Accredited At 'B' Grade, CGPA - 2.20",
-        explorePrograms: "Explore Programs",
-        getInTouch: "Get in Touch",
-        secretaryName: "Smt. Anita Jaiswal",
-        secretaryRole: "Secretary, VES",
-        presidentName: "Adv. Ashish Jaiswal",
-        presidentRole: "President, VES",
-        runningGalleryTitle: "Running Photo Gallery",
-        collegeGlanceTitle: "College at a Glance",
-        vision: "Vision:",
-        visionText: "To develop the college into a center of excellence in education and to extend the benefits of quality education to the tribal, rural and underprivileged sections of society.",
-        mission: "Mission:",
-        missionText: "To develop the all-round personality of students and make them better human beings and responsible citizens of India.",
-        noticeBoard: "Notice Board",
-        quickLinksTitle: "Quick Links",
-        libraryLink: "Library",
-        usefulWebsitesLink: "Useful Websites",
-        paperNewsTitle: "Paper News",
-        locationMapTitle: "Location Map",
-        contactUsTitle: "Contact Us",
-        fullNameLabel: "Full Name",
-        emailLabel: "Email Address",
-        messageLabel: "Message",
-        sendMessageBtn: "Send Message",
-        footerAddress: "Empowering through Education | Khairi (Bijewada), Ramtek, Maharashtra",
-        // Static News (Edit items as needed)
-        newsItems: [
-          { title: "Admissions Open (2025-26)", date: "2025-06-01", content: "Applications invited for B.A. programs. Visit the college office for details." },
-          { title: "Cultural Fest Week", date: "2025-07-12", content: "Annual cultural events and competitions will be held across campus." }
-        ],
-        paperNews: [
-          { img: "assets/college-building.jpg", text: "New library wing inaugurated." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=Article+2", text: "Students excel in university exams." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=Article+3", text: "NSS camp at nearby villages." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=Article+4", text: "Seminar on career guidance conducted." }
-        ],
-        // FAQs shown in Q&A section
-        faqs: [
-          { q: "What is Vidyasagar Kala Mahavidyalaya’s core purpose?", a: "VKM was founded to extend higher education to tribal, rural and underprivileged communities around Ramtek." },
-          { q: "When was VKM established and what is its accreditation?", a: "Established on 9 Aug 1999; NAAC accredited ‘B’ Grade (CGPA 2.20); included under UGC 2(f)/12(B)." },
-          { q: "Which university is VKM affiliated to?", a: "Rashtrasant Tukadoji Maharaj Nagpur University (RTMNU)." },
-          { q: "What programmes does VKM offer?", a: "B.A. (Arts) with multiple disciplines; M.A. (Marathi, Sociology); GNMA Nursing; and a distance B.A. via YCMOU." },
-          { q: "What scholarships and concessions are available?", a: "State Govt scholarships, GOI National Scholarship, SC/ST scholarships, EBC concession, Open Merit Scholarship, Alumni Talent Scholarship." },
-          { q: "What are the Vision and Mission?", a: "Vision: centre of excellence and outreach to tribal/rural/underprivileged. Mission: all-round development and responsible citizenship." },
-          { q: "What are the core values and code of conduct?", a: "Guided by Vidya Param Daivatam; values include humanity, equality, democracy, secularism and harmony; codes cover attendance, discipline, no ragging/drugs/tobacco, cleanliness; staff follow UGC/State/University rules and impartial conduct." },
-          { q: "Who are the RTI officers?", a: "Appellate: Dr. Suresh Somkuwar (Principal); Information: Dr. G. N. Sapate; Assistant: Ku. Kirti Jaiswal." },
-          { q: "How strong is the faculty profile?", a: "7 total faculty; all Ph.D.; 5 with NET/SET; department-wise details available." },
-          { q: "Does the college recognise meritorious students?", a: "Yes—University medals/prizes and endowed college prizes for programme and subject toppers, plus awards for library use and sports." }
-        ]
-      },
-      mr: {
-        htmlTitle: "विद्यासागर कला महाविद्यालय (VAC) - उत्कृष्टतेचा ध्यास",
-        coBrandSub: "विद्यासागर एज्युकेशन सोसायटी (VES), रामटेकचे घटक संस्थान",
-        aboutUs: "आमच्याबद्दल",
-        principalsMessage: "प्राचार्यांचा संदेश",
-        programs: "अभ्यासक्रम",
-        newsEvents: "बातम्या आणि कार्यक्रम",
-        contact: "संपर्क",
-        welcomeText: "स्वागत आहे",
-        tagline: "रा.तु.म. नागपूर विद्यापीठाशी संलग्न",
-        accreditation: "एनएएसी मान्यता 'बी' ग्रेड, सीजीपीए - २.२०",
-        explorePrograms: "अभ्यासक्रम पहा",
-        getInTouch: "संपर्क साधा",
-        secretaryName: "श्रीमती अनिता जायस्वाल",
-        secretaryRole: "सचिव, व्ही.ई.एस.",
-        presidentName: "ऍड. आशिष जयस्वाल",
-        presidentRole: "अध्यक्ष, व्ही.ई.एस.",
-        runningGalleryTitle: "फोटो गॅलरी",
-        collegeGlanceTitle: "संस्थेची झलक",
-        vision: "दृष्टी:",
-        visionText: "महाविद्यालयाला शिक्षणातील उत्कृष्टतेचे केंद्र बनवणे आणि आदिवासी, ग्रामीण आणि वंचित घटकांना दर्जेदार शिक्षणाचा लाभ मिळवून देणे.",
-        mission: "ध्येय:",
-        missionText: "विद्यार्थ्यांच्या सर्वांगीण व्यक्तिमत्त्वाचा विकास करणे आणि त्यांना जबाबदार नागरिक बनवणे.",
-        noticeBoard: "सूचना फलक",
-        quickLinksTitle: "झटपट दुवे",
-        libraryLink: "ग्रंथालय",
-        usefulWebsitesLink: "उपयुक्त वेबसाइट्स",
-        paperNewsTitle: "वर्तमानपत्रातील बातम्या",
-        locationMapTitle: "स्थान नकाशा",
-        contactUsTitle: "संपर्क साधा",
-        fullNameLabel: "पूर्ण नाव",
-        emailLabel: "ईमेल पत्ता",
-        messageLabel: "संदेश",
-        sendMessageBtn: "संदेश पाठवा",
-        footerAddress: "शिक्षणाद्वारे सबलीकरण | खैरी (बिजेवाडा), रामटेक, महाराष्ट्र",
-        newsItems: [
-          { title: "प्रवेश सुरू (2025-26)", date: "2025-06-01", content: "बी.ए. अभ्यासक्रमासाठी अर्ज आमंत्रित. तपशीलांसाठी कार्यालयात संपर्क करा." },
-          { title: "सांस्कृतिक सप्ताह", date: "2025-07-12", content: "वार्षिक सांस्कृतिक कार्यक्रम आणि स्पर्धा आयोजित केल्या जातील." }
-        ],
-        paperNews: [
-          { img: "assets/college-building.jpg", text: "नवीन ग्रंथालय विंगचे उद्घाटन." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+2", text: "विद्यार्थ्यांचे विद्यापीठ परीक्षेत यश." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+3", text: "एनएसएस शिबिर आसपासच्या गावात." },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+4", text: "करिअर मार्गदर्शन सेमिनार." }
-        ],
-        faqs: [
-          { q: "महाविद्यालयात कोणते अभ्यासक्रम आहेत?", a: "बी.ए. (कला) — समाजशास्त्र, इतिहास, राज्यशास्त्र, अर्थशास्त्र." },
-          { q: "महाविद्यालयाचे ध्येय काय आहे?", a: "विद्यार्थ्यांच्या सर्वांगीण विकासास प्रोत्साहन देणे." },
-          { q: "संस्थेची स्थापना कोणी केली?", a: "दिवंगत डॉ. विनोदकुमार जयस्वाल यांनी." },
-          { q: "मान्यता आणि संलग्नता?", a: "रा.तु.म. नागपूर विद्यापीठाशी संलग्न, एनएएसी 'बी' ग्रेड (CGPA 2.20)." },
-          { q: "स्थान?", a: "खैरी (बिजेवाडा), रामटेक, महाराष्ट्र." }
-        ]
-      },
-      hi: {
-        htmlTitle: "विद्यासागर कला महाविद्यालय (VAC) - उत्कृष्टता का संवर्धन",
-        coBrandSub: "विद्यासागर एजुकेशन सोसाइटी (VES), रामटेक का एक संस्थान",
-        aboutUs: "हमारे बारे में",
-        principalsMessage: "प्राचार्य का संदेश",
-        programs: "कार्यक्रम",
-        newsEvents: "समाचार और कार्यक्रम",
-        contact: "संपर्क",
-        welcomeText: "आपका स्वागत है",
-        tagline: "रा.तु.म. नागपुर विश्वविद्यालय से संबद्ध",
-        accreditation: "NAAC से 'बी' ग्रेड मान्यता, CGPA - 2.20",
-        explorePrograms: "कार्यक्रम देखें",
-        getInTouch: "संपर्क करें",
-        secretaryName: "श्रीमती अनिता जायसवाल",
-        secretaryRole: "सचिव, वी.ई.एस.",
-        presidentName: "अधिवक्ता आशीष जायसवाल",
-        presidentRole: "अध्यक्ष, वी.ई.एस.",
-        runningGalleryTitle: "चलती हुई फोटो गैलरी",
-        collegeGlanceTitle: "कॉलेज एक नज़र में",
-        vision: "विजन:",
-        visionText: "कॉलेज को शिक्षा में उत्कृष्टता का केंद्र बनाना और आदिवासी, ग्रामीण और वंचित वर्गों को गुणवत्तापूर्ण शिक्षा का लाभ देना।",
-        mission: "मिशन:",
-        missionText: "छात्रों के सर्वांगीण व्यक्तित्व का विकास करना और उन्हें जिम्मेदार नागरिक बनाना।",
-        noticeBoard: "सूचना पट्ट",
-        quickLinksTitle: "त्वरित लिंक",
-        libraryLink: "पुस्तकालय",
-        usefulWebsitesLink: "उपयोगी वेबसाइटें",
-        paperNewsTitle: "अख़बारी समाचार",
-        locationMapTitle: "स्थान मानचित्र",
-        contactUsTitle: "हमसे संपर्क करें",
-        fullNameLabel: "पूरा नाम",
-        emailLabel: "ईमेल पता",
-        messageLabel: "संदेश",
-        sendMessageBtn: "संदेश भेजें",
-        footerAddress: "शिक्षा के माध्यम से सशक्तिकरण | खैरी (बिजवाड़ा), रामटेक, महाराष्ट्र",
-        newsItems: [
-          { title: "प्रवेश खुले (2025-26)", date: "2025-06-01", content: "बी.ए. कार्यक्रमों के लिए आवेदन आमंत्रित। विवरण के लिए कार्यालय आएं।" },
-          { title: "सांस्कृतिक सप्ताह", date: "2025-07-12", content: "वार्षिक सांस्कृतिक कार्यक्रम और प्रतियोगिताएँ आयोजित की जाएँगी।" }
-        ],
-        paperNews: [
-          { img: "assets/college-building.jpg", text: "नया पुस्तकालय विंग उद्घाटन।" },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+2", text: "छात्रों की विश्वविद्यालय परीक्षाओं में उत्कृष्टता।" },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+3", text: "एनएसएस शिविर निकटवर्ती गाँवों में।" },
-          { img: "https://placehold.co/300x200/cccccc/333?text=लेख+4", text: "कैरियर मार्गदर्शन सेमिनार आयोजित।" }
-        ],
-        faqs: [
-          { q: "कॉलेज कौन से कार्यक्रम प्रदान करता है?", a: "बैचलर ऑफ आर्ट्स (B.A.) — समाजशास्त्र, इतिहास, राजनीति विज्ञान, अर्थशास्त्र।" },
-          { q: "कॉलेज का मिशन क्या है?", a: "छात्रों के सर्वांगीण विकास को प्रोत्साहित करना।" },
-          { q: "संस्था की स्थापना किसने की?", a: "दिवंगत डॉ. विनोदकुमार जायसवाल ने।" },
-          { q: "मान्यता और संबद्धता?", a: "रा.तु.म. नागपुर विश्वविद्यालय से संबद्ध, NAAC 'बी' ग्रेड (CGPA 2.20)।" },
-          { q: "कॉलेज कहाँ स्थित है?", a: "खैरी (बिजवाड़ा), रामटेक, महाराष्ट्र।" }
-        ]
-      }
-    };
-
-    let currentLang = 'en';
-    const NON_TRANSLATABLE_KEYS = new Set([
-      'collegeName',
-      'coBrandTitle',
-      'footerCollegeName'
-    ]);
-
-    const i18nResources = Object.keys(content).reduce((acc, lng) => {
-      const strings = {};
-      Object.entries(content[lng] || {}).forEach(([key, val]) => {
-        if (NON_TRANSLATABLE_KEYS.has(key)) return;
-        if (typeof val === 'string') strings[key] = val;
-      });
-      acc[lng] = { translation: strings };
-      return acc;
-    }, {});
-
-    function applyTranslations() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        if (el.hasAttribute('data-no-translate')) return;
-        const key = el.getAttribute('data-i18n');
-        const translated = i18next.t(key);
-        if (translated) el.textContent = translated;
-      });
-
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        const translated = i18next.t(key);
-        if (translated) el.placeholder = translated;
-      });
-
-      const titleEl = document.querySelector('title[data-i18n="htmlTitle"]');
-      if (titleEl) {
-        const translatedTitle = i18next.t('htmlTitle');
-        if (translatedTitle) titleEl.textContent = translatedTitle;
-      }
-    }
-
-    function changeLanguage(lang) {
-      currentLang = lang;
-      i18next.changeLanguage(lang).then(() => {
-        applyTranslations();
-        renderNews();
-        renderFAQ();
-        resetPaperNews();
-      });
-    }
-
-    function renderNews() {
-      const news = content[currentLang].newsItems || [];
-      const container = document.getElementById('news-container');
-      container.innerHTML = '';
-      if (!news.length) {
-        const p = document.createElement('p');
-        p.className = 'text-center text-gray-500';
-        p.textContent = 'No notices yet.';
-        container.appendChild(p);
-        return;
-      }
-      news
-        .slice()
-        .sort((a,b) => new Date(b.date) - new Date(a.date))
-        .forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'card p-4';
-          const d = new Date(item.date);
-          card.innerHTML = `
-            <h4 class="text-lg font-semibold text-maroon">${item.title}</h4>
-            <p class="text-sm text-gray-500 mb-1">${d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-            <p class="text-gray-700">${item.content}</p>
-          `;
-          container.appendChild(card);
+            // Inject Images
+            galleryContainer.innerHTML = ''; // Clear loading text
+            shuffledImages.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = "Gallery Image";
+                img.className = "rounded-lg w-2/3 md:w-1/3 flex-shrink-0 shadow-md hover:scale-[1.02] transition-transform object-cover h-48";
+                img.onerror = function() { this.style.display = 'none'; }; // Hide if image not found
+                galleryContainer.appendChild(img);
+            });
         });
-    }
 
-    let paperNewsPage = 0;
-    const PAGE_SIZE_NEWS = 4;
-
-    function renderPaperNewsPage() {
-      const items = content[currentLang].paperNews || [];
-      const container = document.getElementById('paper-news-container');
-      if (!container) return;
-      const start = paperNewsPage * PAGE_SIZE_NEWS;
-      const slice = items.slice(start, start + PAGE_SIZE_NEWS);
-      const sentinel = document.getElementById('paper-news-sentinel');
-
-      if (!slice.length) {
-        if (sentinel) {
-          sentinel.dataset.more = '0';
-        }
-        return;
-      }
-
-      slice.forEach((n) => {
-        const div = document.createElement('div');
-        div.className = 'card p-4 text-center';
-        const imgSrc = n?.img || 'assets/college-building.jpg';
-        const altText = n?.alt || 'News';
-        div.innerHTML = `
-      <img src="${imgSrc}" alt="${altText}" class="rounded-xl mb-4 w-full object-cover h-40" loading="lazy" width="300" height="200"/>
-      <p class="text-gray-600">${n?.text || ''}</p>
-    `;
-        container.appendChild(div);
-      });
-
-      paperNewsPage++;
-      const more = (paperNewsPage * PAGE_SIZE_NEWS) < items.length;
-      if (sentinel) {
-        sentinel.dataset.more = more ? '1' : '0';
-      }
-    }
-
-    function resetPaperNews() {
-      paperNewsPage = 0;
-      const container = document.getElementById('paper-news-container');
-      if (!container) return;
-      container.innerHTML = '';
-      renderPaperNewsPage();
-    }
-
-    // ===== Q&A (client-side, static) =====
-    function highlight(text, query) {
-      if (!query) return text;
-      const pattern = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      return text.replace(new RegExp(`(${pattern})`, 'ig'), '<mark>$1</mark>');
-    }
-
-    function renderFAQ(filter = '') {
-      const list = document.getElementById('qa-list');
-      list.innerHTML = '';
-      const faqs = (content[currentLang].faqs || []).filter(({ q, a }) => {
-        const t = (q + ' ' + a).toLowerCase();
-        return t.includes(filter.toLowerCase());
-      });
-      if (!faqs.length) {
-        list.innerHTML = '<p class="text-gray-500">No matching questions. Try a different keyword.</p>';
-        return;
-      }
-      faqs.forEach(({ q, a }) => {
-        const details = document.createElement('details');
-        details.className = 'rounded-lg border border-gray-200 bg-white p-4';
-        const summary = document.createElement('summary');
-        summary.className = 'font-semibold cursor-pointer text-maroon';
-        summary.innerHTML = highlight(q, filter);
-        const answer = document.createElement('div');
-        answer.className = 'mt-2 text-gray-700';
-        answer.innerHTML = highlight(a, filter);
-        details.appendChild(summary);
-        details.appendChild(answer);
-        list.appendChild(details);
-      });
-    }
-
-const PAGE_SIZE_PHOTOS = 8;
-let photoGalleryCleanups = [];
-
-async function loadAndRenderPhotos() {
-  if (photoGalleryCleanups.length) {
-    photoGalleryCleanups.forEach(fn => fn?.());
-    photoGalleryCleanups = [];
-  }
-
-  try {
-    const res = await fetch('assets/photos/manifest.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('manifest fetch failed');
-    const manifest = await res.json();
-    const base = 'assets/photos/';
-
-    const makePagedRenderer = (hostId, items) => {
-      let page = 0;
-      const host = document.getElementById(hostId);
-      if (!host) return () => {};
-      host.innerHTML = '';
-
-      const sentinelId = `${hostId}-sentinel`;
-      document.getElementById(sentinelId)?.remove();
-      const sentinel = document.createElement('div');
-      sentinel.className = 'h-6';
-      sentinel.id = sentinelId;
-      host.after(sentinel);
-
-      const renderPage = () => {
-        const start = page * PAGE_SIZE_PHOTOS;
-        const slice = items.slice(start, start + PAGE_SIZE_PHOTOS);
-        slice.forEach(item => {
-          const o = typeof item === 'string' ? { src: item } : item;
-          const fig = document.createElement('figure');
-          fig.className = 'card overflow-hidden';
-          fig.innerHTML = `
-        <img src="${base + o.src}" alt="${o.caption || 'Photo'}"
-             loading="lazy" class="w-full h-48 object-cover block" width="400" height="256">
-        ${o.caption ? `<figcaption class="p-3 text-sm text-gray-700">${o.caption}</figcaption>` : ''}
-      `;
-          host.appendChild(fig);
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-        page++;
-        const more = (page * PAGE_SIZE_PHOTOS) < items.length;
-        sentinel.dataset.more = more ? '1' : '0';
-      };
-
-      if (!items.length) {
-        host.innerHTML = '<p class="text-gray-500 text-sm">Photos coming soon.</p>';
-        sentinel.remove();
-        return () => {};
-      }
-
-      renderPage();
-
-      const io = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && sentinel.dataset.more !== '0') {
-          renderPage();
+        
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
         }
-      }, { rootMargin: '300px' });
-      io.observe(sentinel);
 
-      return () => {
-        io.disconnect();
-        sentinel.remove();
-      };
-    };
+        // Scroll Animation Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
 
-    const cleanups = [];
-    cleanups.push(makePagedRenderer('grid-gallery', manifest.gallery || []));
-    cleanups.push(makePagedRenderer('grid-departments', manifest.departments || []));
-    cleanups.push(makePagedRenderer('grid-staff', manifest.staff || []));
-    cleanups.push(makePagedRenderer('grid-media', manifest.media || []));
-
-    photoGalleryCleanups = cleanups.filter(Boolean);
-  } catch (e) {
-    console.error(e);
-    document.getElementById('grid-gallery')?.insertAdjacentHTML('beforeend',
-      '<p class="text-gray-500">Couldn’t load photos. Check manifest.json paths.</p>');
-  }
-}
-document.addEventListener('DOMContentLoaded', () => {
-  loadAndRenderPhotos();
-});
-
-    
-    // ===== Events =====
-    document.addEventListener('DOMContentLoaded', () => {
-      i18next.init({
-        lng: currentLang,
-        fallbackLng: 'en',
-        resources: i18nResources,
-        interpolation: { escapeValue: false }
-      }).then(() => {
-        applyTranslations();
-        renderNews();
-        renderFAQ();
-        resetPaperNews();
-      });
-
-      // Smooth anchors
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', function(e){
-          const href = this.getAttribute('href');
-          if (href.length > 1) {
-            e.preventDefault();
-            document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-          }
+            document.querySelectorAll(".animate-on-scroll").forEach(section => observer.observe(section));
         });
-      });
-
-      // Hamburger
-      const hamburger = document.getElementById('hamburger');
-      const navMenu = document.getElementById('nav-menu');
-      hamburger?.addEventListener('click', () => navMenu?.classList.toggle('active'));
-
-      // Language switching
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => changeLanguage(btn.getAttribute('data-lang')));
-      });
-
-      // Q&A search
-      const qaSearch = document.getElementById('qa-search');
-
-      const qaClear = document.getElementById('qa-clear');
-      qaSearch?.addEventListener('input', () => renderFAQ(qaSearch.value));
-      qaClear?.addEventListener('click', () => { qaSearch.value = ''; renderFAQ(''); });
-
-      // Contact form submission
-      const contactForm = document.getElementById('contact-form');
-      const contactSuccess = document.getElementById('form-success');
-      contactForm?.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        if (!contactForm.reportValidity()) return;
-
-        contactSuccess.textContent = 'Submitting your message...';
-        contactSuccess.classList.remove('text-red-700', 'bg-red-50');
-        contactSuccess.classList.add('text-green-700', 'bg-green-50');
-
-        try {
-          const formData = new FormData(contactForm);
-          const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { Accept: 'application/json' }
-          });
-
-          if (response.ok) {
-            contactSuccess.textContent = 'Thank you! Your message has been sent successfully.';
-            contactForm.reset();
-          } else {
-            contactSuccess.textContent = 'Something went wrong. Please try again or email admissions@vacramtek.org directly.';
-            contactSuccess.classList.remove('text-green-700', 'bg-green-50');
-            contactSuccess.classList.add('text-red-700', 'bg-red-50');
-          }
-        } catch (error) {
-          console.error(error);
-          contactSuccess.textContent = 'Unable to send right now. Please try again in a moment.';
-          contactSuccess.classList.remove('text-green-700', 'bg-green-50');
-          contactSuccess.classList.add('text-red-700', 'bg-red-50');
-        }
-      });
-
-      // Infinite scroll for Paper News
-      const newsSentinel = document.getElementById('paper-news-sentinel');
-      if (newsSentinel) {
-        const ioNews = new IntersectionObserver((entries) => {
-          const ent = entries[0];
-          if (ent.isIntersecting && newsSentinel.dataset.more !== '0') {
-            renderPaperNewsPage();
-          }
-        }, { rootMargin: '300px' });
-        ioNews.observe(newsSentinel);
-      }
-
-    });
-  </script>
-  <style>
-    .running-gallery-container { position: relative; }
-    .running-gallery-container .photo-gallery {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .running-gallery-container .photo-gallery .gallery-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      pointer-events: none;
-    }
-    .running-gallery-container .photo-gallery .gallery-image.active {
-      opacity: 1;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const allGalleryImages = [
-        'assets/photos/gallery/1.jpeg',
-        'assets/photos/gallery/2.jpg',
-        'assets/photos/gallery/3.png',
-        'assets/photos/gallery/4.jpg',
-        'assets/photos/gallery/5.jpeg',
-        'assets/photos/gallery/6.jpg',
-        'assets/photos/gallery/7.jpeg',
-        'assets/photos/gallery/8.jpg',
-        'assets/photos/gallery/9.jpeg',
-        'assets/photos/gallery/10.jpeg',
-        'assets/photos/gallery/11.jpg',
-        'assets/photos/gallery/12.jpg',
-        'assets/photos/gallery/13.jpg',
-        'assets/photos/gallery/14.jpeg',
-        'assets/photos/gallery/15.jpeg',
-        'assets/photos/gallery/16.jpg',
-        'assets/photos/gallery/17.jpeg',
-        'assets/photos/gallery/18.jpeg',
-        'assets/photos/gallery/19.jpeg',
-        'assets/photos/gallery/20.jpeg',
-        'assets/photos/gallery/21.jpg',
-        'assets/photos/gallery/22.jpg',
-        'assets/photos/gallery/23.jpeg',
-        'assets/photos/gallery/24.jpg',
-        'assets/photos/gallery/25.jpeg',
-        'assets/photos/gallery/26.jpeg',
-        'assets/photos/gallery/27.jpeg',
-        'assets/photos/gallery/28.jpeg',
-        'assets/photos/gallery/29.jpeg',
-        'assets/photos/gallery/30-1.jpg',
-        'assets/photos/gallery/31.jpg',
-        'assets/photos/gallery/32.jpg',
-        'assets/photos/gallery/33.jpg',
-        'assets/photos/gallery/34.jpg',
-        'assets/photos/gallery/35.jpg',
-        'assets/photos/gallery/36.jpg',
-        'assets/photos/gallery/37.jpg',
-        'assets/photos/gallery/38.jpg',
-        'assets/photos/gallery/39.jpg',
-        'assets/photos/gallery/40.jpg',
-        'assets/photos/gallery/41.jpg',
-        'assets/photos/gallery/4f0ce15e-f6c7-497c-8156-24ca5c523621.jpg',
-        'assets/photos/gallery/6de038e0-555d-4a8f-a157-6321d71f93d7.jpg',
-        'assets/photos/gallery/100.jpeg'
-      ];
-
-      const galleryContainer = document.querySelector('.running-gallery-container');
-      if (!galleryContainer) return;
-
-      let gallery = galleryContainer.querySelector('.photo-gallery');
-      if (!gallery) {
-        gallery = document.createElement('div');
-        gallery.className = 'photo-gallery';
-        galleryContainer.appendChild(gallery);
-      }
-
-      const selectedImages = getRandomUnique(allGalleryImages, Math.min(10, allGalleryImages.length));
-      gallery.innerHTML = '';
-
-      const slides = selectedImages.map((src, index) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Campus life photo ${index + 1}`;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.className = 'gallery-image';
-        img.style.zIndex = String(selectedImages.length - index);
-        gallery.appendChild(img);
-        return img;
-      });
-
-      if (!slides.length) return;
-
-      const loadPromises = slides.map(img => {
-        if (img.complete) {
-          return Promise.resolve();
-        }
-        return new Promise(resolve => {
-          img.addEventListener('load', resolve, { once: true });
-          img.addEventListener('error', resolve, { once: true });
-        });
-      });
-
-      Promise.all(loadPromises).then(() => {
-        let currentIndex = 0;
-        slides[currentIndex].classList.add('active');
-
-        setInterval(() => {
-          const nextIndex = (currentIndex + 1) % slides.length;
-          slides[currentIndex].classList.remove('active');
-          slides[nextIndex].classList.add('active');
-          currentIndex = nextIndex;
-        }, 3000);
-      });
-
-      function getRandomUnique(list, count) {
-        const copy = [...list];
-        for (let i = copy.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [copy[i], copy[j]] = [copy[j], copy[i]];
-        }
-        return copy.slice(0, count);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
