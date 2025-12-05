@@ -53,7 +53,9 @@
         }
 
         .leadership-card {
-            min-height: 150px;
+            min-height: 190px;
+            display: flex;
+            align-items: center;
         }
         .leadership-card:hover {
             transform: translateY(-4px);
@@ -170,32 +172,20 @@
               <!-- RIGHT: Founder -->
               <div class="flex flex-col items-center">
                 <img src="assets/photos/staff/founder.jpeg"
-                     alt="Late Dr. Vinodkumaraji Jaiswal"
-                     class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-yellow-400 shadow-xl" />
+                     class="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-yellow-400 shadow-xl object-cover" />
 
                 <h3 class="text-white font-bold text-sm md:text-base mt-2">
                   Late Dr. Vinodkumaraji Jaiswal
                 </h3>
-                <p class="text-yellow-300 text-xs md:text-sm font-medium">
-                  Founder President
-                </p>
+                <p class="text-yellow-300 text-xs md:text-sm font-medium">Founder President</p>
               </div>
-
             </div>
 
-            <!-- COLLEGE NAME (Compact) -->
+            <!-- COLLEGE NAME BLOCK BELOW CAMPUS -->
             <div class="text-center text-white mt-4">
-
-              <h2 class="text-yellow-300 font-bold text-lg">
-                विद्यासागर कला महाविद्यालय
-              </h2>
-
-              <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
-                Vidyasagar Kala Mahavidyalaya
-              </h1>
-
+              <h2 class="text-yellow-300 font-bold text-lg">विद्यासागर कला महाविद्यालय</h2>
+              <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Vidyasagar Kala Mahavidyalaya</h1>
               <p class="text-sm opacity-80">(Vidyasagar Arts College - VAC)</p>
-
             </div>
 
           </div>
@@ -261,7 +251,7 @@
                   </div>
                 </div>
                  <!-- Treasurer -->
-                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl border-yellow-500">
+                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 border-yellow-500 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl">
                   <div class="flex items-center space-x-6">
                     <img src="assets/photos/staff/treasurer.jpeg"
                          class="w-24 h-24 rounded-full shadow-md border-4 border-yellow-200 object-cover"
@@ -456,7 +446,7 @@
                                 <li>Adv. Ashish Jaiswal (President)</li>
                                 <li>Shri. Sushmit Mazumdar (Vice-President)</li>
                                 <li>Smt. Anita Jaiswal (Secretary)</li>
-                                <li>Adv. Anup Jaiswal (Treasurer)</li>
+                                <li>Adv. Anoop Jaiswal (Treasurer)</li>
                             </ul>
 
                             <h3 class="text-xl font-bold mb-4 text-primary">College Development Committee (CDC) 2022-2027</h3>
@@ -663,7 +653,7 @@
                 secretary_name: "Smt. Anita Jaiswal",
                 secretary_title: "Secretary",
                 secretary_msg: "\"Committed to student welfare and safety.\"",
-                treasurer_name: "Adv. Anup Jaiswal",
+                treasurer_name: "Adv. Anoop Jaiswal",
                 treasurer_title: "Treasurer",
                 treasurer_msg: "\"Ensuring sustainable growth.\"",
                 notice_board_title: "Notice Board",
@@ -942,7 +932,7 @@
                     const img = document.createElement("img");
                     img.src = src;
                     img.alt = "Gallery Photo";
-                    img.className = "rounded-lg w-2/3 md:w-1/3 flex-shrink-0 shadow-md hover:scale-[1.02] transition-transform object-cover h-48";
+                    img.className = "rounded-lg w-48 h-48 object-cover flex-shrink-0 shadow-md hover:scale-[1.03] transition-transform";
                     galleryContainer.appendChild(img);
                 });
             });
