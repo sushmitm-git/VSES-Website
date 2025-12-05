@@ -53,10 +53,14 @@
         }
 
         .leadership-card {
-            min-height: 150px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            transition: transform .3s ease, box-shadow .3s ease;
         }
         .leadership-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
         }
 
         /* Accordion Customization */
@@ -148,57 +152,53 @@
         <!-- ===== HERO SECTION (Compact, Symmetric, Logo–Building–Founder) ===== -->
         <section class="w-full"
                  style="background: linear-gradient(180deg, #7b1e1e 0%, #6b1717 100%); padding-top: 30px; padding-bottom: 30px;">
+            <div class="container mx-auto px-4">
 
-          <div class="container mx-auto px-4">
+              <!-- ROW: LOGO | CAMPUS | FOUNDER -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
 
-            <!-- TOP ROW: Logo | Campus Photo | Founder -->
-            <div class="grid grid-cols-3 gap-4 items-center">
+                <!-- LEFT: VAC Logo -->
+                <div class="flex justify-center md:justify-end">
+                  <img src="assets/logo-vac.svg"
+                       class="h-20 md:h-24 object-contain drop-shadow-lg"
+                       alt="VAC Logo"/>
+                </div>
 
-              <!-- LEFT: VAC Header Logo -->
-              <div class="flex justify-center md:justify-end">
-                <img src="assets/logo-vac.svg"
-                     alt="VAC Ramtek Logo"
-                     class="h-20 md:h-24 object-contain drop-shadow-lg" />
+                <!-- CENTER: Campus Photo -->
+                <div class="flex justify-center">
+                  <img src="assets/college-building.jpg"
+                       class="rounded-xl shadow-xl w-full max-w-xl object-cover"
+                       alt="Campus"/>
+                </div>
+
+                <!-- RIGHT: Founder -->
+                <div class="flex flex-col items-center md:items-start">
+                  <img src="assets/photos/staff/founder.jpeg"
+                       class="w-28 h-28 rounded-full border-4 border-yellow-400 shadow-xl object-cover"
+                       alt="Founder"/>
+
+                  <h3 class="text-white font-bold text-base mt-3">
+                    Late Dr. Vinodkumaraji Jaiswal
+                  </h3>
+                  <p class="text-yellow-300 text-sm">Founder President</p>
+                </div>
+
               </div>
 
-              <!-- CENTER: Campus Building -->
-              <div class="flex justify-center">
-                <img src="assets/college-building.jpg"
-                     class="rounded-xl shadow-lg w-full max-w-xl object-cover" />
-              </div>
+              <!-- CENTERED COLLEGE NAME BELOW -->
+              <div class="text-center text-white mt-6">
+                <h2 class="text-yellow-300 font-bold text-xl">
+                  विद्यासागर कला महाविद्यालय
+                </h2>
 
-              <!-- RIGHT: Founder -->
-              <div class="flex flex-col items-center">
-                <img src="assets/photos/staff/founder.jpeg"
-                     alt="Late Dr. Vinodkumaraji Jaiswal"
-                     class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-4 border-yellow-400 shadow-xl" />
+                <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
+                  Vidyasagar Kala Mahavidyalaya
+                </h1>
 
-                <h3 class="text-white font-bold text-sm md:text-base mt-2">
-                  Late Dr. Vinodkumaraji Jaiswal
-                </h3>
-                <p class="text-yellow-300 text-xs md:text-sm font-medium">
-                  Founder President
-                </p>
+                <p class="text-base opacity-80 mt-1">(Vidyasagar Arts College - VAC)</p>
               </div>
 
             </div>
-
-            <!-- COLLEGE NAME (Compact) -->
-            <div class="text-center text-white mt-4">
-
-              <h2 class="text-yellow-300 font-bold text-lg">
-                विद्यासागर कला महाविद्यालय
-              </h2>
-
-              <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
-                Vidyasagar Kala Mahavidyalaya
-              </h1>
-
-              <p class="text-sm opacity-80">(Vidyasagar Arts College - VAC)</p>
-
-            </div>
-
-          </div>
         </section>
 
         <!-- Leadership Commentary Section -->
@@ -261,7 +261,7 @@
                   </div>
                 </div>
                  <!-- Treasurer -->
-                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl border-yellow-500">
+                 <div class="leadership-card bg-white p-6 rounded-xl shadow-xl border-l-4 border-yellow-500">
                   <div class="flex items-center space-x-6">
                     <img src="assets/photos/staff/treasurer.jpeg"
                          class="w-24 h-24 rounded-full shadow-md border-4 border-yellow-200 object-cover"
@@ -456,7 +456,7 @@
                                 <li>Adv. Ashish Jaiswal (President)</li>
                                 <li>Shri. Sushmit Mazumdar (Vice-President)</li>
                                 <li>Smt. Anita Jaiswal (Secretary)</li>
-                                <li>Adv. Anup Jaiswal (Treasurer)</li>
+                                <li>Adv. Anoop Jaiswal (Treasurer)</li>
                             </ul>
 
                             <h3 class="text-xl font-bold mb-4 text-primary">College Development Committee (CDC) 2022-2027</h3>
@@ -663,7 +663,7 @@
                 secretary_name: "Smt. Anita Jaiswal",
                 secretary_title: "Secretary",
                 secretary_msg: "\"Committed to student welfare and safety.\"",
-                treasurer_name: "Adv. Anup Jaiswal",
+                treasurer_name: "Adv. Anoop Jaiswal",
                 treasurer_title: "Treasurer",
                 treasurer_msg: "\"Ensuring sustainable growth.\"",
                 notice_board_title: "Notice Board",
