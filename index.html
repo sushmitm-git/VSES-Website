@@ -90,18 +90,13 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo: UPDATED TO VAC RAMTEK -->
-                <a href="#home" class="flex items-center space-x-3 transition-colors hover:text-blue-700" onclick="scrollToSection('home')">
-                    <svg class="w-12 h-12 text-primary" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#007bff" stroke-width="4"/>
-                        <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M50 20L80 35L50 50L20 35L50 20Z" fill="#ffc107" stroke="#343a40" stroke-width="2"/>
-                        <path d="M80 35V50" stroke="#343a40" stroke-width="2"/>
-                    </svg>
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-extrabold text-primary leading-none">VAC</span>
-                        <span class="text-xs font-semibold text-gray-600 tracking-wider">RAMTEK</span>
-                    </div>
-                </a>
+                  <a href="#home" class="flex items-center space-x-3 transition-colors hover:text-blue-700" onclick="scrollToSection('home')">
+                      <img src="assets/collegelogo.svg" class="w-12 h-12" alt="VAC Logo" />
+                      <div class="flex flex-col">
+                          <span class="text-2xl font-extrabold text-primary leading-none">VAC</span>
+                          <span class="text-xs font-semibold text-gray-600 tracking-wider">RAMTEK</span>
+                      </div>
+                  </a>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-4 lg:space-x-6 text-gray-700 font-medium text-sm lg:text-base cursor-pointer">
@@ -384,16 +379,44 @@
                         <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
                     </button>
                     <div id="faculty-content" class="accordion-content p-0">
-                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Teaching Staff</h3>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                                <!-- Placeholders for Faculty -->
-                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Sapate" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. G. N. Sapate</p><p class="text-xs text-blue-600">HOD</p></div>
-                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Kawathe" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. Jyoti Kawathe</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
-                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Mahalle" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. Satish Mahalle</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
-                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Pantavane" class="w-24 h-24 rounded-full mx-auto mb-2"><p class="font-semibold text-sm">Dr. R. Pantavane</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
-                            </div>
-                        </div>
+                           <div class="p-6">
+                              <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Teaching Staff</h3>
+                              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                                  <!-- Placeholders for Faculty -->
+                                  <div class="text-center p-4 border rounded-lg shadow-md card-hover">
+                                      <img src="assets/photo/staff/Dr-G-N-Sapate.jpg" 
+                                           class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
+                                           alt="Dr. G. N. Sapate"
+                                           onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Photo Missing'">
+                                      <p class="font-semibold text-sm">Dr. G. N. Sapate</p>
+                                      <p class="text-xs text-blue-600">HOD</p>
+                                  </div>
+                                  <div class="text-center p-4 border rounded-lg shadow-md card-hover">
+                                      <img src="assets/photo/staff/Dr-Jyoti-Kawathe.jpg" 
+                                           class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
+                                           alt="Dr. Jyoti Kawathe"
+                                           onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Photo Missing'">
+                                      <p class="font-semibold text-sm">Dr. Jyoti Kawathe</p>
+                                      <p class="text-xs text-blue-600">Asst. Prof</p>
+                                  </div>
+                                  <div class="text-center p-4 border rounded-lg shadow-md card-hover">
+                                      <img src="assets/photo/staff/Dr-Satish-Mahalle.jpg" 
+                                           class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
+                                           alt="Dr. Satish Mahalle"
+                                           onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Photo Missing'">
+                                      <p class="font-semibold text-sm">Dr. Satish Mahalle</p>
+                                      <p class="text-xs text-blue-600">Asst. Prof</p>
+                                  </div>
+                                  <div class="text-center p-4 border rounded-lg shadow-md card-hover">
+                                      <img src="assets/photo/staff/Dr-R-Pantavane.jpg" 
+                                           class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
+                                           alt="Dr. R. Pantavane"
+                                           onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Photo Missing'">
+                                      <p class="font-semibold text-sm">Dr. R. Pantavane</p>
+                                      <p class="text-xs text-blue-600">Asst. Prof</p>
+                                  </div>
+                              </div>
+                          </div>
                     </div>
                 </div>
 
