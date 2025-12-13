@@ -66,7 +66,7 @@
         /* Accordion Customization */
         .accordion-button { transition: all 0.3s ease; }
         .accordion-content { transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; max-height: 0; overflow: hidden; }
-        .accordion-content.open { max-height: 4000px; padding-top: 1.5rem; padding-bottom: 1.5rem; } 
+        .accordion-content.open { max-height: 5000px; padding-top: 1.5rem; padding-bottom: 1.5rem; } 
         .arrow.rotate-180 { transform: rotate(180deg); }
 
         .table-custom th, .table-custom td { padding: 0.75rem; border-bottom: 1px solid #dee2e6; text-align: left; }
@@ -89,10 +89,11 @@
     <header class="sticky top-0 z-50 shadow-lg bg-white/95 backdrop-blur-sm">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo: Fixed to use Inline SVG -->
+                <!-- Logo -->
                 <a href="#home" class="flex items-center space-x-3 transition-colors hover:text-blue-700" onclick="scrollToSection('home')">
                     <img src="assets/collegelogo.svg" class="w-12 h-12 object-contain" alt="VAC Logo" 
                          onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    <!-- SVG Fallback -->
                     <svg class="w-12 h-12 text-primary hidden" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#007bff" stroke-width="4"/>
                         <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -150,7 +151,7 @@
     </header>
 
     <main class="pt-8">
-        <!-- Main Hero Banner (Maroon Gradient) -->
+        <!-- Main Hero Banner -->
         <section id="home" class="py-12 md:py-16 shadow-2xl animate-on-scroll text-white" style="background: linear-gradient(180deg, #7b1e1e 0%, #6b1717 100%);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-8 md:space-y-0">
@@ -295,8 +296,7 @@
                 <!-- Running Photo Gallery -->
                 <div class="bg-white p-6 rounded-xl shadow-xl md:col-span-2 border-t-4 border-primary card-hover animate-on-scroll">
                     <h2 class="text-2xl font-bold text-primary mb-4 flex items-center">
-                        <i class="fas
-fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span>
+                        <i class="fas fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span>
                     </h2>
                     <div id="random-gallery-container" class="flex space-x-4 overflow-x-auto p-2 scroll-smooth">
                         <!-- JS will inject randomized photos here from /assets/photos/gallery/ -->
@@ -315,7 +315,10 @@ fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span
                     </button>
                     <div id="principal-content" class="accordion-content p-0">
                         <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6">
-                            <img src="https://placehold.co/120x120/007bff/ffffff?text=Principal" alt="Principal" class="rounded-full flex-shrink-0 shadow-md border-2 border-primary">
+                            <img src="assets/photos/staff/principal.jpg" 
+                                 alt="Dr. Suresh Somkuwar" 
+                                 class="w-32 h-32 rounded-full flex-shrink-0 shadow-md border-2 border-primary object-cover"
+                                 onerror="this.src='https://placehold.co/120x120/007bff/ffffff?text=Principal'">
                             <div>
                                 <h3 class="text-2xl font-bold text-primary"><span data-i18n="principal_name">Dr. Suresh Somkuwar</span> <span class="text-base font-semibold text-gray-600" data-i18n="principal_title">(Principal)</span></h3>
                                 <p class="text-gray-700 italic mt-1" data-i18n="principal_quote">"We encourage every student to utilize the college's resources—from our well-equipped library to our diverse co-curricular activities—to shape a bright future."</p>
@@ -358,23 +361,59 @@ fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span
                                 <div class="milestone-item"><span class="font-bold text-gray-900">2025-26:</span> Vidyasagar Police Academy & Competitive Exam Center.</div>
                             </div>
                             
-                            <!-- Certificates Section (Updated) -->
+                            <!-- Certificates Section (Updated with specific file list) -->
                             <h3 class="text-2xl font-bold mt-8 mb-4 text-primary" data-i18n="certificates_title">Certificates & Affiliations</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" id="certificates-container">
-                                <!-- Fixed Certificates -->
-                                <a href="assets/certificates/naac.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                <a href="assets/certificates/naac-certificate.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">NAAC Accreditation</span>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">NAAC Certificate</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                
-                                <a href="assets/certificates/affiliation.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/ssr-report.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">University Affiliation</span>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">SSR Report</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                
-                                <!-- Dynamic Certificates will appear here via JS -->
+                                <a href="assets/certificates/peer-team-report.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">Peer Team Report</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/grade-sheet.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">Institutional Grade Sheet</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2023-24.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2023-24</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2022-23.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2022-23</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2021-22.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2021-22</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2020-21.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2020-21</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2019-20.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2019-20</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/aqar-2018-19.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2018-19</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -410,11 +449,16 @@ fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span
                          <div class="p-6">
                             <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Teaching Staff</h3>
                             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                                <!-- Faculty Members -->
+                                <!-- Faculty Members (Generic Placeholders + 4 more slots for 8 total) -->
                                 <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="assets/photos/staff/Dr-G-N-Sapate.jpg" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" alt="Dr. G. N. Sapate" onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Sapate'"><p class="font-semibold text-sm">Dr. G. N. Sapate</p><p class="text-xs text-blue-600">HOD</p></div>
                                 <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="assets/photos/staff/Dr-Jyoti-Kawathe.jpg" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" alt="Dr. Jyoti Kawathe" onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Kawathe'"><p class="font-semibold text-sm">Dr. Jyoti Kawathe</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
                                 <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="assets/photos/staff/Dr-Satish-Mahalle.jpg" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" alt="Dr. Satish Mahalle" onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Mahalle'"><p class="font-semibold text-sm">Dr. Satish Mahalle</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
                                 <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="assets/photos/staff/Dr-R-Pantavane.jpg" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" alt="Dr. R. Pantavane" onerror="this.src='https://placehold.co/100x100/9c9c9c/ffffff?text=Dr+Pantavane'"><p class="font-semibold text-sm">Dr. R. Pantavane</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <!-- Extra slots for total 8 -->
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Faculty" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"><p class="font-semibold text-sm">Faculty Member</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Faculty" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"><p class="font-semibold text-sm">Faculty Member</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Faculty" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"><p class="font-semibold text-sm">Faculty Member</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
+                                <div class="text-center p-4 border rounded-lg shadow-md card-hover"><img src="https://placehold.co/100x100/9c9c9c/ffffff?text=Faculty" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover"><p class="font-semibold text-sm">Faculty Member</p><p class="text-xs text-blue-600">Asst. Prof</p></div>
                             </div>
                         </div>
                     </div>
@@ -757,7 +801,7 @@ fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span
                 stat_books: "पुस्तकालय की पुस्तकें:",
                 stat_teaching: "शिक्षण कर्मचारी:",
                 stat_nonteaching: "गैर-शिक्षण कर्मचारी:",
-                milestones: "संस्थागत मील के पत्थर",
+                milestones: "संस्थात्मक मील के पत्थर",
                 certificates_title: "प्रमाणपत्र और संबद्धता",
                 section_programmes: "कार्यक्रम और करियर पथ",
                 section_faculty: "संकाय स्नैपशॉट",
@@ -953,33 +997,6 @@ fa-images mr-3"></i> <span data-i18n="gallery_title">Running Photo Gallery</span
                 img.onerror = function() { this.style.display = 'none'; }; // Hide if image not found
                 galleryContainer.appendChild(img);
             });
-            
-            // Dynamic Certificate Loader
-            const certContainer = document.getElementById('certificates-container');
-            if (certContainer) {
-                 for(let i=1; i<=10; i++) { // Check for 1.pdf to 10.pdf
-                    const link = document.createElement('a');
-                    link.href = `assets/certificates/${i}.pdf`;
-                    link.target = "_blank";
-                    link.className = "flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group hidden"; // Hidden by default
-                    link.innerHTML = `
-                        <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-sm font-semibold text-gray-700 text-center">Certificate ${i}</span>
-                        <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                    `;
-                    certContainer.appendChild(link);
-                    
-                    // Simple check: try to fetch head, if ok, show it.
-                    // Note: This fetch might fail on local file:// protocol but works on web servers (GitHub Pages)
-                    fetch(link.href, { method: 'HEAD' })
-                        .then(res => {
-                            if (res.ok) {
-                                link.classList.remove('hidden');
-                            }
-                        })
-                        .catch(() => { /* Ignore errors (file not found) */ });
-                 }
-            }
         });
 
         // Mobile Menu
