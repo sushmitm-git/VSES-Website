@@ -152,15 +152,17 @@
 
     <main class="pt-8">
         <!-- Main Hero Banner (Maroon Gradient) -->
-        <section id="home" class="py-12 md:py-16 shadow-2xl animate-on-scroll text-white" style="background: linear-gradient(180deg, #7b1e1e 0%, #6b1717 100%);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-8 md:space-y-0">
+        <section id="home" class="relative py-14 md:py-20 shadow-2xl animate-on-scroll text-white overflow-hidden" style="background: linear-gradient(135deg, #6b1717 0%, #7b1e1e 35%, #2b3a67 100%);">
+            <!-- Subtle transparent background image overlay -->
+            <div class="absolute inset-0 bg-center bg-cover opacity-10" style="background-image: url('assets/campus.jpg');"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-10 md:space-y-0">
                     
                     <!-- Logo (Center Aligned on Mobile) -->
                     <div class="w-full md:w-1/4 flex justify-center">
-                         <img src="assets/collegelogo.svg" class="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl" alt="VAC Logo"
+                        <img src="assets/collegelogo.svg" class="w-48 h-48 md:w-56 md:h-56 object-contain drop-shadow-2xl" alt="VAC Logo"
                               onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-                         <svg class="w-32 h-32 md:w-40 md:h-40 drop-shadow-2xl hidden" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-48 h-48 md:w-56 md:h-56 drop-shadow-2xl hidden" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M50 95C50 95 85 85 85 50V20L50 5L15 20V50C15 85 50 95 50 95Z" fill="white" stroke="#ffc107" stroke-width="2"/>
                             <path d="M30 45L50 55L70 45M30 45V65C30 65 50 75 50 75C50 75 70 65 70 65V45" stroke="#007bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M50 20L80 35L50 50L20 35L50 20Z" fill="#ffc107" stroke="#343a40" stroke-width="2"/>
@@ -170,24 +172,24 @@
 
                     <!-- College Photo & Title -->
                     <div class="w-full md:w-1/2 px-4 text-center">
-                        <img src="assets/campus.jpg" alt="Vidyasagar Kala Mahavidyalaya Campus" class="w-full h-auto rounded-xl shadow-2xl border-4 border-white/20 mb-6 object-cover max-h-64 mx-auto" onerror="this.src='https://placehold.co/700x300/343a40/ffffff?text=Campus+Photo+Missing'">
+                        <img src="assets/campus.jpg" alt="Vidyasagar Kala Mahavidyalaya Campus" class="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/30 mb-6 object-cover max-h-80 md:max-h-96 mx-auto" onerror="this.src='https://placehold.co/700x300/343a40/ffffff?text=Campus+Photo+Missing'">
                         
                         <div class="mb-2">
-                            <h2 class="text-2xl sm:text-3xl font-bold text-yellow-300 hindi-text tracking-wide">विद्यासागर कला महाविद्यालय</h2>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-yellow-300 hindi-text tracking-wide drop-shadow">विद्यासागर कला महाविद्यालय</h2>
                         </div>
 
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold hero-title tracking-tight leading-tight">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold hero-title tracking-tight leading-tight">
                             <span data-i18n="hero_title_en">Vidyasagar Kala Mahavidyalaya</span>
-                            <span class="block text-xl sm:text-2xl mt-2 font-light text-blue-100" data-i18n="hero_subtitle">(Vidyasagar Arts College - VAC)</span>
+                            <span class="block text-2xl sm:text-3xl mt-3 font-light text-blue-100" data-i18n="hero_subtitle">(Vidyasagar Arts College - VAC)</span>
                         </h1>
-                        <p class="text-lg text-blue-100 font-medium mt-3" data-i18n="hero_tagline">Empowering Rural & Tribal Communities near Ramtek</p>
+                        <p class="text-xl text-blue-100 font-medium mt-4" data-i18n="hero_tagline">Empowering Rural & Tribal Communities near Ramtek</p>
                     </div>
 
                     <!-- Founder President Photo -->
                     <div class="w-full md:w-1/4 flex flex-col items-center">
-                        <img src="assets/photos/staff/founder.jpg" alt="Late Dr. Vinodkumaraji Jaiswal" class="w-40 h-40 rounded-full shadow-2xl border-4 border-yellow-400 object-cover transition-transform duration-300 hover:scale-105" onerror="this.src='https://placehold.co/150x150/ffc107/343a40?text=Founder'">
-                        <p class="mt-3 font-semibold text-yellow-300" data-i18n="founder_name">Late Dr. Vinodkumaraji Jaiswal</p>
-                        <p class="text-xs text-blue-200" data-i18n="founder_title">Founder President</p>
+                        <img src="assets/photos/staff/founder.jpg" alt="Late Dr. Vinodkumaraji Jaiswal" class="w-48 h-48 md:w-56 md:h-56 rounded-full shadow-2xl border-4 border-yellow-400 object-cover transition-transform duration-300 hover:scale-105" onerror="this.src='https://placehold.co/150x150/ffc107/343a40?text=Founder'">
+                        <p class="mt-4 font-semibold text-yellow-300 text-sm md:text-base" data-i18n="founder_name">Late Dr. Vinodkumaraji Jaiswal</p>
+                        <p class="text-xs md:text-sm text-blue-200" data-i18n="founder_title">Founder President</p>
                     </div>
                 </div>
             </div>
@@ -260,11 +262,11 @@
                   <div class="flex items-center space-x-6">
                     <img src="assets/photos/staff/treasurer.jpg"
                          class="w-24 h-24 rounded-full shadow-md border-4 border-yellow-200 object-cover"
-                         alt="Adv. Anup Jaiswal"
+                         alt="Adv. Anoop Jaiswal"
                          onerror="this.src='https://placehold.co/100x100/ffc107/343a40?text=Treasurer'">
 
                     <div>
-                      <h3 class="text-xl font-bold text-primary" data-i18n="treasurer_name">Adv. Anup Jaiswal</h3>
+                      <h3 class="text-xl font-bold text-primary" data-i18n="treasurer_name">Adv. Anoop Jaiswal</h3>
                       <p class="text-sm text-gray-600" data-i18n="treasurer_title">(Treasurer)</p>
                       <p class="text-gray-700 mt-3" data-i18n="treasurer_msg">
                         Ensuring sustainable financial growth and supporting long-term institutional development.
@@ -364,52 +366,52 @@
                             <!-- Certificates Section (Updated with specific file list) -->
                             <h3 class="text-2xl font-bold mt-8 mb-4 text-primary" data-i18n="certificates_title">Certificates & Affiliations</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                                <a href="assets/certificates/naac-certificate.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/Accreditation%20Certificate%201st%20Cycle.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">NAAC Accreditation</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/ssr-report.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/SSR%20Vidyasagar%20Kala%20Mahavidyalaya.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">SSR Report</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/peer-team-report.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/Peer%20Team%20Report%20(NAAC).pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">Peer Team Report</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/grade-sheet.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/Institutional_Grade_Sheet.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">Institutional Grade Sheet</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-23-24.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/AQAR%2023-24.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2023-24</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-22-23.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/AQAR%202022-23.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2022-23</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-21-22.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/AQAR%2021-22.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2021-22</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-20-21.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/20-21%20AQAR.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2020-21</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-19-20.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/AQAR%202019-20.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2019-20</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
                                 </a>
-                                <a href="assets/certificates/aqar-18-19.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                <a href="assets/certificates/AQAR%202018-19.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
                                     <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
                                     <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2018-19</span>
                                     <span class="text-xs text-blue-500 mt-1">View PDF</span>
@@ -427,13 +429,29 @@
                     </button>
                     <div id="programmes-content" class="accordion-content p-0">
                         <div class="p-6 text-gray-600">
-                            <ul class="list-disc ml-6 space-y-2">
-                                <li>**UG:** Bachelor of Arts (B.A.), Nursing Institute</li>
-                                <li>**PG:** M.A. in Marathi & Sociology</li>
-                            </ul>
-                            <div class="mt-4 p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
+                                <p class="font-extrabold text-red-600 text-lg">Bachelor of Arts (B.A.)</p>
+                                <p class="mt-2">Subjects Offered:
+                                    English, Marathi, Sociology,
+                                    Political Science, History,
+                                    Economics, English Literature,
+                                    Marathi Literature</p>
+                            </div>
+                            <div class="p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
+                                <p class="font-extrabold text-red-600 text-lg">Master of Arts (M.A.)</p>
+                                <p class="mt-2">Subjects Offered:
+                                    Marathi & History</p>
+                            </div>
+                            <div class="p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
+                                <p class="font-extrabold text-red-600 text-lg">Late Dr. Vinodkumar Jaiswal Nursing Institute</p>
+                                <p class="mt-2">Course Offered:
+                                    GNMA Diploma Course</p>
+                            </div>
+                            <div class="p-4 border-2 border-red-300 bg-red-50 rounded-lg shadow-md">
                                 <p class="font-extrabold text-red-600 text-lg">Vidyasagar Police Academy</p>
                                 <p class="mt-2">Coaching for Police, Defence, and Govt. job exams.</p>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -442,7 +460,7 @@
                 <!-- 4. Faculty Snapshot (Restored) -->
                 <div id="faculty" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
                     <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('faculty-content')">
-                        <span data-i18n="section_faculty">Faculty Snapshot</span>
+                        <span data-i18n="section_faculty">Faculty & Administrative Staff Snapshot</span>
                         <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
                     </button>
                     <div id="faculty-content" class="accordion-content p-0">
@@ -479,23 +497,50 @@
                                     <tbody>
                                         <tr><td>Mr. Narayan J. Kumbhalkar</td><td>Gold Medal in Economics</td><td>2003</td></tr>
                                         <tr><td>Ku. Pravina A. Somkuwar</td><td>2nd in Order of Merit</td><td>2004</td></tr>
-                                        <tr><td>Ku. Sunita L. Shende</td><td>Shankarrao Doulatrao Gedam Prize</td><td>2006</td></tr>
+                                        <tr><td>Ku. Sunita L. Shende</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2006</td></tr>
+                                        <tr><td>Mr. Jayprakash Kawaduji Diwate</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2007</td></tr>
                                         <tr><td>Ku. Uma M. Mohankar</td><td>Gold Medal in Economics (UG)</td><td>2008</td></tr>
+                                        <tr><td>Ku. Ganga Marotrao Mondhe</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2009</td></tr>
                                         <tr><td>Ku. Monali D. Somkuwar</td><td>1 Gold, 1 Silver in Economics</td><td>2010</td></tr>
+                                        <tr><td>Ku. Sonali D. Gurao</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2010</td></tr>
                                         <tr><td>Ku. Amrapali Jambhulkar</td><td>Anusayabai Borkar Gold Medal</td><td>2011</td></tr>
+                                        <tr><td>Shri Amol B. Bagmare</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2011</td></tr>
                                         <tr><td>Ku. Manisha S. Piparewar</td><td>Gold Medal in History</td><td>2012</td></tr>
+                                        <tr><td>Ku. Rubina K. Pathan</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2012</td></tr>
+                                        <tr><td>Ku. Shikha D. Kashyap</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2013</td></tr>
+                                        <tr><td>Ku. Fulwanta A. Bonsule</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2013</td></tr>
+                                        <tr><td>Ku. Suchita Thakrele</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2014</td></tr>
+                                        <tr><td>Ku. Sapana S. Shende</td><td>Shankarrao Doulatrao Gedam Prize in Marathi Literature</td><td>2014</td></tr>
                                         <tr><td>Ku. Apeksha S. Meshram</td><td>1 Gold, 1 Silver Medal</td><td>2015</td></tr>
                                         <tr><td>Ku. Dolly Kalamkar</td><td>1 Gold Medal, 1 Prize</td><td>2016</td></tr>
                                         <tr><td>Ku. Ashwini Gajbhiye</td><td>1 Gold Medal</td><td>2017</td></tr>
+                                        <tr><td>Mrs. Dipali Ukey Darwade</td><td>Third Merit M.A. Marathi</td><td>2024</td></tr>
+                                        <tr><td>Ku. Shital Suhagapure</td><td>Nineth Merit M.A. Marathi</td><td>2024</td></tr>
                                     </tbody>
                                 </table>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-primary">End Semester Topper Prizes</h3>
                             <ul class="list-disc ml-5 text-sm text-gray-700 space-y-1">
-                                <li>Late Dr. Vinodkumaraji Jaiswal Memorial Prize (BA I Topper)</li>
+                                <li>Late Dr. Vinodkumaraji Jaiswal Memorial Prize (B.A. Part I Topper)</li>
+                                <li>Late Principal S.N. Deshpande Memorial Prize (B.A. Part II Topper)</li>
+                                <li>Principal Dr. G. Thimma Reddy Prize (B.A. Part II Topper)</li>
                                 <li>Late Shri Rameshji Jaiswal Memorial Prize (BA III Topper)</li>
                                 <li>Ex-MLA Adv. Ashishji Jaiswal Prize (BA III Topper)</li>
-                                <li>Late Pramiladevi Jaiswal Memorial Prize (Marathi Topper)</li>
+                                <li>Late Pramiladevi Jaiswal Memorial Prize (Topper in Comp. Marathi)</li>
+                                <li>Late Tushar Sapate Memorial Prize (Topper in Marathi Literature)</li>
+                                <li>Late Bhaskarrao Dani Memorial Prize (Student representing in Sports and Games at University Level)</li>
+                                <li>Late Ramratan Gaidhane Memorial Prize (Topper in History)</li>
+                                <li>Late Govindrao Thanekar Granthalaya Mitra Memorial Prize (Student who uses the Library for maximum Times)</li>
+                                <li>Late Lilabai Muralidharrao Randive Memorial Prize (Topper in B. A. Part l Political Science)</li>
+                                <li>Prof. Ravindra Pantavane Prize (Topper B.A. English Examination)</li>
+                                <li>Dr. Sawan Dharmpuriwar Prize (Topper in B.A. ELT Examination)</li>
+                                <li>Dr. Sangita Takkamore Prize (Topper in Economics)</li>
+                                <li>Dr. Suresh Somkuwar Prize (Topper in Sociology)</li>
+                                <li>Dr. Sawan Dharmpuriwar Prize (Topper in English Literature)</li>
+                                <li>Dr. Pradip Randive Prize (Topper in Political Science)</li>
+                                <li>Dr. Satish Mahalle Prize (Topper in History)</li>
+                                <li>Special Prize from the College (University Merit Student)</li>
+                                <li>Alumni Association Award (University Merit Student)</li>
                             </ul>
                         </div>
                     </div>
@@ -514,7 +559,10 @@
                                 <li>Adv. Ashish Jaiswal (President)</li>
                                 <li>Shri. Sushmit Mazumdar (Vice-President)</li>
                                 <li>Smt. Anita Jaiswal (Secretary)</li>
-                                <li>Adv. Anup Jaiswal (Treasurer)</li>
+                                <li>Adv. Anoop Jaiswal (Treasurer)</li>
+                                <li>Smt. Susamma V. Philip (Member)</li>
+                                <li>Shri. Niraj Jaiswal (Member)</li>
+                                <li>Smt. Kalpana Patel (Member)</li>
                             </ul>
 
                             <h3 class="text-xl font-bold mb-4 text-primary">College Development Committee (CDC) 2022-2027</h3>
@@ -555,31 +603,117 @@
                     </button>
                     <div id="cca-content" class="accordion-content p-0">
                         <div class="p-6 text-gray-700">
-                            <h4 class="font-bold text-lg text-primary">National Service Scheme (NSS)</h4>
-                            <p class="mb-3">Active unit of 150 volunteers undertaking village adoption, cleanliness drives, and health camps. Motto: "Not Me, But You".</p>
-                            <h4 class="font-bold text-lg text-primary">Adult Literacy</h4>
-                            <p class="mb-3">Dedicated department working to spread literacy among underprivileged sections.</p>
-                            <h4 class="font-bold text-lg text-primary">Blood Donation Camp</h4>
-                            <p>Organized annually on 1st January in memory of Founder President Late Dr. Vinodkumarji Jaiswal.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- NSS Card -->
+                                <div class="flex items-start gap-4 p-5 bg-white border rounded-xl shadow-md card-hover">
+                                    <div class="shrink-0 bg-blue-100 text-primary w-12 h-12 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-primary">National Service Scheme (NSS)</h4>
+                                        <p class="text-sm">Active unit of 150 volunteers undertaking village adoption, cleanliness drives, and health camps. Motto: "Not Me, But You".</p>
+                                    </div>
+                                </div>
+
+                                <!-- Adult Literacy Card -->
+                                <div class="flex items-start gap-4 p-5 bg-white border rounded-xl shadow-md card-hover">
+                                    <div class="shrink-0 bg-green-100 text-green-600 w-12 h-12 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-primary">Adult Literacy</h4>
+                                        <p class="text-sm">Dedicated department working to spread literacy among underprivileged sections.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Blood Donation Card -->
+                                <div class="flex items-start gap-4 p-5 bg-white border rounded-xl shadow-md card-hover">
+                                    <div class="shrink-0 bg-red-100 text-red-600 w-12 h-12 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-primary">Blood Donation Camp</h4>
+                                        <p class="text-sm">Organized annually on 1st January in memory of Founder President Late Dr. Vinodkumarji Jaiswal.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Cultural Department Card -->
+                                <div class="flex items-start gap-4 p-5 bg-white border rounded-xl shadow-md card-hover">
+                                    <div class="shrink-0 bg-yellow-100 text-yellow-600 w-12 h-12 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-theater-masks"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-primary">Cultural Department</h4>
+                                        <p class="text-sm">Organizes co-curricular activities throughout the year. Annual social gathering and sports meet are held every year.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Three Column Info: Scholarship, Library, RTI -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
-                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_scholarships">Scholarships</h3>
-                    <p class="text-sm text-gray-600">GOI Scholarships for SC/ST/OBC/SBC/VJNT. EBC concessions and Minority scholarships available.</p>
-                 </div>
-                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500">
-                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_library">Library</h3>
-                    <p class="text-sm text-gray-600">2896+ Books, INFLIBNET access, and a Knowledge Resource Centre with Wi-Fi for research.</p>
-                 </div>
-                 <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500">
-                    <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_rti">RTI</h3>
-                    <p class="text-sm text-gray-600">PIO: Dr. Suresh Somkuwar. <br>Appellate Authority: Adv. Ashish Jaiswal.</p>
-                 </div>
+            <!-- Info Cards: Scholarships (converted to card) -->
+            <div class="mt-8">
+                <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <div class="shrink-0 bg-blue-100 text-blue-600 w-14 h-14 rounded-full flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_scholarships">Scholarships</h3>
+                        <p class="text-sm text-gray-700">GOI scholarships for SC/ST/OBC/SBC/VJNT students. EBC concessions and Minority scholarships are also available.</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Library Card -->
+            <div class="mt-8">
+                <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+                    <div class="shrink-0 bg-green-100 text-green-600 w-14 h-14 rounded-full flex items-center justify-center">
+                        <i class="fas fa-book text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-primary">Library</h3>
+                        <div class="text-sm text-gray-700 space-y-3">
+                            <p>The college has a well-furnished and fully computerized Library that serves as a vibrant hub of learning and research. It houses a rich collection of more than 2,896 books along with a variety of periodicals, journals of national and international repute, and newspapers in Marathi, Hindi, and English.</p>
+                            <p>Equipped with INFLIBNET software, the library provides access to extensive online academic resources and digital databases. An adjoining Knowledge Resource Centre with ten computers and Wi-Fi connectivity enables students to explore e-resources, prepare projects, and engage in online learning activities.</p>
+                            <p>The library continuously strives to promote reading culture, research orientation, and academic excellence among students and faculty members.</p>
+                            <div class="mt-2 space-y-1">
+                                <a href="https://nlist.inflibnet.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
+                                    <i class="fas fa-link"></i>
+                                    <span>N-List</span>
+                                </a>
+                                <br>
+                                <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
+                                    <i class="fas fa-link"></i>
+                                    <span>National Digital Library</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RTI Declaration Card -->
+            <div class="mt-8">
+                <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-500">
+                    <div class="shrink-0 bg-red-100 text-red-600 w-14 h-14 rounded-full flex items-center justify-center">
+                        <i class="fas fa-file-signature text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2 text-primary">RTI Declaration</h3>
+                        <p class="text-sm text-gray-700 mb-3">
+                            <span class="font-semibold">Declaration under Section 4 (1) (b) of the RTI Act 2005:</span>
+                            It is hereby declared that the institution shall abide by Section 4 (1) (b) of the RTI Act 2005 as issued and amended from time to time.
+                        </p>
+                        <ul class="list-disc ml-5 text-sm text-gray-700 space-y-1">
+                            <li>Appealing Officer: Dr. Suresh Somkuwar (Principal)</li>
+                            <li>Information Officer: Dr. G. N. Sapate (Asso. Professor)</li>
+                            <li>Asst. Information Officer: Ku. Kirti Jaiswal (Head Clerk)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- Contact Us Section -->
@@ -721,7 +855,7 @@
                 secretary_name: "Smt. Anita Jaiswal",
                 secretary_title: "Secretary",
                 secretary_msg: "\"Committed to student welfare, safety, and nurturing a positive learning environment.\"",
-                treasurer_name: "Adv. Anup Jaiswal",
+                treasurer_name: "Adv. Anoop Jaiswal",
                 treasurer_title: "Treasurer",
                 treasurer_msg: "\"Ensuring sustainable financial growth and supporting long-term institutional development.\"",
                 notice_board_title: "Notice Board",
