@@ -281,18 +281,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <!-- Notice Board & Gallery -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <!-- Notice Board -->
+                <!-- Notice Board (Dynamic from Google Sheet) -->
                 <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-red-500 card-hover animate-on-scroll">
                     <h2 class="text-2xl font-bold text-red-600 mb-4 flex items-center">
                         <i class="fas fa-bullhorn mr-3"></i> <span data-i18n="notice_board_title">Notice Board</span>
                     </h2>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700 font-medium transition-colors">New Student Enrollment 2024-25 is Open <span class="text-xs ml-1 bg-yellow-400 text-gray-800 px-2 py-0.5 rounded-full">NEW</span></a></li>
-                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">University Exam Time Table for BA Part III Announced</a></li>
-                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">IQAC Meeting Scheduled on 15th December</a></li>
-                        <li class="border-b pb-2"><a href="#" class="hover:text-red-700">NSS Special Camp Announcement (Mandatory Attendance)</a></li>
+                    <ul id="notice-list" class="space-y-3 text-sm text-gray-600">
+                        <li class="border-b pb-2 text-gray-500 italic">Loading notices...</li>
                     </ul>
-                    <a href="#" class="mt-4 inline-block text-sm text-red-600 hover:text-red-800 font-semibold transition-colors" data-i18n="view_all_notices">View All Notices →</a>
+                    <a id="notice-view-all" href="#" class="mt-4 inline-block text-sm text-red-600 hover:text-red-800 font-semibold transition-colors hidden" data-i18n="view_all_notices">View All Notices →</a>
                 </div>
 
                 <!-- Running Photo Gallery -->
@@ -1371,6 +1368,223 @@
 
                 // Clean up on page unload
                 window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); });
+            })();
+        </script>
+        <script>
+            // Notice Board: Load from Google Sheet (CSV or JSON) and render
+            (function () {
+                const listEl = document.getElementById('notice-list');
+                const viewAllEl = document.getElementById('notice-view-all');
+                if (!listEl) return;
+
+                // CONFIG: Provide one of the URLs below
+                // 1) Published CSV: File → Share → Publish to web → CSV link
+                // Set to your published CSV (may redirect or be blocked by CORS)
+                // Disabled by default due to CORS; can be re-enabled.
+                const SHEET_CSV_URL = '';
+                // 2) Google Sheets API JSON (requires API key):
+                // const SHEET_JSON_URL = 'https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{SHEET_NAME}!A:D?key={API_KEY}';
+                const SHEET_JSON_URL = '';
+                // 3) Recommended: Google GVIZ JSON (works cross-origin without API key)
+                // Format: https://docs.google.com/spreadsheets/d/e/<PUB_ID>/gviz/tq?gid=<GID>&tqx=out:json
+                // If this 404s, your publish ID/path is incorrect; use spreadsheet ID form instead.
+                const SHEET_GVIZ_URL = '';
+                // 4) CORS proxy fallback for CSV when direct fetch is blocked
+                const SHEET_CSV_PROXY_URL = (SHEET_CSV_URL 
+                    ? `https://cors.isomorphic-git.org/${SHEET_CSV_URL}` 
+                    : '');
+
+                // Optional: link to a page with all notices
+                const VIEW_ALL_URL = '';
+
+                const renderItems = (items) => {
+                    listEl.innerHTML = '';
+                    if (!items || !items.length) {
+                        listEl.innerHTML = '<li class="border-b pb-2 text-gray-500 italic">No notices available right now.</li>';
+                        return;
+                    }
+                    items.forEach((n) => {
+                        const li = document.createElement('li');
+                        li.className = 'border-b pb-2';
+                        const a = document.createElement('a');
+                        a.className = 'hover:text-red-700 transition-colors';
+                        a.href = n.href || '#';
+                        a.target = n.target || (n.href ? '_blank' : '_self');
+                        a.rel = 'noopener';
+                        a.textContent = n.title || 'Untitled Notice';
+                        if (n.isNew === true || String(n.isNew).toLowerCase() === 'new' || String(n.isNew).toLowerCase() === 'true') {
+                            const badge = document.createElement('span');
+                            badge.className = 'text-xs ml-1 bg-yellow-400 text-gray-800 px-2 py-0.5 rounded-full';
+                            badge.textContent = 'NEW';
+                            a.appendChild(badge);
+                        }
+                        li.appendChild(a);
+                        listEl.appendChild(li);
+                    });
+
+                    if (VIEW_ALL_URL) {
+                        viewAllEl.href = VIEW_ALL_URL;
+                        viewAllEl.classList.remove('hidden');
+                    }
+                };
+
+                const csvToItems = (csvText) => {
+                    // Expected headers: title, href, isNew, date (flexible)
+                    const lines = csvText.trim().split(/\r?\n/);
+                    if (lines.length < 2) return [];
+                    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+                    const idx = {
+                        title: headers.indexOf('title'),
+                        href: headers.indexOf('href'),
+                        isNew: headers.indexOf('isnew'),
+                        date: headers.indexOf('date'),
+                    };
+                    return lines.slice(1).map(line => {
+                        const cols = line.split(',');
+                        return {
+                            title: idx.title >= 0 ? cols[idx.title] : line,
+                            href: idx.href >= 0 ? cols[idx.href] : '',
+                            isNew: idx.isNew >= 0 ? cols[idx.isNew] : '',
+                            date: idx.date >= 0 ? cols[idx.date] : '',
+                        };
+                    }).filter(x => x.title && x.title.trim() !== '');
+                };
+
+                const jsonToItems = (json) => {
+                    // Google Sheets API values: [[title, href, isNew, date], ...]
+                    if (!json || !json.values || json.values.length < 2) return [];
+                    const rows = json.values.slice(1);
+                    return rows.map(r => ({
+                        title: r[0] || '',
+                        href: r[1] || '',
+                        isNew: r[2] || '',
+                        date: r[3] || '',
+                    })).filter(x => x.title);
+                };
+
+                const csvToGvizUrl = (csvUrl) => {
+                    try {
+                        const u = new URL(csvUrl);
+                        const gid = u.searchParams.get('gid') || '0';
+                        // Example GVIZ URL from published CSV root
+                        // https://docs.google.com/spreadsheets/d/e/<pubid>/gviz/tq?gid=0&tqx=out:json
+                        const pathParts = u.pathname.split('/').filter(Boolean);
+                        // Keep '/d/e/<pubid>' portion
+                        const dIdx = pathParts.indexOf('d');
+                        const eIdx = pathParts.indexOf('e');
+                        let basePath = u.pathname;
+                        if (dIdx !== -1 && eIdx !== -1 && eIdx + 1 < pathParts.length) {
+                            basePath = `/spreadsheets/d/e/${pathParts[eIdx + 1]}`;
+                        }
+                        return `${u.origin}${basePath}/gviz/tq?gid=${gid}&tqx=out:json`;
+                    } catch {
+                        return '';
+                    }
+                };
+
+                const tryFetch = async () => {
+                    try {
+                        // Prefer GVIZ JSON first to avoid CORS issues
+                        if (SHEET_GVIZ_URL) {
+                            const res = await fetch(SHEET_GVIZ_URL, { redirect: 'follow' });
+                            if (!res.ok) throw new Error('GVIZ fetch failed');
+                            const raw = await res.text();
+                            const jsonStr = raw.replace(/^.*setResponse\(/, '').replace(/\);\s*$/, '');
+                            const data = JSON.parse(jsonStr);
+                            const cols = data.table.cols.map(c => (c && c.label ? c.label.toLowerCase() : ''));
+                            const idx = {
+                                title: cols.indexOf('title'),
+                                href: cols.indexOf('href'),
+                                isNew: cols.indexOf('isnew'),
+                                date: cols.indexOf('date'),
+                            };
+                            const items = (data.table.rows || []).map(r => {
+                                const c = r.c || [];
+                                const get = (i) => (i >= 0 && c[i] && c[i].v != null) ? String(c[i].v) : '';
+                                return {
+                                    title: get(idx.title),
+                                    href: get(idx.href),
+                                    isNew: get(idx.isNew),
+                                    date: get(idx.date),
+                                };
+                            }).filter(x => x.title);
+                            renderItems(items);
+                            return;
+                        }
+
+                        if (SHEET_CSV_URL) {
+                            try {
+                                const res = await fetch(SHEET_CSV_URL, { redirect: 'follow' });
+                                if (!res.ok) throw new Error('CSV fetch failed');
+                                const text = await res.text();
+                                // If response appears to be HTML (CORS block), fall back
+                                if (text.trim().startsWith('<') && text.toLowerCase().includes('<html')) {
+                                    throw new Error('CSV blocked by CORS, falling back to GVIZ');
+                                }
+                                renderItems(csvToItems(text));
+                                return;
+                            } catch (csvErr) {
+                                // Try GVIZ derived from CSV URL
+                                const gvizUrl = csvToGvizUrl(SHEET_CSV_URL);
+                                if (gvizUrl) {
+                                    try {
+                                        const res2 = await fetch(gvizUrl, { redirect: 'follow' });
+                                        if (!res2.ok) throw new Error('GVIZ fetch failed');
+                                        const raw = await res2.text();
+                                        const jsonStr = raw.replace(/^.*setResponse\(/, '').replace(/\);\s*$/, '');
+                                        const data = JSON.parse(jsonStr);
+                                        const cols = data.table.cols.map(c => (c && c.label ? c.label.toLowerCase() : ''));
+                                        const idx = {
+                                            title: cols.indexOf('title'),
+                                            href: cols.indexOf('href'),
+                                            isNew: cols.indexOf('isnew'),
+                                            date: cols.indexOf('date'),
+                                        };
+                                        const items = (data.table.rows || []).map(r => {
+                                            const c = r.c || [];
+                                            const get = (i) => (i >= 0 && c[i] && c[i].v != null) ? String(c[i].v) : '';
+                                            return {
+                                                title: get(idx.title),
+                                                href: get(idx.href),
+                                                isNew: get(idx.isNew),
+                                                date: get(idx.date),
+                                            };
+                                        }).filter(x => x.title);
+                                        renderItems(items);
+                                        return;
+                                    } catch {}
+                                }
+                                // Finally, try via CORS proxy if configured
+                                if (SHEET_CSV_PROXY_URL) {
+                                    const res3 = await fetch(SHEET_CSV_PROXY_URL, { redirect: 'follow' });
+                                    if (res3.ok) {
+                                        const text3 = await res3.text();
+                                        renderItems(csvToItems(text3));
+                                        return;
+                                    }
+                                }
+                                throw csvErr;
+                            }
+                        }
+                        if (SHEET_JSON_URL) {
+                            const res = await fetch(SHEET_JSON_URL);
+                            if (!res.ok) throw new Error('JSON fetch failed');
+                            const data = await res.json();
+                            renderItems(jsonToItems(data));
+                            return;
+                        }
+                        listEl.innerHTML = '<li class="border-b pb-2 text-gray-500 italic">Notices feed not configured.</li>';
+                    } catch (e) {
+                        console.error('Notice load error:', e);
+                        listEl.innerHTML = '<li class="border-b pb-2 text-red-600">Failed to load notices. Please try again later.</li>';
+                    }
+                };
+
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    tryFetch();
+                } else {
+                    window.addEventListener('DOMContentLoaded', tryFetch);
+                }
             })();
         </script>
 </html>
