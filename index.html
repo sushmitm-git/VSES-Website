@@ -339,28 +339,163 @@
                     <div id="glance-content" class="accordion-content p-0">
                         <div class="p-6">
                             <h3 class="text-2xl font-bold mb-4 text-primary" data-i18n="key_stats">Key Statistics</h3>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 font-medium">
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_est">Established:</strong> 9 August 1999</li>
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_area">Campus Area:</strong> 3.5 Acre</li>
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_level">Levels:</strong> UG (B.A., Nursing), PG (M.A.)</li>
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_books">Library Books:</strong> 2,896+</li>
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_teaching">Teaching Staff:</strong> 08</li>
-                                <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-primary"><strong data-i18n="stat_nonteaching">Non-Teaching Staff:</strong> 08</li>
-                            </ul>
-                             <h3 class="text-2xl font-bold mt-6 mb-4 text-primary" data-i18n="milestones">Institutional Milestones</h3>
-                            <div class="space-y-3 relative text-gray-700">
-                                <div class="milestone-item"><span class="font-bold text-gray-900">1998:</span> Establishment of Vidyasagar Education Society, Ramtek.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">August 1999:</span> Est. of Vidyasagar Kala Mahavidyalaya Khairi (Bijewada).</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2002:</span> Introduction of N.S.S. Unit.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2003:</span> 1st Gold Medal in University Convocation (17 medals since).</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2006:</span> Introduction of YCMOU Centre.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2014:</span> Shifted to own building & Campus; Permanent Affiliation to RTMNU.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2015:</span> Included under section 2(f) and 12(B) of UGC Act.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2018:</span> Accredited with 'B' Grade (CGPA 2.20) by NAAC.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2021-22:</span> PG Courses in Marathi & Sociology.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2022-23:</span> Construction of Auditorium & Building Expansion.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2024-25:</span> Late Dr. Vinodkumaraji Jaiswal Nursing Institute.</div>
-                                <div class="milestone-item"><span class="font-bold text-gray-900">2025-26:</span> Vidyasagar Police Academy & Competitive Exam Center.</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Established -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-primary card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-blue-100 text-primary flex items-center justify-center">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_est">Established</p>
+                                            <p class="text-2xl font-extrabold text-gray-900">9 August 1999</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Campus Area -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-green-500 card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                            <i class="fas fa-map"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_area">Campus Area</p>
+                                            <p class="text-2xl font-extrabold text-gray-900">3.5 Acre</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Levels -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-yellow-500 card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center">
+                                            <i class="fas fa-layer-group"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_level">Levels</p>
+                                            <p class="text-sm font-bold text-gray-900">UG (B.A., Nursing), PG (M.A.)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Library Books -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-indigo-500 card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_books">Library Books</p>
+                                            <p class="text-2xl font-extrabold text-gray-900">2,896+</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Teaching Staff -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-pink-500 card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_teaching">Teaching Staff</p>
+                                            <p class="text-2xl font-extrabold text-gray-900">08</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Non-Teaching Staff -->
+                                <div class="bg-white rounded-xl shadow-xl p-5 border-t-4 border-gray-700 card-hover">
+                                    <div class="flex items-center gap-4">
+                                        <div class="shrink-0 w-12 h-12 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center">
+                                            <i class="fas fa-users-cog"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs uppercase tracking-wide text-gray-500" data-i18n="stat_nonteaching">Non-Teaching Staff</p>
+                                            <p class="text-2xl font-extrabold text-gray-900">08</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold mt-6 mb-4 text-primary" data-i18n="milestones">Institutional Milestones</h3>
+                            <!-- Timeline View -->
+                            <div class="relative">
+                                <div class="absolute left-4 md:left-8 top-0 h-full border-l-4 border-primary/20"></div>
+                                <ul class="space-y-6 pl-12 md:pl-20 text-gray-800">
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center shadow-md"><i class="fas fa-flag"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-primary">
+                                            <p><span class="font-bold text-gray-900">1998:</span> Establishment of Vidyasagar Education Society, Ramtek.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-yellow-500 text-white flex items-center justify-center shadow-md"><i class="fas fa-school"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-yellow-500">
+                                            <p><span class="font-bold text-gray-900">August 1999:</span> Est. of Vidyasagar Kala Mahavidyalaya Khairi (Bijewada).</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-users"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-blue-600">
+                                            <p><span class="font-bold text-gray-900">2002:</span> Introduction of N.S.S. Unit.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-award"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-emerald-600">
+                                            <p><span class="font-bold text-gray-900">2003:</span> 1st Gold Medal in University Convocation (17 medals since).</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-university"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-purple-600">
+                                            <p><span class="font-bold text-gray-900">2006:</span> Introduction of YCMOU Centre.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-md"><i class="fas fa-building"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-orange-500">
+                                            <p><span class="font-bold text-gray-900">2014:</span> Shifted to own building & Campus; Permanent Affiliation to RTMNU.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-check-circle"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-teal-600">
+                                            <p><span class="font-bold text-gray-900">2015:</span> Included under section 2(f) and 12(B) of UGC Act.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-medal"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-red-600">
+                                            <p><span class="font-bold text-gray-900">2018:</span> Accredited with 'B' Grade (CGPA 2.20) by NAAC.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-book"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-indigo-600">
+                                            <p><span class="font-bold text-gray-900">2021-22:</span> PG Courses in Marathi & Sociology.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-sky-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-tools"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-sky-600">
+                                            <p><span class="font-bold text-gray-900">2022-23:</span> Construction of Auditorium & Building Expansion.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center shadow-md"><i class="fas fa-hospital"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-pink-600">
+                                            <p><span class="font-bold text-gray-900">2024-25:</span> Late Dr. Vinodkumaraji Jaiswal Nursing Institute.</p>
+                                        </div>
+                                    </li>
+                                    <li class="relative">
+                                        <span class="absolute -left-1.5 md:-left-3.5 top-0 w-8 h-8 rounded-full bg-gray-700 text-white flex items-center justify-center shadow-md"><i class="fas fa-shield-alt"></i></span>
+                                        <div class="bg-white rounded-xl shadow p-4 border-l-4 border-gray-700">
+                                            <p><span class="font-bold text-gray-900">2025-26:</span> Vidyasagar Police Academy & Competitive Exam Center.</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                             
                             <!-- Certificates Section (Updated with specific file list) -->
@@ -716,57 +851,90 @@
                 </div>
             </div>
 
-            <!-- Contact Us Section -->
-            <section id="contact" class="mt-12 p-8 bg-white rounded-xl shadow-2xl animate-on-scroll border-t-8 border-primary">
-                <h2 class="text-3xl font-extrabold text-gray-800 mb-8 text-center" data-i18n="section_contact">Contact Us</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-map-marker-alt text-xl"></i></div>
-                            <div><h4 class="font-bold text-gray-800">Our Campus</h4><p class="text-gray-600">Vidyasagar Kala Mahavidyalaya,<br>Khairi (Bijewada), Ramtek, Dist. Nagpur - 441106</p></div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-phone text-xl"></i></div>
-                            <div><h4 class="font-bold text-gray-800">Phone</h4><p class="text-gray-600">+91 123 456 7890</p></div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-blue-100 p-3 rounded-full text-primary"><i class="fas fa-envelope text-xl"></i></div>
-                            <div><h4 class="font-bold text-gray-800">Email</h4><p class="text-gray-600">info@vacramtek.org</p></div>
-                        </div>
-                    </div>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); if(this.checkValidity()) alert('Thank you! Message Sent.');">
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2" data-i18n="form_name">Your Name</label>
-                            <input type="text" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Name" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">
-                                <span data-i18n="form_mobile">Mobile Number (WhatsApp)</span> <span class="text-red-500">*</span>
-                            </label>
-                            <div class="flex">
-                                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
-                                    +91
-                                </span>
-                                <input type="tel" id="mobile" class="w-full p-3 border border-gray-300 rounded-r-lg focus:ring-primary focus:border-primary" placeholder="10-digit number" pattern="[6-9][0-9]{9}" title="Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9" required>
+            <!-- Contact Us Section (Beautified) -->
+            <section id="contact" class="mt-12 relative overflow-hidden rounded-2xl shadow-2xl animate-on-scroll">
+                <!-- Gradient background -->
+                <div class="absolute inset-0" style="background: linear-gradient(135deg, #6b1717 0%, #7b1e1e 35%, #2b3a67 100%);"></div>
+                <!-- Transparent background image overlay -->
+                <img src="assets/college-building.jpg" alt="Campus" class="absolute inset-0 w-full h-full object-cover opacity-10" onerror="this.src='https://placehold.co/1200x600/2b3a67/ffffff?text=Campus'">
+
+                <div class="relative p-8 md:p-10">
+                    <h2 class="text-3xl font-extrabold text-white mb-8 text-center drop-shadow" data-i18n="section_contact">Contact Us</h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Contact details cards -->
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                                <div class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center shadow">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Our Campus</h4>
+                                    <p class="text-white/80">Vidyasagar Kala Mahavidyalaya,<br>Khairi (Bijewada), Ramtek, Dist. Nagpur - 441106</p>
+                                </div>
                             </div>
-                            <p class="text-xs text-gray-500 mt-1" data-i18n="form_mobile_hint">We will contact you via WhatsApp.</p>
+                            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                                <div class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center shadow">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Phone</h4>
+                                    <p class="text-white/80">+91 123 456 7890</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+                                <div class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center shadow">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Email</h4>
+                                    <p class="text-white/80">info@vacramtek.org</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2">
-                                <span data-i18n="form_email">Email Address</span> <span class="text-gray-400 font-normal text-sm" data-i18n="form_optional">(Optional)</span>
-                            </label>
-                            <input type="email" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Email">
-                        </div>
+                        <!-- Modern form -->
+                        <form class="space-y-4 bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20" onsubmit="event.preventDefault(); if(this.checkValidity()) alert('Thank you! Message Sent.');">
+                            <div>
+                                <label class="block text-white font-bold mb-1" data-i18n="form_name">Your Name</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-3 flex items-center text-gray-400"><i class="fas fa-user"></i></span>
+                                    <input type="text" class="w-full pl-10 pr-3 py-3 rounded-lg bg-white/90 border border-white/50 focus:ring-2 focus:ring-blue-400 focus:border-blue-400" placeholder="Name" required>
+                                </div>
+                            </div>
 
-                        <div>
-                            <label class="block text-gray-700 font-bold mb-2" data-i18n="form_message">Message</label>
-                            <textarea class="w-full p-3 border border-gray-300 rounded-lg h-32" placeholder="How can we help?" required></textarea>
-                        </div>
+                            <div>
+                                <label class="block text-white font-bold mb-1">
+                                    <span data-i18n="form_mobile">Mobile Number (WhatsApp)</span> <span class="text-yellow-300">*</span>
+                                </label>
+                                <div class="flex">
+                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-white/90 border border-r-0 border-white/50 rounded-l-md">+91</span>
+                                    <input type="tel" id="mobile" class="w-full p-3 rounded-r-lg bg-white/90 border border-white/50 focus:ring-2 focus:ring-blue-400 focus:border-blue-400" placeholder="10-digit number" pattern="[6-9][0-9]{9}" title="Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9" required>
+                                </div>
+                                <p class="text-xs text-white/80 mt-1" data-i18n="form_mobile_hint">We will contact you via WhatsApp.</p>
+                            </div>
 
-                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition duration-300" data-i18n="form_submit">Send Message</button>
-                    </form>
+                            <div>
+                                <label class="block text-white font-bold mb-1">
+                                    <span data-i18n="form_email">Email Address</span> <span class="text-white/70 font-normal text-sm" data-i18n="form_optional">(Optional)</span>
+                                </label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-3 flex items-center text-gray-400"><i class="fas fa-at"></i></span>
+                                    <input type="email" class="w-full pl-10 pr-3 py-3 rounded-lg bg-white/90 border border-white/50 focus:ring-2 focus:ring-blue-400 focus:border-blue-400" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-white font-bold mb-1" data-i18n="form_message">Message</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-3 flex items-start pt-3 text-gray-400"><i class="fas fa-comment"></i></span>
+                                    <textarea class="w-full pl-10 pr-3 py-3 rounded-lg h-32 bg-white/90 border border-white/50 focus:ring-2 focus:ring-blue-400 focus:border-blue-400" placeholder="How can we help?" required></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg" data-i18n="form_submit">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </section>
         </div>
@@ -1156,4 +1324,53 @@
         });
     </script>
 </body>
+        <script>
+            // Auto-scroll for Running Photo Gallery
+            (function () {
+                const container = document.getElementById('random-gallery-container');
+                if (!container) return;
+
+                let paused = false;
+                let rafId = null;
+                let speed = 0.4; // pixels per frame (~24px/sec at 60fps)
+
+                const step = () => {
+                    if (!paused) {
+                        // Advance scroll
+                        container.scrollLeft += speed;
+                        // If reached end, loop back to start
+                        if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+                            container.scrollTo({ left: 0, behavior: 'auto' });
+                        }
+                    }
+                    rafId = requestAnimationFrame(step);
+                };
+
+                // Pause on hover/focus for accessibility
+                container.addEventListener('mouseenter', () => { paused = true; });
+                container.addEventListener('mouseleave', () => { paused = false; });
+                container.addEventListener('focusin', () => { paused = true; });
+                container.addEventListener('focusout', () => { paused = false; });
+
+                // If content updates (images injected), ensure overflow is present before starting
+                const startWhenReady = () => {
+                    if (container.scrollWidth > container.clientWidth + 8) {
+                        if (!rafId) rafId = requestAnimationFrame(step);
+                    } else {
+                        // Retry shortly in case images load later
+                        setTimeout(startWhenReady, 500);
+                    }
+                };
+
+                // Kick off after DOM is ready
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    startWhenReady();
+                } else {
+                    window.addEventListener('DOMContentLoaded', startWhenReady);
+                }
+
+                // Clean up on page unload
+                window.addEventListener('beforeunload', () => { if (rafId) cancelAnimationFrame(rafId); });
+            })();
+        </script>
 </html>
