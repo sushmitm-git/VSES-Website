@@ -113,7 +113,9 @@
                     <a class="hover:text-primary transition duration-200" onclick="openAccordion('programmes')" data-i18n="nav_programmes">Programmes</a>
                     <a class="hover:text-primary transition duration-200" onclick="openAccordion('achievements')" data-i18n="nav_achievements">Achievements</a>
                     <a class="hover:text-primary transition duration-200" onclick="openAccordion('governance')" data-i18n="nav_governance">Governance</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('iqac')" data-i18n="nav_iqac">IQAC</a>
                     <a class="hover:text-primary transition duration-200" onclick="openAccordion('cca')" data-i18n="nav_cca">CCA</a>
+                    <a class="hover:text-primary transition duration-200" onclick="openAccordion('alumni')" data-i18n="nav_alumni">Alumni</a>
                     <a class="hover:text-primary transition duration-200" onclick="scrollToSection('contact')" data-i18n="nav_contact">Contact</a>
                     
                     <!-- Language Selector -->
@@ -154,7 +156,7 @@
         <!-- Main Hero Banner (Maroon Gradient) -->
         <section id="home" class="relative py-14 md:py-20 shadow-2xl animate-on-scroll text-white overflow-hidden" style="background: linear-gradient(135deg, #6b1717 0%, #7b1e1e 35%, #2b3a67 100%);">
             <!-- Subtle transparent background image overlay -->
-            <div class="absolute inset-0 bg-center bg-cover opacity-10" style="background-image: url('assets/campus.jpg');"></div>
+            <div class="absolute inset-0 bg-center bg-cover opacity-10" style="background-image: url('assets/photos/staff/college-building-2.jpg');"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-10 md:space-y-0">
                     
@@ -279,7 +281,7 @@
         </section>
 
         <section id="vision-mission" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-on-scroll">
-            <h2 class="text-3xl font-extrabold text-primary mb-8 text-center border-b-2 border-gray-200 pb-4" data-i18n="section_leadership">Vision & Mission</h2>
+            <!-- <h2 class="text-3xl font-extrabold text-primary mb-8 text-center border-b-2 border-gray-200 pb-4" data-i18n="section_leadership">Vision & Mission</h2> -->
             <!-- Vision & Mission column (two columns) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:col-start-2">
                     <!-- Vision Card -->
@@ -341,15 +343,20 @@
                         <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
                     </button>
                     <div id="principal-content" class="accordion-content p-0">
-                        <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6">
-                            <img src="assets/photos/staff/principal.jpg" 
-                                 alt="Dr. Suresh Somkuwar" 
-                                 class="w-32 h-32 rounded-full flex-shrink-0 shadow-md border-2 border-primary object-cover"
-                                 onerror="this.src='https://placehold.co/120x120/007bff/ffffff?text=Principal'">
-                            <div>
-                                <h3 class="text-2xl font-bold text-primary"><span data-i18n="principal_name">Dr. Suresh Somkuwar</span> <span class="text-base font-semibold text-gray-600" data-i18n="principal_title">(Principal)</span></h3>
-                                <p class="text-gray-700 italic mt-1" data-i18n="principal_quote">"We encourage every student to utilize the college's resources—from our well-equipped library to our diverse co-curricular activities—to shape a bright future."</p>
-                                <p class="mt-3 text-sm text-gray-600" data-i18n="principal_text">Our institution is dedicated to fostering academic rigor, critical thinking, and social responsibility. We believe in 'Not Me, But You' and strive to instill this spirit of selfless service in our community.</p>
+                        <div class="p-6">
+                            <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg border-t-4 border-primary">
+                                <img src="assets/photos/staff/principal.jpg" 
+                                    alt="Dr. Suresh Somkuwar" 
+                                    class="w-32 h-32 rounded-full flex-shrink-0 shadow-md border-2 border-primary object-cover"
+                                    onerror="this.src='https://placehold.co/120x120/007bff/ffffff?text=Principal'">
+                                <div>
+                                    <h3 class="text-2xl font-extrabold text-primary flex items-center gap-2"><i class="fas fa-user-tie text-blue-600"></i> <span data-i18n="principal_name">Dr. Suresh Somkuwar</span> <span class="text-base font-semibold text-gray-600" data-i18n="principal_title">(Principal)</span></h3>
+                                    <div class="text-gray-700 italic mt-2 flex items-start gap-2">
+                                        <i class="fas fa-quote-left text-primary mt-0.5"></i>
+                                        <p class="flex-1" data-i18n="principal_quote">"We encourage every student to utilize the college's resources—from our well-equipped library to our diverse co-curricular activities—to shape a bright future."</p>
+                                    </div>
+                                    <p class="mt-3 text-sm text-gray-600" data-i18n="principal_text">Our institution is dedicated to fostering academic rigor, critical thinking, and social responsibility. We believe in 'Not Me, But You' and strive to instill this spirit of selfless service in our community.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -522,61 +529,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            
-                            <!-- Certificates Section (Updated with specific file list) -->
-                            <h3 class="text-2xl font-bold mt-8 mb-4 text-primary" data-i18n="certificates_title">Certificates & Affiliations</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                                <a href="assets/certificates/Accreditation%20Certificate%201st%20Cycle.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">NAAC Accreditation</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/SSR%20Vidyasagar%20Kala%20Mahavidyalaya.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">SSR Report</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/Peer%20Team%20Report%20(NAAC).pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">Peer Team Report</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/Institutional_Grade_Sheet.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">Institutional Grade Sheet</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/AQAR%2023-24.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2023-24</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/AQAR%202022-23.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2022-23</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/AQAR%2021-22.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2021-22</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/20-21%20AQAR.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2020-21</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/AQAR%202019-20.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2019-20</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                                <a href="assets/certificates/AQAR%202018-19.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
-                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2018-19</span>
-                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -686,30 +638,31 @@
                                 </div>
                                 
                             </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Non Teaching Staff</h3>
-                        </div>
-                        <div class="overflow-x-auto bg-gradient-to-r from-blue-50 to-white rounded-xl p-4 border-t-4 border-primary shadow-md">
-                             <table class="w-full table-auto table-custom text-sm border bg-white rounded-lg shadow">
-                                <thead>
-                                    <tr class="bg-blue-50">
-                                        <th class="text-left font-semibold text-primary"><i class="fas fa-user mr-2"></i>Name</th>
-                                        <th class="text-left font-semibold text-primary"><i class="fas fa-id-badge mr-2"></i>Designation</th>
-                                        <th class="text-left font-semibold text-primary"><i class="fas fa-certificate mr-2"></i>Qualification</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Ku. K.J. Jaiswal</td><td>Sr. Clerk</td><td>B.Com.</td></tr>
-                                    <tr><td>Shri J.S. Badnag</td><td>Sr. Clerk</td><td>B.A.</td></tr>
-                                    <tr><td>Shri S.P. Dongre</td><td>Jr. Clerk</td><td>M.Com.</td></tr>
-                                    <tr><td>Shri Y.J. Pathan</td><td>Lib. Attd.</td><td>B.A.</td></tr>
-                                    <tr><td>Shri R.J. Qureshi</td><td>Peon</td><td>B.A.</td></tr>
-                                    <tr><td>Shri L.R. Kanoje</td><td>Peon</td><td>IX Class</td></tr>
-                                    <tr><td>Shri D.V. Hatwar</td><td>Peon</td><td>B.A.</td></tr>
-                                    <tr><td>Shri V.R. Parteti</td><td>Peon</td><td>B.A.</td></tr>
-                                </tbody>
-                            </table>
+                            <br>
+                            <div class="bg-gradient-to-r from-indigo-50 to-white rounded-xl shadow-lg border-t-4 border-indigo-500 p-5 mb-6">
+                                <h3 class="text-xl font-bold mb-4 text-primary" data-i18n="faculty_title">Our Dedicated Non Teaching Staff</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full table-auto table-custom text-sm border bg-white rounded-lg shadow">
+                                        <thead>
+                                            <tr class="bg-blue-50">
+                                                <th class="text-left font-semibold text-primary"><i class="fas fa-user mr-2"></i>Name</th>
+                                                <th class="text-left font-semibold text-primary"><i class="fas fa-id-badge mr-2"></i>Designation</th>
+                                                <th class="text-left font-semibold text-primary"><i class="fas fa-certificate mr-2"></i>Qualification</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Ku. K.J. Jaiswal</td><td>Sr. Clerk</td><td>B.Com.</td></tr>
+                                            <tr><td>Shri J.S. Badnag</td><td>Sr. Clerk</td><td>B.A.</td></tr>
+                                            <tr><td>Shri S.P. Dongre</td><td>Jr. Clerk</td><td>M.Com.</td></tr>
+                                            <tr><td>Shri Y.J. Pathan</td><td>Lib. Attd.</td><td>B.A.</td></tr>
+                                            <tr><td>Shri R.J. Qureshi</td><td>Peon</td><td>B.A.</td></tr>
+                                            <tr><td>Shri L.R. Kanoje</td><td>Peon</td><td>IX Class</td></tr>
+                                            <tr><td>Shri D.V. Hatwar</td><td>Peon</td><td>B.A.</td></tr>
+                                            <tr><td>Shri V.R. Parteti</td><td>Peon</td><td>B.A.</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -797,56 +750,165 @@
                     </div>
                 </div>
                 
-                <!-- 6. Governance & IQAC -->
+                <!-- 6. Governance -->
                 <div id="governance" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
                     <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('governance-content')">
-                        <span data-i18n="section_governance">Governance: Management, CDC & IQAC</span>
+                        <span data-i18n="section_governance">Governance: Management & CDC</span>
                         <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
                     </button>
                     <div id="governance-content" class="accordion-content p-0">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-4 text-primary">Management Body</h3>
-                            <ul class="list-disc ml-5 space-y-1 text-gray-700 mb-6">
-                                <li>Adv. Ashish Jaiswal (President)</li>
-                                <li>Shri. Sushmit Mazumdar (Vice-President)</li>
-                                <li>Smt. Anita Jaiswal (Secretary)</li>
-                                <li>Adv. Anoop Jaiswal (Treasurer)</li>
-                                <li>Smt. Susamma V. Philip (Member)</li>
-                                <li>Shri. Niraj Jaiswal (Member)</li>
-                                <li>Smt. Kalpana Patel (Member)</li>
-                            </ul>
-
-                            <h3 class="text-xl font-bold mb-4 text-primary">College Development Committee (CDC) 2022-2027</h3>
-                            <div class="overflow-x-auto mb-6">
-                                <table class="w-full table-auto table-custom text-sm border shadow-sm">
-                                    <thead><tr><th>Name</th><th>Designation</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>Adv. Ashish Jaiswal</td><td>Chairperson (President, VES)</td></tr>
-                                        <tr><td>Smt. Anita Jaiswal</td><td>Member (Secretary, VES)</td></tr>
-                                        <tr><td>Dr. Girish Sapate</td><td>Member (HOD)</td></tr>
-                                        <tr><td>Dr. Ravindra Pantavane</td><td>Teacher Member</td></tr>
-                                        <tr><td>Dr. Jyoti Kawathe</td><td>Teacher Member (Women)</td></tr>
-                                        <tr><td>Dr. Satish Mahalle</td><td>Teacher Member</td></tr>
-                                        <tr><td>Shri Jitendra Badnag</td><td>Non-Teaching Member</td></tr>
-                                        <tr><td>Shri Anil Waghamare</td><td>Member (Industry)</td></tr>
-                                        <tr><td>Shri Rushikesh Kimmatkar</td><td>Member (Social Service)</td></tr>
-                                        <tr><td>Smt. Kalpana Patel</td><td>Member (Education)</td></tr>
-                                        <tr><td>Shri Narayan Kumbhalkar</td><td>Member (Alumni)</td></tr>
-                                        <tr><td>Dr. Sawan Dharmpuriwar</td><td>Member (IQAC Co-ordinator)</td></tr>
-                                        <tr><td>President</td><td>Students’ Council</td></tr>
-                                        <tr><td>Secretary</td><td>Students’ Council</td></tr>
-                                        <tr><td>Dr. Suresh Somkuwar</td><td>Member Secretary (Principal)</td></tr>
-                                    </tbody>
-                                </table>
+                            <!-- Management Body Card -->
+                            <div class="bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg border-t-4 border-primary p-5 mb-6">
+                                <h3 class="text-2xl font-extrabold mb-3 text-primary flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-blue-100 text-primary flex items-center justify-center mr-3"><i class="fas fa-sitemap"></i></span>
+                                    Management Body
+                                </h3>
+                                <ul class="space-y-2 text-gray-800">
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Adv. Ashish Jaiswal <span class="text-gray-600">(President)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Shri. Sushmit Mazumdar <span class="text-gray-600">(Vice-President)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Smt. Anita Jaiswal <span class="text-gray-600">(Secretary)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Adv. Anoop Jaiswal <span class="text-gray-600">(Treasurer)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Smt. Susamma V. Philip <span class="text-gray-600">(Member)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Shri. Niraj Jaiswal <span class="text-gray-600">(Member)</span></span></li>
+                                    <li class="flex items-start gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i class="fas fa-user-tie"></i></span><span>Smt. Kalpana Patel <span class="text-gray-600">(Member)</span></span></li>
+                                </ul>
                             </div>
 
-                            <h3 class="text-xl font-bold mt-6 mb-4 text-primary">IQAC Composition</h3>
-                            <p class="text-gray-700">Chairperson: Dr. Suresh Somkuwar (Principal) <br> Co-ordinator: Dr. Sawan Dharmpuriwar</p>
+                            <!-- CDC Card -->
+                            <div class="bg-gradient-to-r from-indigo-50 to-white rounded-xl shadow-lg border-t-4 border-indigo-500 p-5 mb-6">
+                                <h3 class="text-2xl font-extrabold mb-3 text-indigo-700 flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3"><i class="fas fa-users-cog"></i></span>
+                                    College Development Committee (CDC) 2022-2027
+                                </h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full table-auto table-custom text-sm border bg-white rounded-lg shadow-sm">
+                                        <thead>
+                                            <tr class="bg-indigo-50">
+                                                <th class="text-left font-semibold text-indigo-700"><i class="fas fa-user mr-2"></i>Name</th>
+                                                <th class="text-left font-semibold text-indigo-700"><i class="fas fa-id-badge mr-2"></i>Designation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Adv. Ashish Jaiswal</td><td>Chairperson (President, VES)</td></tr>
+                                            <tr><td>Smt. Anita Jaiswal</td><td>Member (Secretary, VES)</td></tr>
+                                            <tr><td>Dr. Girish Sapate</td><td>Member (HOD)</td></tr>
+                                            <tr><td>Dr. Ravindra Pantavane</td><td>Teacher Member</td></tr>
+                                            <tr><td>Dr. Jyoti Kawathe</td><td>Teacher Member (Women)</td></tr>
+                                            <tr><td>Dr. Satish Mahalle</td><td>Teacher Member</td></tr>
+                                            <tr><td>Shri Jitendra Badnag</td><td>Non-Teaching Member</td></tr>
+                                            <tr><td>Shri Anil Waghamare</td><td>Member (Industry)</td></tr>
+                                            <tr><td>Shri Rushikesh Kimmatkar</td><td>Member (Social Service)</td></tr>
+                                            <tr><td>Smt. Kalpana Patel</td><td>Member (Education)</td></tr>
+                                            <tr><td>Shri Narayan Kumbhalkar</td><td>Member (Alumni)</td></tr>
+                                            <tr><td>Dr. Sawan Dharmpuriwar</td><td>Member (IQAC Co-ordinator)</td></tr>
+                                            <tr><td>President</td><td>Students’ Council</td></tr>
+                                            <tr><td>Secretary</td><td>Students’ Council</td></tr>
+                                            <tr><td>Dr. Suresh Somkuwar</td><td>Member Secretary (Principal)</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 7. CCA Activities (Restored) -->
+                <!-- 7. IQAC -->
+                <div id="iqac" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('iqac-content')">
+                        <span data-i18n="section_iqac">IQAC</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="iqac-content" class="accordion-content p-0">
+                        <div class="p-6">
+                            <div class="bg-gradient-to-r from-indigo-50 to-white rounded-xl shadow-lg border-t-4 border-indigo-500 p-5 mb-6">
+                                <h3 class="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3"><i class="fas fa-clipboard-check"></i></span>
+                                    Internal Quality Assurance Cell (IQAC)
+                                </h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full table-auto table-custom text-sm border bg-white rounded-lg shadow-sm">
+                                        <thead>
+                                            <tr class="bg-indigo-50">
+                                                <th class="text-left font-semibold text-indigo-700"><i class="fas fa-layer-group mr-2"></i>Category</th>
+                                                <th class="text-left font-semibold text-indigo-700"><i class="fas fa-user mr-2"></i>Name</th>
+                                                <th class="text-left font-semibold text-indigo-700"><i class="fas fa-id-badge mr-2"></i>Designation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Chairperson</td><td>Dr. Suresh Somkuwar</td><td>Principal</td></tr>
+                                            <tr><td>Senior Administrative Officer</td><td>Dr. Girish Sapate</td><td>Asso. Professor</td></tr>
+                                            <tr><td>Teacher Member</td><td>Dr. Ravindra Pantavane</td><td>Asso. Professor</td></tr>
+                                            <tr><td>Teacher Member</td><td>Dr. Jyoti Kawathe</td><td>Asso. Professor</td></tr>
+                                            <tr><td>Member from the Management</td><td>Adv. Anup Jaiswal</td><td>Member, VEC</td></tr>
+                                            <tr><td>Nominee from Local Society</td><td>Mr Rushikesh Kimmatkar</td><td>Social Worker</td></tr>
+                                            <tr><td>Nominee from Students</td><td>President, Student council</td><td>Student</td></tr>
+                                            <tr><td>Nominee from Alumni</td><td>Mr Narayan Kumbhalkar</td><td>Village Dev. Officer</td></tr>
+                                            <tr><td>Nominee from Industrialist</td><td>Anil Waghamare</td><td>Manager, Eco Bio Herb</td></tr>
+                                            <tr><td>Co-ordinator</td><td>Dr. Sawan Dharmpuriwar</td><td>Asso. Professor</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Certificates Section (Updated with specific file list) -->
+                            <h3 class="text-2xl font-bold mt-8 mb-4 text-primary" data-i18n="certificates_title">Certificates & Affiliations</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                <a href="assets/certificates/Accreditation%20Certificate%201st%20Cycle.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">NAAC Accreditation</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/SSR%20Vidyasagar%20Kala%20Mahavidyalaya.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">SSR Report</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/Peer%20Team%20Report%20(NAAC).pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">Peer Team Report</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/Institutional_Grade_Sheet.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">Institutional Grade Sheet</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/AQAR%2023-24.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2023-24</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/AQAR%202022-23.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2022-23</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/AQAR%2021-22.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2021-22</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/20-21%20AQAR.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2020-21</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/AQAR%202019-20.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2019-20</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                                <a href="assets/certificates/AQAR%202018-19.pdf" target="_blank" class="flex flex-col items-center p-4 border rounded-lg shadow-md hover:shadow-lg transition-shadow bg-white group">
+                                    <i class="fas fa-file-pdf text-4xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-sm font-semibold text-gray-700 text-center">AQAR 2018-19</span>
+                                    <span class="text-xs text-blue-500 mt-1">View PDF</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. CCA Activities (Restored) -->
                 <div id="cca" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
                     <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('cca-content')">
                         <span data-i18n="section_cca">Co-Curricular Activities (CCA) & Extension</span>
@@ -902,44 +964,171 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Info Cards: Scholarships (converted to card) -->
-            <div class="mt-8">
-                <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
-                    <div class="shrink-0 bg-blue-100 text-blue-600 w-14 h-14 rounded-full flex items-center justify-center">
-                        <i class="fas fa-graduation-cap text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_scholarships">Scholarships</h3>
-                        <p class="text-sm text-gray-700">GOI scholarships for SC/ST/OBC/SBC/VJNT students. EBC concessions and Minority scholarships are also available.</p>
+
+                <!-- 9. Alumni -->
+                <div id="alumni" class="bg-white rounded-xl shadow-xl overflow-hidden animate-on-scroll">
+                    <button class="accordion-button w-full p-5 text-left font-extrabold text-xl text-gray-800 flex justify-between items-center bg-gray-100 hover:bg-gray-200 border-l-4 border-accent" onclick="toggleAccordion('alumni-content')">
+                        <span data-i18n="section_alumni">Alumni Association</span>
+                        <span class="arrow text-3xl transition-transform duration-300 transform rotate-0 text-primary">+</span>
+                    </button>
+                    <div id="alumni-content" class="accordion-content p-0">
+                        <div class="p-6">
+                            <!-- Executive Committee Card -->
+                            <div class="bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg border-t-4 border-primary p-5 mb-6">
+                                <h3 class="text-2xl font-extrabold mb-4 text-primary flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-blue-100 text-primary flex items-center justify-center mr-3"><i class="fas fa-users"></i></span>
+                                    Executive Committee
+                                </h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full table-auto table-custom text-sm border bg-white rounded-lg shadow-sm">
+                                        <thead>
+                                            <tr class="bg-blue-50">
+                                                <th class="text-left font-semibold text-primary"><i class="fas fa-user mr-2"></i>Name</th>
+                                                <th class="text-left font-semibold text-primary"><i class="fas fa-id-badge mr-2"></i>Designation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>Shri Narayan Kumbhalkar</td><td>President</td></tr>
+                                            <tr><td>Ku. Harsha Waghmare</td><td>Vice- President</td></tr>
+                                            <tr><td>Shri Pavan Kamadi</td><td>Secretary</td></tr>
+                                            <tr><td>Shri Rupesh Hatagre</td><td>Treasurer</td></tr>
+                                            <tr><td>Shri Ranjit Thakur</td><td>Member</td></tr>
+                                            <tr><td>Shri Sagar Mankar</td><td>Member</td></tr>
+                                            <tr><td>Ku. Yogita Gaikwad</td><td>Member</td></tr>
+                                            <tr><td>Shri Kailash Ambilduke</td><td>Member</td></tr>
+                                            <tr><td>Ku. Ekata Bais</td><td>Member</td></tr>
+                                            <tr><td>Dr. Sawan Dharmpuriwar</td><td>Teacher Co-ordinator</td></tr>
+                                            <tr><td>Dr. Suresh Somkuwar</td><td>Principal</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Initiatives Card -->
+                            <div class="bg-gradient-to-r from-indigo-50 to-white rounded-xl shadow-lg border-t-4 border-indigo-500 p-5 mb-6">
+                                <h3 class="text-2xl font-extrabold mb-3 text-indigo-700 flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3"><i class="fas fa-hands-helping"></i></span>
+                                    Notable Initiatives by Alumni Association
+                                </h3>
+                                <ul class="ml-1 text-sm text-gray-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2"><i class="fas fa-award text-indigo-600 mt-0.5"></i><span>Alumni Association Scholarship</span></li>
+                                    <li class="flex items-start gap-2"><i class="fas fa-graduation-cap text-indigo-600 mt-0.5"></i><span>Award for the topper in University Exams</span></li>
+                                    <li class="flex items-start gap-2"><i class="fas fa-people-arrows text-indigo-600 mt-0.5"></i><span>Annual Alumni Meet</span></li>
+                                    <li class="flex items-start gap-2"><i class="fas fa-hand-holding-heart text-indigo-600 mt-0.5"></i><span>Active participation in social and awareness activities of the institution</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Notable Alumni Cards -->
+                            <div class="bg-gradient-to-r from-yellow-50 to-white rounded-xl shadow-lg border-t-4 border-yellow-500 p-5">
+                                <h3 class="text-2xl font-extrabold mb-4 text-yellow-700 flex items-center">
+                                    <span class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center mr-3"><i class="fas fa-star"></i></span>
+                                    Notable Alumni
+                                </h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <!-- Card 1 -->
+                                    <div class="p-4 bg-white border rounded-lg shadow-sm card-hover">
+                                        <div class="flex items-start gap-3">
+                                            <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fas fa-user-tie"></i></span>
+                                            <div>
+                                                <p class="font-semibold text-primary">Shri Upesh Ambade</p>
+                                                <p class="text-xs text-gray-600">Tahsildar (Govt. of Maharashtra)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 2 -->
+                                    <div class="p-4 bg-white border rounded-lg shadow-sm card-hover">
+                                        <div class="flex items-start gap-3">
+                                            <span class="w-10 h-10 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"><i class="fas fa-shield-alt"></i></span>
+                                            <div>
+                                                <p class="font-semibold text-primary">Shri Dipak Konkretwar</p>
+                                                <p class="text-xs text-gray-600">PSI (Maharashtra Police)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 3 -->
+                                    <div class="p-4 bg-white border rounded-lg shadow-sm card-hover">
+                                        <div class="flex items-start gap-3">
+                                            <span class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fas fa-user"></i></span>
+                                            <div>
+                                                <p class="font-semibold text-primary">Ku. Yogita Gaikwad</p>
+                                                <p class="text-xs text-gray-600">Sarpanch (State Level Awardee)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 4 -->
+                                    <div class="p-4 bg-white border rounded-lg shadow-sm card-hover">
+                                        <div class="flex items-start gap-3">
+                                            <span class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center"><i class="fas fa-chalkboard-teacher"></i></span>
+                                            <div>
+                                                <p class="font-semibold text-primary">Shri Kailash Ambilduke</p>
+                                                <p class="text-xs text-gray-600">Assistant Professor</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 5 -->
+                                    <div class="p-4 bg-white border rounded-lg shadow-sm card-hover">
+                                        <div class="flex items-start gap-3">
+                                            <span class="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center"><i class="fas fa-briefcase"></i></span>
+                                            <div>
+                                                <p class="font-semibold text-primary">Shri Narayan Kumbhalkar</p>
+                                                <p class="text-xs text-gray-600">Village Development Officer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            
-            <!-- Library Card -->
+            <!-- Info Cards: Scholarships, Library, Sports (3-column layout) -->
             <div class="mt-8">
-                <div class="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
-                    <div class="shrink-0 bg-green-100 text-green-600 w-14 h-14 rounded-full flex items-center justify-center">
-                        <i class="fas fa-book text-2xl"></i>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Scholarships Card -->
+                    <div class="flex items-start gap-4 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg border-t-4 border-primary card-hover">
+                        <div class="shrink-0 bg-blue-100 text-primary w-14 h-14 rounded-full flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-primary" data-i18n="footer_scholarships">Scholarships</h3>
+                            <p class="text-sm text-gray-700">Government of India provides scholarships for SC, ST, OBC, SBC, and VJNT students to ensure educational support. Additionally, concessions for Economically Backward Class (EBC) and scholarships for minority communities are offered, promoting equal opportunities and inclusive academic growth for all deserving learners.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-xl mb-2 text-primary">Library</h3>
-                        <div class="text-sm text-gray-700 space-y-3">
-                            <p>The college has a well-furnished and fully computerized Library that serves as a vibrant hub of learning and research. It houses a rich collection of more than 2,896 books along with a variety of periodicals, journals of national and international repute, and newspapers in Marathi, Hindi, and English.</p>
-                            <p>Equipped with INFLIBNET software, the library provides access to extensive online academic resources and digital databases. An adjoining Knowledge Resource Centre with ten computers and Wi-Fi connectivity enables students to explore e-resources, prepare projects, and engage in online learning activities.</p>
-                            <p>The library continuously strives to promote reading culture, research orientation, and academic excellence among students and faculty members.</p>
-                            <div class="mt-2 space-y-1">
-                                <a href="https://nlist.inflibnet.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
-                                    <i class="fas fa-link"></i>
-                                    <span>N-List</span>
-                                </a>
-                                <br>
-                                <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
-                                    <i class="fas fa-link"></i>
-                                    <span>National Digital Library</span>
-                                </a>
+
+                    <!-- Library Card -->
+                    <div class="flex items-start gap-4 p-6 bg-gradient-to-r from-green-50 to-white rounded-xl shadow-lg border-t-4 border-green-500 card-hover">
+                        <div class="shrink-0 bg-green-100 text-green-600 w-14 h-14 rounded-full flex items-center justify-center">
+                            <i class="fas fa-book text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-primary">Library</h3>
+                            <div class="text-sm text-gray-700 space-y-3">
+                                <p>The college library is a modern learning hub with over 2,896 books, journals, and newspapers in multiple languages. Equipped with INFLIBNET and a Knowledge Resource Centre offering Wi-Fi and computers, it provides access to digital resources, fosters research, and promotes reading culture for students and faculty.</p>
+                                <div class="mt-2 space-y-1">
+                                    <a href="https://nlist.inflibnet.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
+                                        <i class="fas fa-link"></i>
+                                        <span>N-List</span>
+                                    </a>
+                                    <br>
+                                    <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-semibold">
+                                        <i class="fas fa-link"></i>
+                                        <span>National Digital Library</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Card -->
+                    <div class="flex items-start gap-4 p-6 bg-gradient-to-r from-orange-50 to-white rounded-xl shadow-lg border-t-4 border-orange-500 card-hover">
+                        <div class="shrink-0 bg-orange-100 text-orange-600 w-14 h-14 rounded-full flex items-center justify-center">
+                            <i class="fas fa-running text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2 text-primary">Sports</h3>
+                            <div class="text-sm text-gray-700 space-y-3">
+                                <p>The college provides adequate facilities for sports and games to the students. Facilities for and carrom. Facilities for students to participate in various tournaments at university and state level. Special incentives and prizes for the students representing the college at University and state level competitions.</p>
                             </div>
                         </div>
                     </div>
@@ -1060,7 +1249,7 @@
     <footer class="bg-gray-900 text-white mt-12 pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                <!-- Col 1: Vision & Mission -->
+                <!-- Col 1: RTI Declaration -->
                 <div>
                     <h3 class="text-xl font-bold text-yellow-400 mb-4" data-i18n="footer_vision_title">RTI Declaration</h3>
                     <div class="text-gray-400 text-sm space-y-4">
