@@ -1379,20 +1379,13 @@
 
                 // CONFIG: Provide one of the URLs below
                 // 1) Published CSV: File → Share → Publish to web → CSV link
-                // Set to your published CSV (may redirect or be blocked by CORS)
-                // Disabled by default due to CORS; can be re-enabled.
-                const SHEET_CSV_URL = '';
+                // Default demo CSV (replace with your published Sheet CSV URL)
+                // How to get it: File → Share → Publish to web → CSV
+                // Example format: https://docs.google.com/spreadsheets/d/<<SPREADSHEET_ID>>/pub?gid=<<SHEET_GID>>&single=true&output=csv
+                const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBWZzxtfS_WRnUwjRvL0QJtEoQm1e7tJjeHQSgLPRwCEfZtNC19yHExaEbZj0M4-Qn5pOaMp4IFQST/pub?gid=0&single=true&output=csv';
                 // 2) Google Sheets API JSON (requires API key):
                 // const SHEET_JSON_URL = 'https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{SHEET_NAME}!A:D?key={API_KEY}';
                 const SHEET_JSON_URL = '';
-                // 3) Recommended: Google GVIZ JSON (works cross-origin without API key)
-                // Format: https://docs.google.com/spreadsheets/d/e/<PUB_ID>/gviz/tq?gid=<GID>&tqx=out:json
-                // If this 404s, your publish ID/path is incorrect; use spreadsheet ID form instead.
-                const SHEET_GVIZ_URL = '';
-                // 4) CORS proxy fallback for CSV when direct fetch is blocked
-                const SHEET_CSV_PROXY_URL = (SHEET_CSV_URL 
-                    ? `https://cors.isomorphic-git.org/${SHEET_CSV_URL}` 
-                    : '');
 
                 // Optional: link to a page with all notices
                 const VIEW_ALL_URL = '';
@@ -1462,109 +1455,14 @@
                     })).filter(x => x.title);
                 };
 
-                const csvToGvizUrl = (csvUrl) => {
-                    try {
-                        const u = new URL(csvUrl);
-                        const gid = u.searchParams.get('gid') || '0';
-                        // Example GVIZ URL from published CSV root
-                        // https://docs.google.com/spreadsheets/d/e/<pubid>/gviz/tq?gid=0&tqx=out:json
-                        const pathParts = u.pathname.split('/').filter(Boolean);
-                        // Keep '/d/e/<pubid>' portion
-                        const dIdx = pathParts.indexOf('d');
-                        const eIdx = pathParts.indexOf('e');
-                        let basePath = u.pathname;
-                        if (dIdx !== -1 && eIdx !== -1 && eIdx + 1 < pathParts.length) {
-                            basePath = `/spreadsheets/d/e/${pathParts[eIdx + 1]}`;
-                        }
-                        return `${u.origin}${basePath}/gviz/tq?gid=${gid}&tqx=out:json`;
-                    } catch {
-                        return '';
-                    }
-                };
-
                 const tryFetch = async () => {
                     try {
-                        // Prefer GVIZ JSON first to avoid CORS issues
-                        if (SHEET_GVIZ_URL) {
-                            const res = await fetch(SHEET_GVIZ_URL, { redirect: 'follow' });
-                            if (!res.ok) throw new Error('GVIZ fetch failed');
-                            const raw = await res.text();
-                            const jsonStr = raw.replace(/^.*setResponse\(/, '').replace(/\);\s*$/, '');
-                            const data = JSON.parse(jsonStr);
-                            const cols = data.table.cols.map(c => (c && c.label ? c.label.toLowerCase() : ''));
-                            const idx = {
-                                title: cols.indexOf('title'),
-                                href: cols.indexOf('href'),
-                                isNew: cols.indexOf('isnew'),
-                                date: cols.indexOf('date'),
-                            };
-                            const items = (data.table.rows || []).map(r => {
-                                const c = r.c || [];
-                                const get = (i) => (i >= 0 && c[i] && c[i].v != null) ? String(c[i].v) : '';
-                                return {
-                                    title: get(idx.title),
-                                    href: get(idx.href),
-                                    isNew: get(idx.isNew),
-                                    date: get(idx.date),
-                                };
-                            }).filter(x => x.title);
-                            renderItems(items);
-                            return;
-                        }
-
                         if (SHEET_CSV_URL) {
-                            try {
-                                const res = await fetch(SHEET_CSV_URL, { redirect: 'follow' });
-                                if (!res.ok) throw new Error('CSV fetch failed');
-                                const text = await res.text();
-                                // If response appears to be HTML (CORS block), fall back
-                                if (text.trim().startsWith('<') && text.toLowerCase().includes('<html')) {
-                                    throw new Error('CSV blocked by CORS, falling back to GVIZ');
-                                }
-                                renderItems(csvToItems(text));
-                                return;
-                            } catch (csvErr) {
-                                // Try GVIZ derived from CSV URL
-                                const gvizUrl = csvToGvizUrl(SHEET_CSV_URL);
-                                if (gvizUrl) {
-                                    try {
-                                        const res2 = await fetch(gvizUrl, { redirect: 'follow' });
-                                        if (!res2.ok) throw new Error('GVIZ fetch failed');
-                                        const raw = await res2.text();
-                                        const jsonStr = raw.replace(/^.*setResponse\(/, '').replace(/\);\s*$/, '');
-                                        const data = JSON.parse(jsonStr);
-                                        const cols = data.table.cols.map(c => (c && c.label ? c.label.toLowerCase() : ''));
-                                        const idx = {
-                                            title: cols.indexOf('title'),
-                                            href: cols.indexOf('href'),
-                                            isNew: cols.indexOf('isnew'),
-                                            date: cols.indexOf('date'),
-                                        };
-                                        const items = (data.table.rows || []).map(r => {
-                                            const c = r.c || [];
-                                            const get = (i) => (i >= 0 && c[i] && c[i].v != null) ? String(c[i].v) : '';
-                                            return {
-                                                title: get(idx.title),
-                                                href: get(idx.href),
-                                                isNew: get(idx.isNew),
-                                                date: get(idx.date),
-                                            };
-                                        }).filter(x => x.title);
-                                        renderItems(items);
-                                        return;
-                                    } catch {}
-                                }
-                                // Finally, try via CORS proxy if configured
-                                if (SHEET_CSV_PROXY_URL) {
-                                    const res3 = await fetch(SHEET_CSV_PROXY_URL, { redirect: 'follow' });
-                                    if (res3.ok) {
-                                        const text3 = await res3.text();
-                                        renderItems(csvToItems(text3));
-                                        return;
-                                    }
-                                }
-                                throw csvErr;
-                            }
+                            const res = await fetch(SHEET_CSV_URL);
+                            if (!res.ok) throw new Error('CSV fetch failed');
+                            const text = await res.text();
+                            renderItems(csvToItems(text));
+                            return;
                         }
                         if (SHEET_JSON_URL) {
                             const res = await fetch(SHEET_JSON_URL);
