@@ -1736,9 +1736,11 @@
 
                 // State for Show More/Less
                 const MAX_VISIBLE = 5;
+                const MAX_TITLE_CHARS = 140;
                 let expanded = false;
                 let allItems = [];
                 let toggleEl = document.getElementById('notice-toggle');
+                let expandedIndices = new Set(); // per-item expansion state
 
                 // CONFIG: Provide one of the URLs below
                 // 1) Published CSV: File → Share → Publish to web → CSV link
@@ -1779,7 +1781,7 @@
                     }
 
                     const visible = expanded ? allItems : allItems.slice(0, MAX_VISIBLE);
-                    visible.forEach((n) => {
+                    visible.forEach((n, i) => {
                         const li = document.createElement('li');
                         li.className = 'border-b pb-2';
                         const a = document.createElement('a');
@@ -1787,7 +1789,10 @@
                         a.href = n.href || '#';
                         a.target = n.target || (n.href ? '_blank' : '_self');
                         a.rel = 'noopener';
-                        a.textContent = n.title || 'Untitled Notice';
+                        const fullTitle = n.title || 'Untitled Notice';
+                        const isLong = fullTitle.length > MAX_TITLE_CHARS;
+                        const showFull = expandedIndices.has(i) || !isLong;
+                        a.textContent = showFull ? fullTitle : (fullTitle.slice(0, MAX_TITLE_CHARS) + '…');
                         if (n.isNew === true || String(n.isNew).toLowerCase() === 'new' || String(n.isNew).toLowerCase() === 'true') {
                             const badge = document.createElement('span');
                             badge.className = 'text-xs ml-1 bg-yellow-400 text-gray-800 px-2 py-0.5 rounded-full';
@@ -1795,6 +1800,23 @@
                             a.appendChild(badge);
                         }
                         li.appendChild(a);
+
+                        // Per-item Show More/Less button for long titles
+                        if (isLong) {
+                            const btn = document.createElement('button');
+                            btn.type = 'button';
+                            btn.className = 'ml-2 text-xs text-blue-700 hover:text-blue-800 font-semibold';
+                            btn.textContent = showFull ? 'Show Less' : 'Show More';
+                            btn.onclick = () => {
+                                if (expandedIndices.has(i)) {
+                                    expandedIndices.delete(i);
+                                } else {
+                                    expandedIndices.add(i);
+                                }
+                                renderItems(allItems);
+                            };
+                            li.appendChild(btn);
+                        }
                         listEl.appendChild(li);
                     });
 
