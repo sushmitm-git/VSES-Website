@@ -1734,6 +1734,12 @@
                 const viewAllEl = document.getElementById('notice-view-all');
                 if (!listEl) return;
 
+                // State for Show More/Less
+                const MAX_VISIBLE = 5;
+                let expanded = false;
+                let allItems = [];
+                let toggleEl = document.getElementById('notice-toggle');
+
                 // CONFIG: Provide one of the URLs below
                 // 1) Published CSV: File → Share → Publish to web → CSV link
                 // Default demo CSV (replace with your published Sheet CSV URL)
@@ -1747,13 +1753,33 @@
                 // Optional: link to a page with all notices
                 const VIEW_ALL_URL = '';
 
+                const ensureToggleEl = () => {
+                    if (!toggleEl) {
+                        toggleEl = document.createElement('button');
+                        toggleEl.id = 'notice-toggle';
+                        toggleEl.type = 'button';
+                        toggleEl.className = 'mt-2 text-sm font-semibold text-blue-700 hover:text-blue-800';
+                        // Insert right after the list
+                        listEl.parentNode.insertBefore(toggleEl, listEl.nextSibling);
+                    }
+                    toggleEl.textContent = expanded ? 'Show Less' : 'Show More';
+                    toggleEl.onclick = () => {
+                        expanded = !expanded;
+                        renderItems(allItems);
+                    };
+                };
+
                 const renderItems = (items) => {
+                    allItems = items || [];
                     listEl.innerHTML = '';
-                    if (!items || !items.length) {
+                    if (!allItems.length) {
                         listEl.innerHTML = '<li class="border-b pb-2 text-gray-500 italic">No notices available right now.</li>';
+                        if (toggleEl) toggleEl.classList.add('hidden');
                         return;
                     }
-                    items.forEach((n) => {
+
+                    const visible = expanded ? allItems : allItems.slice(0, MAX_VISIBLE);
+                    visible.forEach((n) => {
                         const li = document.createElement('li');
                         li.className = 'border-b pb-2';
                         const a = document.createElement('a');
@@ -1772,7 +1798,16 @@
                         listEl.appendChild(li);
                     });
 
-                    if (VIEW_ALL_URL) {
+                    // Manage Show More/Less visibility
+                    if (allItems.length > MAX_VISIBLE) {
+                        ensureToggleEl();
+                        toggleEl.classList.remove('hidden');
+                    } else if (toggleEl) {
+                        toggleEl.classList.add('hidden');
+                    }
+
+                    // Keep existing View All behavior when configured
+                    if (VIEW_ALL_URL && viewAllEl) {
                         viewAllEl.href = VIEW_ALL_URL;
                         viewAllEl.classList.remove('hidden');
                     }
